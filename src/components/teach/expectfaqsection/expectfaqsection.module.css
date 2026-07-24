@@ -1,0 +1,218 @@
+/* ══════════════════════════════
+   WRAPPER
+══════════════════════════════ */
+.expect-wrapper {
+  width: 100%;
+  background: rgba(255, 251, 242, 1);
+}
+
+.expect-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(2rem, 6vw, 5.5rem); /* ~88px */
+  padding-inline: clamp(1.5rem, 22vw, 21.75rem); /* ~348px at full width */
+  padding-block: clamp(3.5rem, 8vw, 5.625rem); /* 90px */
+}
+
+/* ══════════════════════════════
+   SHARED COLUMN BITS
+══════════════════════════════ */
+.expect-col {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.expect-eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 500;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.65;
+  letter-spacing: 0.1925rem; /* 3.08px */
+  text-transform: uppercase;
+  color: rgba(124, 111, 163, 1);
+}
+
+/* ══════════════════════════════
+   LEFT — WHAT TO EXPECT LIST
+══════════════════════════════ */
+.expect-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.expect-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem; /* 14px */
+  padding-block: 1.0625rem; /* 17px */
+  border-bottom: 1px solid rgba(25, 25, 25, 0.1);
+}
+
+.expect-item:first-of-type {
+  border-top: 1px solid rgba(25, 25, 25, 0.1);
+}
+
+.expect-dash {
+  flex: 0 0 auto;
+  width: 0.875rem; /* 14px */
+  height: 2px;
+  margin-top: 0.6875rem;
+  background: rgba(255, 150, 216, 1);
+}
+
+.expect-item p {
+  margin: 0;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.90625rem; /* 14.5px */
+  line-height: 1.65;
+  color: rgba(25, 25, 25, 1);
+}
+
+/* ══════════════════════════════
+   RIGHT — FAQ ACCORDION
+══════════════════════════════ */
+.faq-list {
+  margin: 0;
+  padding: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(25, 25, 25, 0.1);
+}
+
+.faq-item:first-of-type {
+  border-top: 1px solid rgba(25, 25, 25, 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-block: 1.125rem; /* 18px */
+  text-align: left;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 0.90625rem; /* 14.5px */
+  line-height: 1.65;
+  color: rgba(25, 25, 25, 1);
+  transition: opacity 0.2s ease;
+}
+
+.faq-question:hover {
+  opacity: 0.75;
+}
+
+.faq-icon {
+  flex: 0 0 auto;
+  position: relative;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 150, 216, 1);
+}
+
+.faq-icon::before {
+  width: 0.875rem;
+  height: 2px;
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 0.875rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.faq-item.open .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
+}
+
+.faq-answer p {
+  margin: 0 0 1.125rem;
+  padding-right: 1.5rem;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.6;
+  color: rgba(25, 25, 25, 0.65);
+}
+
+/* ══════════════════════════════
+   RESPONSIVE MAX-WIDTH SCALING
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .expect-main {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .expect-main {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .expect-main {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .expect-main {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .expect-main {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 860px) — stack columns
+══════════════════════════════ */
+@media screen and (max-width: 860px) {
+  .expect-main {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 640px)
+══════════════════════════════ */
+@media screen and (max-width: 640px) {
+  .expect-main {
+    padding-inline: 1.25rem;
+    padding-block: 3rem;
+  }
+}

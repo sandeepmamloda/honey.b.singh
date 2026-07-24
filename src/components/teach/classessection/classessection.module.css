@@ -1,0 +1,225 @@
+/* ══════════════════════════════
+   WRAPPER
+══════════════════════════════ */
+.sessions-wrapper {
+  width: 100%;
+  background: transparent;
+}
+
+.sessions-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 12vw, 14.6875rem); /* ~235px at full width */
+  padding-block-start: clamp(2.5rem, 6vw, 6.25rem);
+  padding-block-end: clamp(3rem, 8vw, 6.25rem);
+}
+
+/* ══════════════════════════════
+   EYEBROW
+══════════════════════════════ */
+.sessions-eyebrow {
+  margin: 0 0 1.875rem;
+  font-family: "interbold", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(124, 111, 163, 1);
+}
+
+/* ══════════════════════════════
+   GRID
+══════════════════════════════ */
+.sessions-grid {
+  display: flex;
+  align-items: stretch;
+  gap: 1.875rem; /* 30px */
+}
+
+/* ══════════════════════════════
+   CARD — shared shell
+══════════════════════════════ */
+.session-card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 24.125rem; /* ~386px */
+  padding: 2.125rem; /* 34px */
+  box-sizing: border-box;
+  border-radius: 1.25rem;
+  background: rgba(255, 251, 242, 1);
+  border: 1px solid rgba(23, 17, 15, 0.08);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.session-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(23, 17, 15, 0.1);
+}
+
+/* ── accent (middle) card ── */
+.session-card-accent {
+  background: rgba(116, 96, 175, 1);
+  border: 1px solid transparent;
+  border-top: 1px solid rgba(193, 101, 47, 1);
+}
+
+.session-card-accent:hover {
+  box-shadow: 0 20px 45px rgba(116, 96, 175, 0.35);
+}
+
+/* ══════════════════════════════
+   CARD CONTENT — top
+══════════════════════════════ */
+.session-meta {
+  margin: 0 0 1.125rem;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.65;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(124, 111, 163, 1);
+}
+
+.session-card-accent .session-meta {
+  color: rgba(255, 251, 242, 1);
+}
+
+.session-title {
+  margin: 0 0 1rem;
+  font-family: "youngserif", serif;
+  font-weight: 400;
+  font-size: 1.6875rem;
+  line-height: 1.65;
+  color: rgba(25, 25, 25, 1);
+}
+
+.session-card-accent .session-title {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.session-desc {
+  margin: 0;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(124, 111, 163, 1);
+}
+
+.session-card-accent .session-desc {
+  color: rgba(255, 251, 242, 1);
+}
+
+/* ══════════════════════════════
+   CARD CONTENT — bottom
+══════════════════════════════ */
+.session-bottom {
+  margin-top: 1.75rem;
+}
+
+.session-divider {
+  display: block;
+  height: 1px;
+  margin-bottom: 1.125rem;
+  background: rgba(23, 17, 15, 0.12);
+}
+
+.session-card-accent .session-divider {
+  background: rgba(255, 251, 242, 0.25);
+}
+
+.session-price-row {
+  margin: 0;
+}
+
+.session-price-label {
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 0.84375rem;
+  line-height: 1.65;
+  color: rgba(124, 111, 163, 1);
+}
+
+.session-card-accent .session-price-label {
+  color: rgba(255, 251, 242, 1);
+}
+
+.session-price {
+  font-family: "interbold", sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: rgba(124, 111, 163, 1);
+}
+
+.session-card-accent .session-price {
+  color: rgba(255, 251, 242, 1);
+}
+
+/* ══════════════════════════════
+   RESPONSIVE MAX-WIDTH SCALING
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .sessions-main {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .sessions-main {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .sessions-main {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .sessions-main {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .sessions-main {
+    padding-inline: 2.5rem;
+  }
+
+  .sessions-grid {
+    flex-wrap: wrap;
+  }
+
+  .session-card {
+    flex: 1 1 calc(50% - 0.9375rem);
+    min-height: 0;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 640px)
+══════════════════════════════ */
+@media screen and (max-width: 640px) {
+  .sessions-main {
+    padding-inline: 1.25rem;
+    padding-block-start: 2.5rem;
+    padding-block-end: 3rem;
+  }
+
+  .sessions-grid {
+    flex-direction: column;
+  }
+
+  .session-card {
+    flex: 1 1 auto;
+  }
+}

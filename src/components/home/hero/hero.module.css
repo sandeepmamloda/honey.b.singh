@@ -15,6 +15,7 @@
   height: 100svh;
   min-height: 910px;
   overflow: hidden;
+  margin-top:6rem;
 }
 
 /* ---------- shared panel shell ---------- */

@@ -19,8 +19,8 @@ const schedule = [
 ];
 
 /* Fades an element into place the first time it scrolls into view.
-    direction: "up" (fade + rise), "left" (fade in from the left),
-    "right" (fade in from the right). `delay` (ms) staggers siblings. */
+   direction: "up" (fade + rise), "left" (fade in from the left),
+   "right" (fade in from the right). `delay` (ms) staggers siblings. */
 const Reveal = ({
   children,
   className = "",
@@ -160,7 +160,11 @@ const Room = () => {
               </Reveal>
             </div>
 
-            <Reveal direction="right" delay={schedule.length * 150 + 150}>
+            <Reveal
+              direction="right"
+              delay={schedule.length * 150 + 150}
+              className={styles["cta-wrapper"]}
+            >
               <MagneticButton href="#book" className={styles["cta-book"]}>
                 Book a class →
               </MagneticButton>

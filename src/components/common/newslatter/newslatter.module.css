@@ -128,18 +128,30 @@
   opacity: 1;
   transform: translate(0, 0);
 }
-
+@media (max-width: 1450px) {
+  .newslatter-wrapper{
+    max-width:100%;
+  }
+}
 /* ══════════════════════════════
    MOBILE (≤ 860px)
 ══════════════════════════════ */
 @media (max-width: 860px) {
   .newslatter-wrapper {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
-
+  .newslatter-heading{
+    text-align:center;
+  }
+   .newslatter-label{
+    text-align:center;
+   }
   .newslatter-right {
-    align-items: flex-start;
+    align-items: center;
     margin-top: 1rem;
+  }
+  .newslatter-desc{
+    text-align:center;
   }
 }

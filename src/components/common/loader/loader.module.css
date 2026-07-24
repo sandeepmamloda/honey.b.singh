@@ -1,0 +1,174 @@
+/* ══════════════════════════════
+   OVERLAY
+══════════════════════════════ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 10000;
+
+  background: #0d0d0d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  /*
+    Resting position:
+    Completely below viewport.
+  */
+  transform: translate3d(0, 100%, 0);
+
+  will-change:
+    transform,
+    z-index;
+}
+
+
+/* ══════════════════════════════
+   LOADER BEHIND PAGE
+══════════════════════════════ */
+
+.overlayBehind {
+  z-index: -999999;
+}
+
+
+/* ══════════════════════════════
+   BOTTOM → CENTER
+══════════════════════════════ */
+
+.overlayVisible {
+  transform: translate3d(0, 0, 0);
+
+  transition:
+    transform 0.7s
+    cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+
+/* ══════════════════════════════
+   CENTER → TOP
+══════════════════════════════ */
+
+.curtainUp {
+  transform: translate3d(0, -100%, 0);
+
+  transition:
+    transform 0.9s
+    cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+
+/* ══════════════════════════════
+   TEXT
+══════════════════════════════ */
+
+.text {
+  font-family: "frauncesitalic";
+
+  font-style: italic;
+
+  font-size:
+    clamp(1.1rem, 2vw, 1.6rem);
+
+  color:
+    rgba(232, 227, 222, 0.92);
+
+  opacity: 0;
+
+  transform:
+    translate3d(0, 40px, 0);
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* ══════════════════════════════
+   TEXT ENTER
+══════════════════════════════ */
+
+.textEnter {
+  animation:
+    riseIn 0.9s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+
+/* ══════════════════════════════
+   TEXT EXIT
+══════════════════════════════ */
+
+.textExit {
+  animation:
+    riseOut 0.7s
+    cubic-bezier(0.55, 0, 1, 0.45)
+    forwards;
+}
+
+
+/* ══════════════════════════════
+   TEXT ANIMATIONS
+══════════════════════════════ */
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translate3d(0, 40px, 0);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes riseOut {
+  from {
+    opacity: 1;
+
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+
+    transform:
+      translate3d(0, -60px, 0);
+  }
+}
+
+
+/* ══════════════════════════════
+   PAGE
+══════════════════════════════ */
+
+.page {
+  width: 100%;
+}
+
+
+/* ══════════════════════════════
+   REDUCED MOTION
+══════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .text {
+    animation-duration: 0.01ms !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}

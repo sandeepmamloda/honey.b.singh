@@ -1,9 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import styles from "./navbar.module.css";
 
-const navLinks = ["Film", "Honeyverse", "Teach", "About", "Contact"];
+const navLinks = [
+  { name: "Film", href: "/film" },
+  { name: "Honeyverse", href: "/honeyverse" },
+  { name: "Teach", href: "/teach" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
 
 const marqueeWords = [
   { text: "Story", accent: false },
@@ -39,6 +46,7 @@ const MarqueeContent = ({ innerRef }) => (
         >
           {word.text}
         </span>
+
         <span className={styles["dot"]}>·</span>
       </span>
     ))}
@@ -47,30 +55,48 @@ const MarqueeContent = ({ innerRef }) => (
 
 const MagneticButton = ({ href, children, className }) => {
   const btnRef = useRef(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  const [pos, setPos] = useState({
+    x: 0,
+    y: 0,
+  });
+
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseMove = (e) => {
     const el = btnRef.current;
+
     if (!el) return;
 
     const rect = el.getBoundingClientRect();
-    const relX = e.clientX - (rect.left + rect.width / 2);
-    const relY = e.clientY - (rect.top + rect.height / 2);
+
+    const relX =
+      e.clientX - (rect.left + rect.width / 2);
+
+    const relY =
+      e.clientY - (rect.top + rect.height / 2);
 
     const strength = 0.35;
 
     setIsHovering(true);
-    setPos({ x: relX * strength, y: relY * strength });
+
+    setPos({
+      x: relX * strength,
+      y: relY * strength,
+    });
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
-    setPos({ x: 0, y: 0 });
+
+    setPos({
+      x: 0,
+      y: 0,
+    });
   };
 
   return (
-    <a
+    <Link
       ref={btnRef}
       href={href}
       className={`${className} ${styles["magnetic"]}`}
@@ -78,23 +104,29 @@ const MagneticButton = ({ href, children, className }) => {
       onMouseLeave={handleMouseLeave}
       style={{
         transform: `translate(${pos.x}px, ${pos.y}px)`,
+
         transition: isHovering
           ? "transform 0.15s ease-out, background 0.2s ease, color 0.2s ease, box-shadow 0.25s ease"
           : "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.25s ease",
       }}
     >
       {children}
-    </a>
+    </Link>
   );
 };
 
 const Navbar = () => {
   const groupRef = useRef(null);
+
   const [distance, setDistance] = useState(0);
   const [isHidden, setIsHidden] = useState(false);
+
   const lastScrollY = useRef(0);
 
-  // Marquee width measurement
+  // ─────────────────────────────
+  // MARQUEE WIDTH MEASUREMENT
+  // ─────────────────────────────
+
   useEffect(() => {
     const measure = () => {
       if (groupRef.current) {
@@ -105,32 +137,45 @@ const Navbar = () => {
     measure();
 
     const observer = new ResizeObserver(measure);
-    if (groupRef.current) observer.observe(groupRef.current);
+
+    if (groupRef.current) {
+      observer.observe(groupRef.current);
+    }
 
     return () => observer.disconnect();
   }, []);
 
-  // Smooth Scroll Detection with Scroll Thresholding
+  // ─────────────────────────────
+  // SCROLL DETECTION
+  // ─────────────────────────────
+
   useEffect(() => {
     let ticking = false;
 
     const updateScroll = () => {
       const currentScrollY = window.scrollY;
-      const scrollDiff = currentScrollY - lastScrollY.current;
-      const tolerance = 25; // Minimum scroll distance before triggering state change
 
-      // Page Top par ho to always show
+      const scrollDiff =
+        currentScrollY - lastScrollY.current;
+
+      const tolerance = 25;
+
+      // Page top par navbar hamesha visible rahegi
       if (currentScrollY <= 80) {
         setIsHidden(false);
-      } 
-      // Downwards Scroll (Significant delta) -> Show
+      }
+
+      // Downward scroll
       else if (scrollDiff > tolerance) {
         setIsHidden(false);
+
         lastScrollY.current = currentScrollY;
-      } 
-      // Upwards / Reverse Scroll (Significant delta) -> Hide Slowly
+      }
+
+      // Upward scroll
       else if (scrollDiff < -tolerance) {
         setIsHidden(true);
+
         lastScrollY.current = currentScrollY;
       }
 
@@ -140,34 +185,59 @@ const Navbar = () => {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(updateScroll);
+
         ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      { passive: true }
+    );
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+    };
   }, []);
 
   return (
     <div
       className={`${styles["navbar-container"]} ${
-        isHidden ? styles["navbar-hidden"] : ""
+        isHidden
+          ? styles["navbar-hidden"]
+          : ""
       }`}
     >
       {/* ── HEADER ── */}
+
       <div className={styles["header-wrapper"]}>
         <header className={styles["header-main"]}>
-          <a href="/" className={styles["logo"]}>
+
+          <Link
+            href="/"
+            className={styles["logo"]}
+          >
             honey oh honey
-          </a>
+          </Link>
 
           <div className={styles["nav-actions"]}>
+
             <nav className={styles["nav"]}>
-              {navLinks.map((link, index) => (
-                <a href="#" className={styles["nav-link"]} key={index}>
-                  {link}
-                </a>
+
+              {navLinks.map((link) => (
+                <Link
+                  href={link.href}
+                  className={styles["nav-link"]}
+                  key={link.name}
+                >
+                  {link.name}
+                </Link>
               ))}
+
             </nav>
 
             <MagneticButton
@@ -176,23 +246,36 @@ const Navbar = () => {
             >
               Subscribe ↗
             </MagneticButton>
+
           </div>
+
         </header>
       </div>
 
       {/* ── MARQUEE ── */}
+
       <div className={styles["marquee-wrapper"]}>
+
         <div
           className={styles["marquee-track"]}
           style={{
             "--marquee-distance": `${distance}px`,
-            animationPlayState: distance ? "running" : "paused",
+            animationPlayState: distance
+              ? "running"
+              : "paused",
           }}
         >
-          <MarqueeContent innerRef={groupRef} />
+
+          <MarqueeContent
+            innerRef={groupRef}
+          />
+
           <MarqueeContent />
+
         </div>
+
       </div>
+
     </div>
   );
 };

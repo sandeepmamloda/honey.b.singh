@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/common/navbar/navbar";
 import Footer from "@/components/common/footer/footer";
 import SmoothScroll from "@/components/common/smooth-scroll/smoothscroll";
+import Loader from "@/components/common/loader/loader";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,11 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SmoothScroll>
-          <Navbar />
-          {children}
-          <Footer />
-        </SmoothScroll>
+        <Loader>
+          <SmoothScroll>
+            <Navbar />
+            {children}
+            <Footer />
+          </SmoothScroll>
+        </Loader>
       </body>
     </html>
   );

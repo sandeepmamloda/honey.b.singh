@@ -187,11 +187,15 @@
 .cta svg {
   flex-shrink: 0;
 }
-
+@media screen and (max-width: 1450px) {
+  .manifesto-main {
+    max-width:100%;
+  }
+}
 /* ══════════════════════════════
    TABLET  (≤ 1024px)
 ══════════════════════════════ */
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .row {
     column-gap: 1.5rem;
   }
@@ -200,7 +204,7 @@
 /* ══════════════════════════════
    MOBILE  (≤ 860px) — stack rows
 ══════════════════════════════ */
-@media (max-width: 860px) {
+@media screen and (max-width: 860px) {
   .row {
     grid-template-columns: 1fr;
     row-gap: 0.5rem;
@@ -223,7 +227,7 @@
 /* ══════════════════════════════
    VERY SMALL  (≤ 640px)
 ══════════════════════════════ */
-@media (max-width: 640px) {
+@media screen and  (max-width: 640px) {
   .quote {
     font-size: 1.2rem;
   }

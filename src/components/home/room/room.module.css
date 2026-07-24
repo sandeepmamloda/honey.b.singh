@@ -115,6 +115,10 @@
 }
 
 /* ── CTA ── */
+.cta-wrapper {
+  width: 100%;
+}
+
 .cta-book {
   display: inline-flex;
   align-items: center;
@@ -171,34 +175,53 @@
   opacity: 1;
   transform: translate(0, 0);
 }
-
+@media screen and  (max-width: 1450px) {
+  .room-main{
+    max-width:100%;
+  }
+}
 /* ══════════════════════════════
-   TABLET  (≤ 1024px)
+   TABLET (≤ 1024px)
 ══════════════════════════════ */
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .room-grid {
     column-gap: 3rem;
   }
 }
 
 /* ══════════════════════════════
-   MOBILE  (≤ 860px) — stack columns
+   MOBILE (≤ 860px) — stack columns
 ══════════════════════════════ */
-@media (max-width: 860px) {
+@media screen and (max-width: 860px) {
   .room-grid {
     grid-template-columns: 1fr;
     row-gap: 3rem;
   }
 
+  .eyebrow-row {
+    justify-content: center;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
   .description {
     max-width: 100%;
+    text-align: center;
+  }
+
+  /* Center button container on mobile */
+  .cta-wrapper {
+    display: flex;
+    justify-content: center;
   }
 }
 
 /* ══════════════════════════════
-   VERY SMALL  (≤ 640px)
+   VERY SMALL (≤ 640px)
 ══════════════════════════════ */
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) {
   .heading {
     font-size: 2rem;
   }

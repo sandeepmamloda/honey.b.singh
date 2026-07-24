@@ -1,0 +1,168 @@
+/* ══════════════════════════════
+   WRAPPER
+══════════════════════════════ */
+.reserve-wrapper {
+  width: 100%;
+  background: linear-gradient(180deg, #fffbf2 0%, #7460af 100%);
+}
+
+.reserve-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-inline: clamp(1.5rem, 22vw, 21.75rem); /* ~348px at full width */
+  padding-block: clamp(3.5rem, 8vw, 5.625rem); /* 90px */
+}
+
+/* ══════════════════════════════
+   LEFT
+══════════════════════════════ */
+.reserve-left {
+  max-width: 31.25rem; /* 500px */
+}
+
+.reserve-heading {
+  margin: 0 0 1.125rem;
+  font-family: "youngserif", serif;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 1.15;
+  color: rgba(25, 25, 25, 1);
+}
+
+.reserve-desc {
+  margin: 0;
+  max-width: 25.125rem; /* 402px */
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.90625rem; /* 14.5px */
+  line-height: 1.65;
+  color: rgba(255, 251, 242, 1);
+}
+
+/* ══════════════════════════════
+   RIGHT
+══════════════════════════════ */
+.reserve-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  gap: 0.75rem; /* ~12px */
+}
+
+.reserve-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12.5625rem; /* 201px */
+  box-sizing: border-box;
+  padding: 0.96875rem 2rem; /* 15.5px / 32px */
+  background: rgba(255, 150, 216, 1);
+  border-radius: 0.3rem;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.65;
+  color: rgba(25, 25, 25, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reserve-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 150, 216, 0.45);
+}
+
+.reserve-waitlist {
+  margin: 0;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.78125rem; /* 12.5px */
+  line-height: 1.65;
+  color: rgba(255, 251, 242, 1);
+}
+
+.reserve-waitlist-link {
+  color: rgba(255, 251, 242, 1);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: opacity 0.2s ease;
+}
+
+.reserve-waitlist-link:hover {
+  opacity: 0.75;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE MAX-WIDTH SCALING
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .reserve-main {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .reserve-main {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .reserve-main {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .reserve-main {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .reserve-main {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 860px) — stack columns
+══════════════════════════════ */
+@media screen and (max-width: 860px) {
+  .reserve-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .reserve-left,
+  .reserve-desc {
+    max-width: 100%;
+  }
+
+  .reserve-right {
+    align-items: flex-start;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 640px)
+══════════════════════════════ */
+@media screen and (max-width: 640px) {
+  .reserve-main {
+    padding-inline: 1.25rem;
+    padding-block: 3rem;
+  }
+
+  .reserve-cta-btn {
+    width: 100%;
+  }
+}
