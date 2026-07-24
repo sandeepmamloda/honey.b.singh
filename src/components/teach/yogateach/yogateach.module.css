@@ -1,0 +1,255 @@
+/* ══════════════════════════════
+   BASE
+══════════════════════════════ */
+.yoga-hero {
+  width: 100%;
+  background: #fff;
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  padding-top: 15rem;
+  padding-inline: clamp(1.5rem, 6vw, 6rem);
+}
+
+/* ── SCROLL REVEAL (shared pattern) ── */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.reveal-up { transform: translateY(2.125rem); }
+.reveal-left { transform: translateX(-3.5rem); }
+.reveal-right { transform: translateX(3.5rem); }
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── LAYOUT: copy left, circle graphic right ── */
+.hero-body {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  column-gap: clamp(2rem, 6vw, 5rem);
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ── EYEBROW ──
+   Inter bold, 11px, line-height 18.15px,
+   letter-spacing 3.08px, uppercase, purple */
+.eyebrow {
+  display: block;
+  margin-block-end: 1.25rem;
+  font-family: "interbold", "Inter", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.134375rem; /* 18.15px */
+  letter-spacing: 0.1925rem; /* 3.08px */
+  text-transform: uppercase;
+  color: rgba(116, 96, 175, 1);
+}
+
+/* ── TITLE ──
+   Young Serif, 400, 68px, line-height 72px, black */
+.title {
+  margin: 0 0 1.5rem 0;
+  font-family: "youngserif";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4.25rem; /* 68px */
+  line-height: 4.5rem; /* 72px */
+  letter-spacing: 0;
+  color: rgba(25, 25, 25, 1);
+}
+
+/* ── DESCRIPTION ──
+   Inter, 400, 15.5px, line-height 25.58px, purple */
+.description {
+  margin: 0;
+  max-width: 32rem;
+  font-family: "interregular", "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.96875rem; /* 15.5px */
+  line-height: 1.59875rem; /* 25.58px */
+  letter-spacing: 0;
+  color: rgba(116, 96, 175, 1);
+}
+
+/* ── CIRCLE GRAPHIC ──
+   inner circle: 250x250, radius 125, 1px border, purple
+   outer circle: larger, 1px border, faint pink, concentric */
+.circle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19.875rem; /* 318px */
+  height: 19.875rem;
+  border: 1px solid rgba(229, 214, 221, 1);
+  border-radius: 50%;
+  animation: pump-outer 4.5s ease-in-out infinite;
+}
+
+.circle-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15.625rem; /* 250px */
+  height: 15.625rem;
+  border: 1.5px solid rgba(116, 96, 175, 1);
+  border-radius: 7.8125rem; /* 125px */
+  animation: pump-inner 4.5s ease-in-out infinite;
+}
+
+/* Smooth continuous pulse — no hold/plateau, so the ring
+   keeps flowing between small and big the whole time. */
+@keyframes pump-outer {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(229, 214, 221, 0);
+  }
+  50% {
+    transform: scale(1.35);
+    box-shadow: 0 0 3rem rgba(229, 214, 221, 0.6);
+  }
+}
+
+@keyframes pump-inner {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+/* Fraunces italic, 20px, line-height 33px */
+.circle-label {
+  font-family: "frauncesitalic", "Fraunces", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.25rem; /* 20px */
+  line-height: 2.0625rem; /* 33px */
+  letter-spacing: 0;
+  color: rgba(116, 96, 175, 1);
+  display: inline-block;
+  animation: label-counter-scale 4.5s ease-in-out infinite;
+}
+
+/* Counter-scales smoothly against .circle-inner's pump
+   so the word stays steady while the outer ring pulses. */
+@keyframes label-counter-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.965);
+  }
+}
+
+/* ══════════════════════════════
+   TABLET (≤ 64rem)
+══════════════════════════════ */
+@media (max-width: 64rem) {
+  .hero-body {
+    column-gap: 2.5rem;
+  }
+
+  .title {
+    font-size: 3.25rem;
+    line-height: 3.5rem;
+  }
+
+  .circle-outer {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .circle-inner {
+    width: 12.5rem;
+    height: 12.5rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE (≤ 53.75rem) — stack, circle below copy
+══════════════════════════════ */
+@media (max-width: 53.75rem) {
+  .hero-body {
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+
+  .circle-wrap {
+    order: 2;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+  }
+}
+
+/* ══════════════════════════════
+   VERY SMALL (≤ 30rem)
+══════════════════════════════ */
+@media (max-width: 30rem) {
+  .title {
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+
+  .circle-outer {
+    width: 13rem;
+    height: 13rem;
+  }
+
+  .circle-inner {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .circle-label {
+    font-size: 1.05rem;
+  }
+}
+
+/* ══════════════════════════════
+   REDUCED MOTION
+══════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .circle-outer,
+  .circle-inner,
+  .circle-label {
+    animation: none;
+  }
+}

@@ -1,0 +1,234 @@
+/* ══════════════════════════════
+   FIXED STICKY NAVBAR CONTAINER
+══════════════════════════════ */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* ══════════════════════════════
+   HEADER WRAPPER
+   (Iska z-index high rahega taaki marquee iske peeche ja sake)
+══════════════════════════════ */
+.header-wrapper {
+  position: relative;
+  z-index: 2; /* Marquee se upar */
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 1px solid rgba(23, 17, 15, 0.08);
+
+  /* Position Only Smooth Transition */
+  transform: translateY(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ══════════════════════════════
+   MARQUEE CLIP CONTAINER
+   (Header ke peeche mask role play karega)
+══════════════════════════════ */
+.marquee-clip-container {
+  position: relative;
+  z-index: 1; /* Header ke peeche */
+  width: 100%;
+  overflow: hidden; /* Header ke peeche slide hote hi cut/hide ho jayega */
+}
+
+.marquee-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(36, 36, 36, 1);
+  padding-block: 0.85rem;
+
+  /* Position Only Smooth Transition */
+  transform: translateY(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   1. APPEAR STATE (Scroll Down / Default)
+   Pehle Header niche aayega, fir Marquee uske peeche se bahar aayega
+═════════════════════════════════════════════ */
+.header-wrapper {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0s; /* Header pehle niche aayega */
+}
+
+.marquee-wrapper {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.2s; /* Marquee Header ke peeche se bahar slide karega */
+}
+
+/* ═══════════════════════════════════════════
+   2. DISAPPEAR STATE (Reverse / Upward Scroll)
+   Pehle Marquee Header ke peeche chhupega, fir Header upar slide hoga
+═════════════════════════════════════════════ */
+.navbar-hidden {
+  pointer-events: none;
+}
+
+/* Step 1: Marquee Header ke peeche upar slide ho jayega */
+.navbar-hidden .marquee-wrapper {
+  transform: translateY(-200%);
+  transition-delay: 0s; /* Turant Marquee upar slide hone lagega */
+}
+
+/* Step 2: Marquee chhupne ke baad Header pura page ke bahar slide ho jayega */
+.navbar-hidden .header-wrapper {
+  transform: translateY(-100%);
+  transition-delay: 0.25s; /* Marquee hone ke baad Header upar jayega */
+}
+
+/* ══════════════════════════════
+   HEADER STYLES
+══════════════════════════════ */
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: clamp(1.5rem, 7vw, 7.5rem);
+  padding-block: 0.5rem;
+}
+
+.logo {
+  margin: 0;
+  font-family: "satoshibolditalic";
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  color: rgba(217, 134, 180, 1);
+  text-decoration: none;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.nav-link {
+  font-family: "interextrabold";
+  font-size: 0.75rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: rgba(217, 134, 180, 1);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.6;
+}
+
+.subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid rgba(217, 134, 180, 1);
+  border-radius: 0.3rem;
+  font-family: "interextrabold";
+  font-size: 0.7rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: rgba(217, 134, 180, 1);
+  text-decoration: none;
+  will-change: transform;
+  box-sizing: border-box;
+}
+
+.subscribe-btn:hover {
+  background: rgba(217, 92, 168, 1);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(217, 92, 168, 0.4);
+}
+
+.magnetic {
+  display: inline-flex;
+}
+
+/* ══════════════════════════════
+   MARQUEE STYLES
+══════════════════════════════ */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  font-family: "interbold";
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-inline: 0;
+  margin: 0;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-accent {
+  color: rgba(217, 92, 168, 1);
+}
+
+.dot {
+  color: #fff;
+  padding-inline: 0.25rem;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--marquee-distance, 0px)));
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE (≤ 860px)
+══════════════════════════════ */
+@media (max-width: 860px) {
+  .nav {
+    display: none;
+  }
+
+  .header-main {
+    padding-block: 1.1rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE (≤ 640px)
+══════════════════════════════ */
+@media (max-width: 640px) {
+  .marquee-item {
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,115 @@
+/* ══════════════════════════════
+   BASE — hairline top/bottom border row,
+   padding exactly per spec (converted to rem)
+══════════════════════════════ */
+.pillars {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid rgba(23, 20, 15, 0.12);
+  border-bottom: 1px solid rgba(23, 20, 15, 0.12);
+}
+
+/* ── SCROLL REVEAL (shared pattern) ── */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.reveal-up { transform: translateY(2.125rem); }
+.reveal-left { transform: translateX(-3.5rem); }
+.reveal-right { transform: translateX(3.5rem); }
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── ROW ──
+   padding-top 39px, padding-bottom 40px,
+   padding-inline 100px, hairline border top+bottom */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(2rem, 5vw, 4rem);
+  max-width: 96.8125rem; /* 1549px */
+  margin-inline: auto;
+  padding-block: 2.4375rem 2.5rem; /* 39px / 40px */
+  padding-inline:3rem;
+}
+
+.pillar {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 24rem;
+}
+
+/* ── TITLE ──
+   Young Serif, 400, 19px, line-height 31.35px, pink */
+.pillar-title {
+  margin: 0 0 0.75rem 0;
+  font-family: "youngserif";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1875rem; /* 19px */
+  line-height: 1.959375rem; /* 31.35px */
+  letter-spacing: 0;
+  color: rgba(255, 150, 216, 1);
+}
+
+/* ── BODY ── */
+.pillar-body {
+  margin: 0;
+  font-family: "interregular", "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.5rem; /* 24px */
+  letter-spacing: 0;
+  color: rgba(25, 25, 25, 1);
+}
+
+/* ══════════════════════════════
+   TABLET (≤ 64rem)
+══════════════════════════════ */
+@media (max-width: 64rem) {
+  .row {
+    padding-inline: 3rem;
+    padding-block: 2rem;
+    gap: 2rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE (≤ 53.75rem) — stack
+══════════════════════════════ */
+@media (max-width: 53.75rem) {
+  .row {
+    flex-direction: column;
+    padding-inline: 1.5rem;
+    padding-block: 2rem;
+    gap: 1.75rem;
+  }
+
+  .pillar {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
+   REDUCED MOTION
+══════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

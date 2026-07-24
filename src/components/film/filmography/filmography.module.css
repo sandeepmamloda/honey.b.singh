@@ -1,0 +1,244 @@
+/* ══════════════════════════════
+   BASE — gradient background sampled + confirmed
+   from reference: #FFFBF2 → #7460AF
+══════════════════════════════ */
+.filmography {
+  width: 100%;
+  background: linear-gradient(180deg, #fffbf2 0%, #7460af 100%);
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  padding-inline: clamp(1.5rem, 6vw, 6rem);
+}
+
+/* ── SCROLL REVEAL (shared pattern) ── */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.reveal-up { transform: translateY(2.125rem); }
+.reveal-left { transform: translateX(-3.5rem); }
+.reveal-right { transform: translateX(3.5rem); }
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── SECTION TITLE ── */
+.title {
+  margin: 0 0 clamp(2rem, 5vw, 3.5rem) 0;
+  max-width: 90rem;
+  margin-inline: auto;
+  font-family: "youngserif";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.25rem; /* 36px */
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(207, 62, 154, 1);
+}
+
+/* ── TABLE ── */
+.table {
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns:
+    minmax(3.25rem, 0.5fr)
+    minmax(11rem, 2.3fr)
+    minmax(9rem, 1.5fr)
+    minmax(12rem, 2.1fr)
+    auto
+    auto;
+  align-items: center;
+  column-gap: clamp(1rem, 3vw, 2rem);
+  padding-block: 1.5rem;
+  border-bottom: 1px solid rgba(127, 62, 207, 1);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.row:hover {
+  opacity: 0.85;
+}
+
+.row-first {
+  border-bottom: 1px solid rgba(127, 62, 207, 1);
+}
+
+/* year — Unbounded (fallback Inter), bold, 14px */
+.year {
+  font-family: "Unbounded", "interbold", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.875rem; /* 14px */
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(25, 25, 25, 1);
+}
+
+/* film title — Young Serif, 400, 24px, pink */
+.film-title {
+  font-family: "youngserif";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem; /* 24px */
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(207, 62, 154, 1);
+}
+
+/* role — DM Sans (fallback Inter), 400, 16px */
+.role {
+  font-family: "DM Sans", "interregular", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem; /* 16px */
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(25, 25, 25, 1);
+}
+
+/* note — Inter, semibold, 12px, uppercase */
+.note {
+  font-family: "intersemibold", "Inter", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 0.75rem; /* 12px */
+  line-height: 140%;
+  letter-spacing: 0.0625rem; /* 1px */
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* ── STATUS BADGE ──
+   width 175 / height 33, radius 8px, purple bg,
+   Inter bold 14px, letter-spacing 1px, uppercase, white */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10.9375rem; /* 175px */
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem; /* 8px */
+  background: rgba(116, 96, 175, 1);
+  font-family: "interbold", "Inter", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.875rem; /* 14px */
+  line-height: 100%;
+  letter-spacing: 0.0625rem; /* 1px */
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+}
+
+.badge-completed {
+  background: rgba(116, 96, 175, 1);
+}
+
+.badge-development {
+  background: rgba(116, 96, 175, 1);
+}
+
+/* ── ARROW ── */
+.arrow {
+  font-family: "DM Sans", "interregular", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem; /* 16px */
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(25, 25, 25, 1);
+  justify-self: end;
+}
+
+/* ══════════════════════════════
+   TABLET (≤ 64rem)
+══════════════════════════════ */
+@media (max-width: 64rem) {
+  .row {
+    grid-template-columns:
+      minmax(3rem, 0.5fr)
+      minmax(9rem, 2fr)
+      minmax(8rem, 1.4fr)
+      minmax(9rem, 1.8fr)
+      auto
+      auto;
+    column-gap: 1.25rem;
+  }
+
+  .badge {
+    min-width: 8.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE (≤ 53.75rem) — stack each row into
+   a card-like block
+══════════════════════════════ */
+@media (max-width: 53.75rem) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .row {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "year   title  arrow"
+      "role   role   role"
+      "note   note   note"
+      "badge  badge  badge";
+    row-gap: 0.5rem;
+    padding-block: 1.75rem;
+  }
+
+  .year {
+    grid-area: year;
+  }
+
+  .film-title {
+    grid-area: title;
+    font-size: 1.25rem;
+  }
+
+  .arrow {
+    grid-area: arrow;
+  }
+
+  .role {
+    grid-area: role;
+  }
+
+  .note {
+    grid-area: note;
+  }
+
+  .badge {
+    grid-area: badge;
+    justify-self: start;
+    min-width: 0;
+  }
+}
+
+/* ══════════════════════════════
+   REDUCED MOTION
+══════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

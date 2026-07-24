@@ -1,0 +1,192 @@
+/* ══════════════════════════════
+   BASE — exact tokens sampled from reference
+   bg pink is the SAME pink used as the accent
+   color in Manifesto (rgb(255,150,216)) — full-bleed here.
+══════════════════════════════ */
+.hero {
+  position: relative;
+  width: 100%;
+  background: rgb(255, 150, 216);
+  padding-block: clamp(3.5rem, 9vw, 6rem);
+  padding-inline: clamp(1.5rem, 6vw, 6rem);
+}
+
+/* ── SCROLL REVEAL (shared pattern) ── */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.reveal-up { transform: translateY(2.125rem); }
+.reveal-left { transform: translateX(-3.5rem); }
+.reveal-right { transform: translateX(3.5rem); }
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── LAYOUT: copy left, image card right ── */
+.hero-body {
+  display: grid;
+  grid-template-columns: 1fr 0.86fr;
+  align-items: center;
+  column-gap: clamp(2rem, 6vw, 5rem);
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ── EYEBROW ── */
+.eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-block-end: 1.5rem;
+}
+
+.eyebrow-dash {
+  font-family: "interextrabold";
+  color: rgba(179, 19, 79, 1);
+  font-size: 0.85rem;
+}
+
+.eyebrow {
+  font-family: "youngserif";
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  color: rgba(25, 25, 25, 1);
+}
+
+/* ── HEADLINE ── */
+.title {
+  margin: 0 0 1.75rem 0;
+  /* max-width: 22ch; */
+  font-family: "youngserif";
+  font-weight: 400;
+  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+  line-height: 108%;
+  color: rgba(25, 25, 25, 1);
+}
+
+/* ── SUBTITLE ── */
+.subtitle {
+  margin: 0;
+  /* max-width: 30rem; */
+  font-family: "intersemibold";
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 165%;
+  letter-spacing: 0.08rem;
+  color: rgba(134, 131, 127, 1);
+}
+
+.subtitle-link {
+  color: rgb(132, 131, 127);
+  text-decoration: underline;
+  text-underline-offset: 0.1875rem;
+  transition: color 0.2s ease;
+}
+
+.subtitle-link:hover {
+  color: rgb(25, 25, 25);
+}
+
+/* ── IMAGE CARD ── */
+.hero-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark gradient overlay so the quote stays readable on any photo */
+.frame-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.701961) 100%
+  );
+  pointer-events: none;
+}
+
+.frame-quote {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-family: "youngserif";
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: #fff;
+}
+
+/* ══════════════════════════════
+   TABLET (≤ 64rem)
+══════════════════════════════ */
+@media (max-width: 64rem) {
+  .hero-body {
+    column-gap: 2rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE (≤ 53.75rem) — stack, image on top
+══════════════════════════════ */
+@media (max-width: 53.75rem) {
+  .hero-body {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+
+  .hero-frame {
+    order: -1;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ══════════════════════════════
+   VERY SMALL (≤ 40rem)
+══════════════════════════════ */
+@media (max-width: 40rem) {
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.06rem;
+  }
+
+  .title {
+    max-width: none;
+  }
+}
+
+/* ══════════════════════════════
+   REDUCED MOTION
+══════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

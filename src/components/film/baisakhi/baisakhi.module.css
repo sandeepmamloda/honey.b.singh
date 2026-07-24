@@ -1,0 +1,236 @@
+/* ══════════════════════════════
+   BASE — hairline-bordered row, white background
+══════════════════════════════ */
+.featured-film {
+  width: 100%;
+  background: #fff;
+  padding-block: clamp(2.5rem, 6vw, 7rem);
+  padding-inline: clamp(1.5rem, 6vw, 7rem);
+}
+
+/* ── SCROLL REVEAL (shared pattern) ── */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.reveal-up { transform: translateY(2.125rem); }
+.reveal-left { transform: translateX(-3.5rem); }
+.reveal-right { transform: translateX(3.5rem); }
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── ROW LAYOUT: badge | title+description | cta ──
+   col1 wider than before so col2 (text) starts further
+   right, matching the reference. cta sits right after
+   the text block (justify-self: start) instead of being
+   pushed to the far edge. */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr auto;
+  align-items: center;
+  column-gap: clamp(2rem, 4vw, 3.25rem);
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-block: 4rem;
+  border-block: solid 0.0625rem rgba(23, 20, 15, 0.12);
+}
+
+/* ── BADGE ── */
+.badge-col {
+  justify-self: start;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.875rem;
+  border: 0.0625rem solid rgba(116, 96, 175, 1);
+  border-radius: 6.25rem;
+  font-family: "aclonica";
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: rgba(116, 96, 175, 1);
+  white-space: nowrap;
+}
+
+/* ── TITLE + DESCRIPTION ── */
+.text-col {
+  justify-self: start;
+  align-self: start;
+}
+
+.title {
+  margin: 0 0 1rem 0;
+  font-family: "youngserif";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.125rem; /* 34px */
+  line-height: 3.5rem; /* 56px */
+  letter-spacing: 0;
+  color: #17110f;
+}
+
+.description {
+  margin: 0;
+  max-width: 30rem;
+  font-family: "interregular";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.4375rem; /* 23px */
+  letter-spacing: 0;
+  color: rgba(132, 131, 127, 1);
+}
+
+/* ── CTA ──
+   justify-self: start so it hugs the text block instead
+   of snapping to the row's far right edge. */
+.cta-col {
+  justify-self: start;
+  align-self: center;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "intersemibold";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem; /* 16px */
+  line-height: 1.340625rem; /* 21.45px */
+  letter-spacing: 0.0325rem; /* 0.52px */
+  color: #17110f;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.cta:hover {
+  opacity: 0.7;
+}
+
+/* ══════════════════════════════
+   LARGE DESKTOP (≥ 90rem) — cap column growth
+   so text doesn't drift too far right on ultrawide
+══════════════════════════════ */
+@media (min-width: 90rem) {
+  .row {
+    grid-template-columns: 1fr 1fr auto;
+  }
+}
+
+/* ══════════════════════════════
+   TABLET (≤ 64rem)
+══════════════════════════════ */
+@media (max-width: 64rem) {
+  .row {
+    grid-template-columns: 0.85fr 1.15fr auto;
+    column-gap: 1.75rem;
+    padding-block: 3rem;
+  }
+
+  .description {
+    max-width: 24rem;
+  }
+}
+
+/* ══════════════════════════════
+   SMALL TABLET (≤ 58rem) — cta wraps under text,
+   badge stays left, text takes full remaining width
+══════════════════════════════ */
+@media (max-width: 58rem) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  }
+
+  .badge-col {
+    grid-column: 1 / 2;
+  }
+
+  .text-col {
+    grid-column: 1 / -1;
+  }
+
+  .description {
+    max-width: 34rem;
+  }
+
+  .cta-col {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE (≤ 53.75rem) — fully stacked
+══════════════════════════════ */
+@media (max-width: 53.75rem) {
+  .row {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    padding-block: 2.5rem;
+  }
+
+  .badge-col,
+  .text-col,
+  .cta-col {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+}
+
+/* ══════════════════════════════
+   VERY SMALL (≤ 30rem)
+══════════════════════════════ */
+@media (max-width: 30rem) {
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+  }
+
+  .description {
+    font-size: 0.8125rem;
+    line-height: 1.3125rem;
+  }
+}
+
+/* ══════════════════════════════
+   REDUCED MOTION
+══════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
