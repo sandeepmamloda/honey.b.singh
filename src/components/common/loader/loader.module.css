@@ -14,6 +14,7 @@
   */
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -25,7 +26,11 @@
   */
 
   transform:
-    translate3d(0, 100%, 0);
+    translate3d(
+      0,
+      100%,
+      0
+    );
 
   will-change:
     transform,
@@ -38,7 +43,8 @@
 ══════════════════════════════ */
 
 .overlayBehind {
-  z-index: -999999;
+  z-index:
+    -999999;
 }
 
 
@@ -48,11 +54,20 @@
 
 .overlayVisible {
   transform:
-    translate3d(0, 0, 0);
+    translate3d(
+      0,
+      0,
+      0
+    );
 
   transition:
     transform 0.7s
-    cubic-bezier(0.76, 0, 0.24, 1);
+    cubic-bezier(
+      0.76,
+      0,
+      0.24,
+      1
+    );
 }
 
 
@@ -62,11 +77,20 @@
 
 .curtainUp {
   transform:
-    translate3d(0, -100%, 0);
+    translate3d(
+      0,
+      -100%,
+      0
+    );
 
   transition:
     transform 0.9s
-    cubic-bezier(0.76, 0, 0.24, 1);
+    cubic-bezier(
+      0.76,
+      0,
+      0.24,
+      1
+    );
 }
 
 
@@ -82,16 +106,24 @@
     italic;
 
   font-size:
-    clamp(1.1rem, 2vw, 1.6rem);
+    clamp(
+      1.1rem,
+      2vw,
+      1.6rem
+    );
 
   color:
-    rgba(232, 227, 222, 0.92);
+    #ffffff;
 
   opacity:
     0;
 
   transform:
-    translate3d(0, 40px, 0);
+    translate3d(
+      0,
+      40px,
+      0
+    );
 
   will-change:
     transform,
@@ -106,7 +138,12 @@
 .textEnter {
   animation:
     riseIn 0.9s
-    cubic-bezier(0.22, 1, 0.36, 1)
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
     forwards;
 }
 
@@ -118,7 +155,12 @@
 .textExit {
   animation:
     riseOut 0.7s
-    cubic-bezier(0.55, 0, 1, 0.45)
+    cubic-bezier(
+      0.55,
+      0,
+      1,
+      0.45
+    )
     forwards;
 }
 
@@ -134,7 +176,11 @@
       0;
 
     transform:
-      translate3d(0, 40px, 0);
+      translate3d(
+        0,
+        40px,
+        0
+      );
   }
 
   to {
@@ -142,7 +188,11 @@
       1;
 
     transform:
-      translate3d(0, 0, 0);
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
 
 }
@@ -155,7 +205,11 @@
       1;
 
     transform:
-      translate3d(0, 0, 0);
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
 
   to {
@@ -163,7 +217,11 @@
       0;
 
     transform:
-      translate3d(0, -60px, 0);
+      translate3d(
+        0,
+        -60px,
+        0
+      );
   }
 
 }
@@ -183,7 +241,9 @@
    REDUCED MOTION
 ══════════════════════════════ */
 
-@media (prefers-reduced-motion: reduce) {
+@media (
+  prefers-reduced-motion: reduce
+) {
 
   .overlay,
   .text {
@@ -193,6 +253,7 @@
 
     transition-duration:
       0.01ms !important;
+
   }
 
 }

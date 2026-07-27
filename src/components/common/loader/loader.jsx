@@ -8,11 +8,16 @@ import {
   useState,
 } from "react";
 
-import { usePathname, useRouter } from "next/navigation";
+import {
+  usePathname,
+  useRouter,
+} from "next/navigation";
 
 import styles from "./loader.module.css";
 
-const LoaderContext = createContext(null);
+
+const LoaderContext =
+  createContext(null);
 
 
 /* ══════════════════════════════
@@ -33,7 +38,8 @@ const NAV_REVEAL_MS = 900;
 
 // Total navigation animation time
 const NAV_TOTAL_MS =
-  NAV_COVER_MS + NAV_REVEAL_MS;
+  NAV_COVER_MS +
+  NAV_REVEAL_MS;
 
 
 // Navigate when 48% of the
@@ -58,21 +64,38 @@ const LOADER_COLORS = [
    LOADER
 ══════════════════════════════ */
 
-export default function Loader({ children }) {
-  const router = useRouter();
-  const pathname = usePathname();
+export default function Loader({
+  children,
+}) {
+  const router =
+    useRouter();
+
+  const pathname =
+    usePathname();
 
 
-  const [phase, setPhase] =
-    useState("introCovering");
+  const [
+    phase,
+    setPhase,
+  ] = useState(
+    "introCovering"
+  );
 
 
-  const [isBehind, setIsBehind] =
-    useState(false);
+  const [
+    isBehind,
+    setIsBehind,
+  ] = useState(
+    false
+  );
 
 
-  const [loaderColor, setLoaderColor] =
-    useState(LOADER_COLORS[0]);
+  const [
+    loaderColor,
+    setLoaderColor,
+  ] = useState(
+    LOADER_COLORS[0]
+  );
 
 
   const pendingHref =
@@ -92,60 +115,103 @@ export default function Loader({ children }) {
   ══════════════════════════════ */
 
   useEffect(() => {
+
     document.documentElement.style.overflow =
       "hidden";
 
 
     // Bottom → Center
-    const coverTimer = setTimeout(() => {
-      setPhase("introCovered");
-    }, INTRO_COVER_MS);
+    const coverTimer =
+      setTimeout(() => {
+
+        setPhase(
+          "introCovered"
+        );
+
+      }, INTRO_COVER_MS);
 
 
     // Text exits
-    const textExitTimer = setTimeout(() => {
-      setPhase("introExit");
-    }, (
-      INTRO_COVER_MS +
-      INTRO_TEXT_HOLD_MS
-    ));
+    const textExitTimer =
+      setTimeout(() => {
+
+        setPhase(
+          "introExit"
+        );
+
+      }, (
+        INTRO_COVER_MS +
+        INTRO_TEXT_HOLD_MS
+      ));
 
 
     // Center → Top
-    const revealTimer = setTimeout(() => {
-      setPhase("introRevealing");
-    }, (
-      INTRO_COVER_MS +
-      INTRO_TEXT_HOLD_MS +
-      INTRO_TEXT_EXIT_MS
-    ));
+    const revealTimer =
+      setTimeout(() => {
+
+        setPhase(
+          "introRevealing"
+        );
+
+      }, (
+        INTRO_COVER_MS +
+        INTRO_TEXT_HOLD_MS +
+        INTRO_TEXT_EXIT_MS
+      ));
 
 
     // Intro complete
-    const doneTimer = setTimeout(() => {
-      setIsBehind(true);
+    const doneTimer =
+      setTimeout(() => {
 
-      setPhase("idle");
+        setIsBehind(
+          true
+        );
 
-      document.documentElement.style.overflow =
-        "";
-    }, (
-      INTRO_COVER_MS +
-      INTRO_TEXT_HOLD_MS +
-      INTRO_TEXT_EXIT_MS +
-      INTRO_REVEAL_MS
-    ));
+
+        setPhase(
+          "idle"
+        );
+
+
+        document.documentElement.style.overflow =
+          "";
+
+      }, (
+        INTRO_COVER_MS +
+        INTRO_TEXT_HOLD_MS +
+        INTRO_TEXT_EXIT_MS +
+        INTRO_REVEAL_MS
+      ));
 
 
     return () => {
-      clearTimeout(coverTimer);
-      clearTimeout(textExitTimer);
-      clearTimeout(revealTimer);
-      clearTimeout(doneTimer);
+
+      clearTimeout(
+        coverTimer
+      );
+
+
+      clearTimeout(
+        textExitTimer
+      );
+
+
+      clearTimeout(
+        revealTimer
+      );
+
+
+      clearTimeout(
+        doneTimer
+      );
+
 
       document.documentElement.style.overflow =
         "";
+
     };
+
   }, []);
 
 
@@ -153,25 +219,40 @@ export default function Loader({ children }) {
      CUSTOM NAVIGATION
   ══════════════════════════════ */
 
-  const navigate = (href) => {
-    if (!href) return;
+  const navigate = (
+    href
+  ) => {
+
+    if (!href) {
+      return;
+    }
 
 
-    if (href === pathname) return;
+    if (
+      href === pathname
+    ) {
+      return;
+    }
 
 
-    if (phase !== "idle") return;
+    if (
+      phase !== "idle"
+    ) {
+      return;
+    }
 
 
     /*
       Clear previous timers
     */
+
     navigationTimers.current.forEach(
       clearTimeout
     );
 
 
-    navigationTimers.current = [];
+    navigationTimers.current =
+      [];
 
 
     /*
@@ -182,23 +263,32 @@ export default function Loader({ children }) {
     */
 
     colorIndex.current =
-      (colorIndex.current + 1)
-      % LOADER_COLORS.length;
+      (
+        colorIndex.current +
+        1
+      ) %
+      LOADER_COLORS.length;
 
 
     setLoaderColor(
-      LOADER_COLORS[colorIndex.current]
+      LOADER_COLORS[
+        colorIndex.current
+      ]
     );
 
 
     /*
-      Bring loader above the page
+      Bring loader above
+      the page
     */
 
-    setIsBehind(false);
+    setIsBehind(
+      false
+    );
 
 
-    pendingHref.current = href;
+    pendingHref.current =
+      href;
 
 
     document.documentElement.style.overflow =
@@ -211,7 +301,9 @@ export default function Loader({ children }) {
       Bottom → Center
     */
 
-    setPhase("covering");
+    setPhase(
+      "covering"
+    );
 
 
     /*
@@ -220,9 +312,14 @@ export default function Loader({ children }) {
       Center → Top
     */
 
-    const revealTimer = setTimeout(() => {
-      setPhase("revealing");
-    }, NAV_COVER_MS);
+    const revealTimer =
+      setTimeout(() => {
+
+        setPhase(
+          "revealing"
+        );
+
+      }, NAV_COVER_MS);
 
 
     /*
@@ -231,22 +328,31 @@ export default function Loader({ children }) {
       Navigate at 48%
     */
 
-    const navigationTimer = setTimeout(() => {
-      if (pendingHref.current) {
-        router.push(
+    const navigationTimer =
+      setTimeout(() => {
+
+        if (
           pendingHref.current
-        );
+        ) {
+
+          router.push(
+            pendingHref.current
+          );
 
 
-        pendingHref.current = null;
-      }
-    }, NAVIGATION_AT_48_PERCENT);
+          pendingHref.current =
+            null;
+        }
+
+      }, NAVIGATION_AT_48_PERCENT);
 
 
-    navigationTimers.current = [
-      revealTimer,
-      navigationTimer,
-    ];
+    navigationTimers.current =
+      [
+        revealTimer,
+        navigationTimer,
+      ];
+
   };
 
 
@@ -255,6 +361,7 @@ export default function Loader({ children }) {
   ══════════════════════════════ */
 
   useEffect(() => {
+
     if (
       phase !== "revealing"
     ) {
@@ -262,21 +369,33 @@ export default function Loader({ children }) {
     }
 
 
-    const timer = setTimeout(() => {
-      setIsBehind(true);
+    const timer =
+      setTimeout(() => {
+
+        setIsBehind(
+          true
+        );
 
 
-      setPhase("idle");
+        setPhase(
+          "idle"
+        );
 
 
-      document.documentElement.style.overflow =
-        "";
-    }, NAV_REVEAL_MS);
+        document.documentElement.style.overflow =
+          "";
+
+      }, NAV_REVEAL_MS);
 
 
     return () => {
-      clearTimeout(timer);
+
+      clearTimeout(
+        timer
+      );
+
     };
+
   }, [phase]);
 
 
@@ -285,7 +404,9 @@ export default function Loader({ children }) {
   ══════════════════════════════ */
 
   useEffect(() => {
+
     return () => {
+
       navigationTimers.current.forEach(
         clearTimeout
       );
@@ -293,7 +414,9 @@ export default function Loader({ children }) {
 
       document.documentElement.style.overflow =
         "";
+
     };
+
   }, []);
 
 
@@ -301,13 +424,26 @@ export default function Loader({ children }) {
      VISUAL STATES
   ══════════════════════════════ */
 
+  /*
+    Text is visible during:
+
+    First load:
+    introCovered → introExit
+
+    Every navigation:
+    covering → revealing
+  */
+
   const showText =
     phase === "introCovered" ||
-    phase === "introExit";
+    phase === "introExit" ||
+    phase === "covering" ||
+    phase === "revealing";
 
 
   const overlayClass =
     {
+
       introCovering:
         styles.overlayVisible,
 
@@ -320,21 +456,29 @@ export default function Loader({ children }) {
       introRevealing:
         styles.curtainUp,
 
+
       covering:
         styles.overlayVisible,
 
       revealing:
         styles.curtainUp,
 
+
       idle:
         styles.overlayHidden,
-    }[phase] ||
+
+    }[
+      phase
+    ] ||
     styles.overlayHidden;
 
 
   return (
+
     <LoaderContext.Provider
-      value={{ navigate }}
+      value={{
+        navigate,
+      }}
     >
 
       {/* ══════════════════════════════
@@ -352,17 +496,20 @@ export default function Loader({ children }) {
           }
         `}
         style={{
-          backgroundColor: loaderColor,
+          backgroundColor:
+            loaderColor,
         }}
         aria-hidden="true"
       >
 
         {showText && (
+
           <span
             className={`
               ${styles.text}
               ${
-                phase === "introExit"
+                phase === "introExit" ||
+                phase === "revealing"
                   ? styles.textExit
                   : styles.textEnter
               }
@@ -370,6 +517,7 @@ export default function Loader({ children }) {
           >
             honey oh honey
           </span>
+
         )}
 
       </div>
@@ -386,7 +534,9 @@ export default function Loader({ children }) {
       </div>
 
     </LoaderContext.Provider>
+
   );
+
 }
 
 
@@ -395,19 +545,26 @@ export default function Loader({ children }) {
 ══════════════════════════════ */
 
 export function useLoaderNavigate() {
-  const context = useContext(
-    LoaderContext
-  );
+
+  const context =
+    useContext(
+      LoaderContext
+    );
 
 
-  if (!context) {
+  if (
+    !context
+  ) {
+
     throw new Error(
       "useLoaderNavigate must be used inside <Loader>"
     );
+
   }
 
 
   return context.navigate;
+
 }
 
 
@@ -421,23 +578,35 @@ export function LoaderLink({
   className,
   ...rest
 }) {
+
   const navigate =
     useLoaderNavigate();
 
 
   return (
+
     <a
       href={href}
       className={className}
+
       onClick={(event) => {
+
         event.preventDefault();
 
 
-        navigate(href);
+        navigate(
+          href
+        );
+
       }}
+
       {...rest}
     >
+
       {children}
+
     </a>
+
   );
+
 }
