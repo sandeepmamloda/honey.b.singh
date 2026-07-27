@@ -137,19 +137,32 @@
 /* ══════════════════════════════
    MOBILE  (≤ 640px)
 ══════════════════════════════ */
+
 @media screen and (max-width: 640px) {
+
   .about-wrapper {
     --fixed-nav-offset: 6rem;
   }
-  .about-eyebrow{
-    text-align:center;
-  }
-  .about-heading{
-    text-align:center;
-  }
+
   .about-main {
     padding-inline: 1.25rem;
-    padding-top: calc(var(--fixed-nav-offset) + 4rem);
-    padding-bottom: 3rem;
+
+    padding-top:
+      calc(
+        var(--fixed-nav-offset)
+        + 4rem
+      );
+
+    padding-bottom:
+      3rem;
+
+    /* All text inside the section will be centered */
+    text-align: center;
   }
+
+  .about-eyebrow,
+  .about-heading {
+    text-align: center;
+  }
+
 }

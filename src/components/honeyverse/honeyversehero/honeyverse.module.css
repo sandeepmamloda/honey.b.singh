@@ -112,22 +112,7 @@
 /* ══════════════════════════════
    RESPONSIVE MAX-WIDTH SCALING
 ══════════════════════════════ */
-@media screen and (max-width: 1780px) {
-  .honeyversehero-main {
-    max-width: 90rem;
-  }
-}
-@media screen and (max-width: 1630px) {
-  .honeyversehero-main {
-    max-width: 80rem;
-  }
-}
-@media screen and (max-width: 1460px) {
-  .honeyversehero-main {
-    max-width: 72rem;
-  }
-}
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1560px) {
   .honeyversehero-main {
     max-width: 100%;
   }
@@ -149,7 +134,12 @@
   .honeyversehero-wrapper {
     --fixed-nav-offset: 6rem;
   }
-
+  .honeyversehero-heading{
+    text-align:center;
+  }
+  .honeyversehero-eyebrow{
+    text-align:center;
+  }
   .honeyversehero-main {
     padding-inline: 1.25rem;
     padding-top: calc(var(--fixed-nav-offset) + 3rem);
@@ -158,5 +148,6 @@
 
   .honeyversehero-desc {
     max-width: 100%;
+    text-align:center;
   }
 }

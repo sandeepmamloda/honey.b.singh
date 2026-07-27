@@ -1,7 +1,8 @@
 import HoneyverseHero from "@/components/honeyverse/honeyversehero/honeyversehero";
 import Honeyversefilterbar from "@/components/honeyverse/honeyversefilterbar/honeyversefilterbar";
 import Honeyversegrid from "@/components/honeyverse/honeyversegrid/honeyversegrid";
-import Honeyversesection from "@/components/honeyverse/honeyversesection/honeyversesection"
+import Honeyversesection from "@/components/honeyverse/honeyversesection/honeyversesection";
+import Newslatter from "@/components/common/newslatter/newslatter";
 export default function Page() {
   return (
     <main style={{backgroundColor:"rgba(255, 251, 242, 1)"}}>
@@ -9,6 +10,7 @@ export default function Page() {
        {/* <Honeyversefilterbar/>
        <Honeyversegrid/> */}
        <Honeyversesection/>
+       <Newslatter/>
     </main>
   );
 }
