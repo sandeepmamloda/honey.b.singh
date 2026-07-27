@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./classessection.module.css";
 
 const sessionsData = [
@@ -31,8 +34,34 @@ const sessionsData = [
 ];
 
 const Sessions = () => {
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  const revealClass = inView ? styles["is-visible"] : "";
+
   return (
-    <section className={styles["sessions-wrapper"]}>
+    <section
+      ref={sectionRef}
+      className={`${styles["sessions-wrapper"]} ${revealClass}`}
+    >
       <div className={styles["sessions-main"]}>
         <p className={styles["sessions-eyebrow"]}>Classes &amp; Sessions</p>
 
@@ -43,6 +72,7 @@ const Sessions = () => {
               className={`${styles["session-card"]} ${
                 item.variant === "accent" ? styles["session-card-accent"] : ""
               }`}
+              style={{ animationDelay: `${0.15 + index * 0.15}s` }}
             >
               <div className={styles["session-top"]}>
                 <p className={styles["session-meta"]}>{item.meta}</p>

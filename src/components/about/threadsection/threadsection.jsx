@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./threadsection.module.css";
 
 const pillars = [
@@ -43,16 +46,46 @@ const tempos = [
 ];
 
 const ThreadSection = () => {
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  const revealClass = inView ? styles["is-visible"] : "";
+
   return (
-    <section className={styles["thread-wrapper"]}>
+    <section
+      ref={sectionRef}
+      className={`${styles["thread-wrapper"]} ${revealClass}`}
+    >
       <div className={styles["thread-main"]}>
 
         <aside className={styles["thread-aside"]}>
           <p className={styles["thread-eyebrow"]}>The thread, named</p>
 
           <ul className={styles["thread-items"]}>
-            {pillars.map((item) => (
-              <li key={item.title} className={styles["thread-item"]}>
+            {pillars.map((item, i) => (
+              <li
+                key={item.title}
+                className={styles["thread-item"]}
+                style={{ animationDelay: `${0.35 + i * 0.15}s` }}
+              >
                 <span className={styles["thread-item-title"]}>
                   <span
                     className={styles["thread-dot"]}
@@ -66,8 +99,13 @@ const ThreadSection = () => {
           </ul>
 
           <div className={styles["thread-links"]}>
-            {links.map((link) => (
-              <a key={link.label} href={link.href} className={styles["thread-link"]}>
+            {links.map((link, i) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className={styles["thread-link"]}
+                style={{ animationDelay: `${0.9 + i * 0.12}s` }}
+              >
                 {link.label}
               </a>
             ))}
@@ -75,17 +113,23 @@ const ThreadSection = () => {
         </aside>
 
         <article className={styles["thread-article"]}>
-          <div className={styles["thread-portrait"]}>
+          <div
+            className={styles["thread-portrait"]}
+            style={{ animationDelay: "0.2s" }}
+          >
             <span>Portrait — TBD</span>
           </div>
 
-          <p className={styles["thread-lede"]}>
+          <p
+            className={styles["thread-lede"]}
+            style={{ animationDelay: "0.45s" }}
+          >
             If you're here, you probably clicked through from one of the
             rooms and you're wondering how they belong to the same person.
             Fair. Let me save you the detective work.
           </p>
 
-          <p>
+          <p style={{ animationDelay: "0.6s" }}>
             I direct film because I'm obsessed with the exact second someone
             stops performing and starts being honest. Not the confession,
             not the monologue — the half-breath right before it, when the
@@ -94,7 +138,7 @@ const ThreadSection = () => {
             scaring it off.
           </p>
 
-          <p>
+          <p style={{ animationDelay: "0.7s" }}>
             I post deadpan videos on the internet for the same reason, just
             faster and messier. The Honeyverse looks like chaos — five
             pillars, hot pink, a joke every thirty seconds — but the joke
@@ -103,12 +147,15 @@ const ThreadSection = () => {
             admitted it would.
           </p>
 
-          <blockquote className={styles["thread-quote"]}>
+          <blockquote
+            className={styles["thread-quote"]}
+            style={{ animationDelay: "0.85s" }}
+          >
             "Different rooms, same instinct — chase
             the moment someone drops the act."
           </blockquote>
 
-          <p>
+          <p style={{ animationDelay: "0.95s" }}>
             And I teach yoga because the body gets there before the mind
             does. I did my RYT 200 in a year when I couldn't write a word,
             and discovered that a room full of people breathing on purpose
@@ -117,18 +164,25 @@ const ThreadSection = () => {
             people who think too much. Takes one to cue one.
           </p>
 
-          <h3 className={styles["thread-subheading"]}>
+          <h3
+            className={styles["thread-subheading"]}
+            style={{ animationDelay: "1.05s" }}
+          >
             The same question, three tempos
           </h3>
 
-          <p>
+          <p style={{ animationDelay: "1.15s" }}>
             None of it is a pivot, and nothing here is a side hustle waiting
             to be trimmed. It's one question asked at three speeds:
           </p>
 
           <div className={styles["tempo-list"]}>
-            {tempos.map((tempo) => (
-              <div key={tempo.label} className={styles["tempo-row"]}>
+            {tempos.map((tempo, i) => (
+              <div
+                key={tempo.label}
+                className={styles["tempo-row"]}
+                style={{ animationDelay: `${1.25 + i * 0.12}s` }}
+              >
                 <span
                   className={styles["tempo-label"]}
                   style={{ color: tempo.color }}
@@ -140,7 +194,7 @@ const ThreadSection = () => {
             ))}
           </div>
 
-          <p>
+          <p style={{ animationDelay: "1.6s" }}>
             If you're a producer, the quiet room is{" "}
             <a href="#producer">this way</a>. If you found me through a
             video about canceling plans in three acts, the loud room is{" "}
@@ -148,7 +202,12 @@ const ThreadSection = () => {
             breathe for an hour, <a href="#book">the mat is waiting</a>.
           </p>
 
-          <p className={styles["thread-signature"]}>— Honey</p>
+          <p
+            className={styles["thread-signature"]}
+            style={{ animationDelay: "1.7s" }}
+          >
+            — Honey
+          </p>
         </article>
 
       </div>

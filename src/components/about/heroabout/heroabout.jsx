@@ -6,7 +6,22 @@ const HeroAbout = () => {
       <div className={styles["about-main"]}>
         <p className={styles["about-eyebrow"]}>About</p>
         <h2 className={styles["about-heading"]}>
-          Why one person <em>does all of this.</em>
+          <span className={styles["about-heading-line-wrap"]}>
+            <span
+              className={styles["about-heading-line"]}
+              style={{ animationDelay: "0.35s" }}
+            >
+              Why one person
+            </span>
+          </span>
+          <span className={styles["about-heading-line-wrap"]}>
+            <span
+              className={styles["about-heading-line"]}
+              style={{ animationDelay: "0.65s" }}
+            >
+              <em>does all of this.</em>
+            </span>
+          </span>
         </h2>
       </div>
     </section>
@@ -14,4 +29,3 @@ const HeroAbout = () => {
 };
 
 export default HeroAbout;
-

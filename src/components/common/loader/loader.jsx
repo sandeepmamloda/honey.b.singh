@@ -7,26 +7,51 @@ import {
   useRef,
   useState,
 } from "react";
+
 import { usePathname, useRouter } from "next/navigation";
+
 import styles from "./loader.module.css";
 
 const LoaderContext = createContext(null);
+
 
 /* ══════════════════════════════
    TIMINGS
 ══════════════════════════════ */
 
 // First load
-const INTRO_COVER_MS = 700;
+const INTRO_COVER_MS = 500;
 const INTRO_TEXT_HOLD_MS = 1100;
 const INTRO_TEXT_EXIT_MS = 700;
 const INTRO_REVEAL_MS = 900;
 
+
 // Navigation
 const NAV_COVER_MS = 700;
-const NAV_HOLD_MS = 150;
-const NAV_REVEAL_DELAY_MS = 150;
 const NAV_REVEAL_MS = 900;
+
+
+// Total navigation animation time
+const NAV_TOTAL_MS =
+  NAV_COVER_MS + NAV_REVEAL_MS;
+
+
+// Navigate when 48% of the
+// complete loader animation is done
+const NAVIGATION_AT_48_PERCENT =
+  NAV_TOTAL_MS * 0.48;
+
+
+/* ══════════════════════════════
+   LOADER COLORS
+══════════════════════════════ */
+
+const LOADER_COLORS = [
+  "rgba(255, 197, 234, 1)",
+  "rgba(180, 162, 237, 1)",
+  "rgba(255, 237, 168, 1)",
+  "rgba(255, 161, 162, 1)",
+];
 
 
 /* ══════════════════════════════
@@ -37,21 +62,29 @@ export default function Loader({ children }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const [phase, setPhase] = useState("introCovering");
 
-  /*
-    z-index is controlled separately.
+  const [phase, setPhase] =
+    useState("introCovering");
 
-    true  → loader is behind the page
-    false → loader is above the page
-  */
-  const [isBehind, setIsBehind] = useState(false);
 
-  const previousPathname = useRef(pathname);
+  const [isBehind, setIsBehind] =
+    useState(false);
 
-  const pendingHref = useRef(null);
 
-  const customNavigation = useRef(false);
+  const [loaderColor, setLoaderColor] =
+    useState(LOADER_COLORS[0]);
+
+
+  const pendingHref =
+    useRef(null);
+
+
+  const navigationTimers =
+    useRef([]);
+
+
+  const colorIndex =
+    useRef(0);
 
 
   /* ══════════════════════════════
@@ -59,7 +92,8 @@ export default function Loader({ children }) {
   ══════════════════════════════ */
 
   useEffect(() => {
-    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.overflow =
+      "hidden";
 
 
     // Bottom → Center
@@ -71,13 +105,20 @@ export default function Loader({ children }) {
     // Text exits
     const textExitTimer = setTimeout(() => {
       setPhase("introExit");
-    }, INTRO_COVER_MS + INTRO_TEXT_HOLD_MS);
+    }, (
+      INTRO_COVER_MS +
+      INTRO_TEXT_HOLD_MS
+    ));
 
 
     // Center → Top
     const revealTimer = setTimeout(() => {
       setPhase("introRevealing");
-    }, INTRO_COVER_MS + INTRO_TEXT_HOLD_MS + INTRO_TEXT_EXIT_MS);
+    }, (
+      INTRO_COVER_MS +
+      INTRO_TEXT_HOLD_MS +
+      INTRO_TEXT_EXIT_MS
+    ));
 
 
     // Intro complete
@@ -86,8 +127,14 @@ export default function Loader({ children }) {
 
       setPhase("idle");
 
-      document.documentElement.style.overflow = "";
-    }, INTRO_COVER_MS + INTRO_TEXT_HOLD_MS + INTRO_TEXT_EXIT_MS + INTRO_REVEAL_MS);
+      document.documentElement.style.overflow =
+        "";
+    }, (
+      INTRO_COVER_MS +
+      INTRO_TEXT_HOLD_MS +
+      INTRO_TEXT_EXIT_MS +
+      INTRO_REVEAL_MS
+    ));
 
 
     return () => {
@@ -96,7 +143,8 @@ export default function Loader({ children }) {
       clearTimeout(revealTimer);
       clearTimeout(doneTimer);
 
-      document.documentElement.style.overflow = "";
+      document.documentElement.style.overflow =
+        "";
     };
   }, []);
 
@@ -108,144 +156,98 @@ export default function Loader({ children }) {
   const navigate = (href) => {
     if (!href) return;
 
+
     if (href === pathname) return;
+
 
     if (phase !== "idle") return;
 
 
     /*
-      Bring loader back above the page
-      before starting a new animation.
+      Clear previous timers
     */
+    navigationTimers.current.forEach(
+      clearTimeout
+    );
+
+
+    navigationTimers.current = [];
+
+
+    /*
+      CHANGE LOADER COLOR
+
+      Every navigation gets
+      the next color.
+    */
+
+    colorIndex.current =
+      (colorIndex.current + 1)
+      % LOADER_COLORS.length;
+
+
+    setLoaderColor(
+      LOADER_COLORS[colorIndex.current]
+    );
+
+
+    /*
+      Bring loader above the page
+    */
+
     setIsBehind(false);
 
-
-    customNavigation.current = true;
 
     pendingHref.current = href;
 
 
-    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.overflow =
+      "hidden";
 
 
-    // Bottom → Center
+    /*
+      STEP 1
+
+      Bottom → Center
+    */
+
     setPhase("covering");
-  };
 
 
-  /* ══════════════════════════════
-     COVERING → COVERED
-  ══════════════════════════════ */
+    /*
+      STEP 2
 
-  useEffect(() => {
-    if (phase !== "covering") return;
+      Center → Top
+    */
 
-
-    const timer = setTimeout(() => {
-      setPhase("covered");
+    const revealTimer = setTimeout(() => {
+      setPhase("revealing");
     }, NAV_COVER_MS);
 
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [phase]);
+    /*
+      STEP 3
 
+      Navigate at 48%
+    */
 
-  /* ══════════════════════════════
-     COVERED → ROUTE CHANGE
-  ══════════════════════════════ */
-
-  useEffect(() => {
-    if (phase !== "covered") return;
-
-
-    const timer = setTimeout(() => {
+    const navigationTimer = setTimeout(() => {
       if (pendingHref.current) {
-        router.push(pendingHref.current);
+        router.push(
+          pendingHref.current
+        );
+
 
         pendingHref.current = null;
       }
-    }, NAV_HOLD_MS);
+    }, NAVIGATION_AT_48_PERCENT);
 
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [phase, router]);
-
-
-  /* ══════════════════════════════
-     PATHNAME CHANGE
-  ══════════════════════════════ */
-
-  useEffect(() => {
-    if (pathname === previousPathname.current) {
-      return;
-    }
-
-
-    previousPathname.current = pathname;
-
-
-    /*
-      LoaderLink navigation:
-
-      Loader is already centered.
-      New page has mounted.
-      Start center → top.
-    */
-
-    if (customNavigation.current) {
-      const timer = setTimeout(() => {
-        setPhase("revealing");
-      }, NAV_REVEAL_DELAY_MS);
-
-
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-
-
-    /*
-      External navigation:
-
-      Normal Link
-      router.push()
-      browser back / forward
-
-      The route has already changed.
-    */
-
-    setIsBehind(false);
-
-    document.documentElement.style.overflow = "hidden";
-
-
-    // Bottom → Center
-    setPhase("covering");
-
-
-    const timer = setTimeout(() => {
-      setPhase("covered");
-
-
-      const revealTimer = setTimeout(() => {
-        setPhase("revealing");
-      }, NAV_HOLD_MS + NAV_REVEAL_DELAY_MS);
-
-
-      return () => {
-        clearTimeout(revealTimer);
-      };
-    }, NAV_COVER_MS);
-
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [pathname]);
+    navigationTimers.current = [
+      revealTimer,
+      navigationTimer,
+    ];
+  };
 
 
   /* ══════════════════════════════
@@ -254,29 +256,21 @@ export default function Loader({ children }) {
 
   useEffect(() => {
     if (
-      phase !== "revealing" &&
-      phase !== "introRevealing"
+      phase !== "revealing"
     ) {
       return;
     }
 
 
     const timer = setTimeout(() => {
-      /*
-        Once the loader has completely moved
-        above the viewport, send it behind
-        the page.
-      */
       setIsBehind(true);
 
 
       setPhase("idle");
 
 
-      customNavigation.current = false;
-
-
-      document.documentElement.style.overflow = "";
+      document.documentElement.style.overflow =
+        "";
     }, NAV_REVEAL_MS);
 
 
@@ -284,6 +278,23 @@ export default function Loader({ children }) {
       clearTimeout(timer);
     };
   }, [phase]);
+
+
+  /* ══════════════════════════════
+     CLEANUP
+  ══════════════════════════════ */
+
+  useEffect(() => {
+    return () => {
+      navigationTimers.current.forEach(
+        clearTimeout
+      );
+
+
+      document.documentElement.style.overflow =
+        "";
+    };
+  }, []);
 
 
   /* ══════════════════════════════
@@ -297,50 +308,80 @@ export default function Loader({ children }) {
 
   const overlayClass =
     {
-      introCovering: styles.overlayVisible,
+      introCovering:
+        styles.overlayVisible,
 
-      introCovered: styles.overlayVisible,
+      introCovered:
+        styles.overlayVisible,
 
-      introExit: styles.overlayVisible,
+      introExit:
+        styles.overlayVisible,
 
-      introRevealing: styles.curtainUp,
+      introRevealing:
+        styles.curtainUp,
 
-      covering: styles.overlayVisible,
+      covering:
+        styles.overlayVisible,
 
-      covered: styles.overlayVisible,
+      revealing:
+        styles.curtainUp,
 
-      revealing: styles.curtainUp,
-
-      idle: styles.overlayHidden,
-    }[phase] || styles.overlayHidden;
+      idle:
+        styles.overlayHidden,
+    }[phase] ||
+    styles.overlayHidden;
 
 
   return (
-    <LoaderContext.Provider value={{ navigate }}>
+    <LoaderContext.Provider
+      value={{ navigate }}
+    >
 
-      {/* Loader is always mounted */}
+      {/* ══════════════════════════════
+          LOADER
+      ══════════════════════════════ */}
+
       <div
-        className={`${styles.overlay} ${overlayClass} ${
-          isBehind ? styles.overlayBehind : ""
-        }`}
+        className={`
+          ${styles.overlay}
+          ${overlayClass}
+          ${
+            isBehind
+              ? styles.overlayBehind
+              : ""
+          }
+        `}
+        style={{
+          backgroundColor: loaderColor,
+        }}
         aria-hidden="true"
       >
+
         {showText && (
           <span
-            className={`${styles.text} ${
-              phase === "introExit"
-                ? styles.textExit
-                : styles.textEnter
-            }`}
+            className={`
+              ${styles.text}
+              ${
+                phase === "introExit"
+                  ? styles.textExit
+                  : styles.textEnter
+              }
+            `}
           >
             honey oh honey
           </span>
         )}
+
       </div>
 
 
-      {/* Page */}
-      <div className={styles.page}>
+      {/* ══════════════════════════════
+          PAGE
+      ══════════════════════════════ */}
+
+      <div
+        className={styles.page}
+      >
         {children}
       </div>
 
@@ -354,13 +395,17 @@ export default function Loader({ children }) {
 ══════════════════════════════ */
 
 export function useLoaderNavigate() {
-  const context = useContext(LoaderContext);
+  const context = useContext(
+    LoaderContext
+  );
+
 
   if (!context) {
     throw new Error(
       "useLoaderNavigate must be used inside <Loader>"
     );
   }
+
 
   return context.navigate;
 }
@@ -376,7 +421,8 @@ export function LoaderLink({
   className,
   ...rest
 }) {
-  const navigate = useLoaderNavigate();
+  const navigate =
+    useLoaderNavigate();
 
 
   return (
@@ -385,6 +431,7 @@ export function LoaderLink({
       className={className}
       onClick={(event) => {
         event.preventDefault();
+
 
         navigate(href);
       }}

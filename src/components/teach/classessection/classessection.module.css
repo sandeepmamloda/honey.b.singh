@@ -54,11 +54,38 @@
   border: 1px solid rgba(23, 17, 15, 0.08);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* appearance animation — resting/pre-reveal state (fade in). */
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+.is-visible .session-card {
+  animation: sessionCardFadeIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes sessionCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .session-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 45px rgba(23, 17, 15, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .session-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ── accent (middle) card ── */

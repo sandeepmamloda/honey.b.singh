@@ -23,6 +23,61 @@
 }
 
 /* ══════════════════════════════
+   APPEARANCE ANIMATION
+   Section reveals on scroll-into-view (a .is-visible class is added
+   by the component via IntersectionObserver). Transform-only, no
+   opacity — elements sit slightly lower until they rise into place.
+   Each element's animation-delay is set inline for staggering.
+══════════════════════════════ */
+.thread-item,
+.thread-link,
+.thread-portrait,
+.thread-lede,
+.thread-article > p,
+.thread-quote,
+.thread-subheading,
+.tempo-row,
+.thread-signature {
+  transform: translateY(1.75rem); /* 28px — resting/pre-reveal offset */
+}
+
+.is-visible .thread-item,
+.is-visible .thread-link,
+.is-visible .thread-portrait,
+.is-visible .thread-lede,
+.is-visible .thread-article > p,
+.is-visible .thread-quote,
+.is-visible .thread-subheading,
+.is-visible .tempo-row,
+.is-visible .thread-signature {
+  animation: threadRise 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes threadRise {
+  from {
+    transform: translateY(1.75rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thread-item,
+  .thread-link,
+  .thread-portrait,
+  .thread-lede,
+  .thread-article > p,
+  .thread-quote,
+  .thread-subheading,
+  .tempo-row,
+  .thread-signature {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* ══════════════════════════════
    ASIDE
 ══════════════════════════════ */
 .thread-aside {

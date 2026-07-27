@@ -8,7 +8,10 @@
 
   z-index: 10000;
 
-  background: #0d0d0d;
+  /*
+    Background color is controlled
+    dynamically from Loader.jsx
+  */
 
   display: flex;
   align-items: center;
@@ -20,7 +23,9 @@
     Resting position:
     Completely below viewport.
   */
-  transform: translate3d(0, 100%, 0);
+
+  transform:
+    translate3d(0, 100%, 0);
 
   will-change:
     transform,
@@ -42,7 +47,8 @@
 ══════════════════════════════ */
 
 .overlayVisible {
-  transform: translate3d(0, 0, 0);
+  transform:
+    translate3d(0, 0, 0);
 
   transition:
     transform 0.7s
@@ -55,7 +61,8 @@
 ══════════════════════════════ */
 
 .curtainUp {
-  transform: translate3d(0, -100%, 0);
+  transform:
+    translate3d(0, -100%, 0);
 
   transition:
     transform 0.9s
@@ -68,9 +75,11 @@
 ══════════════════════════════ */
 
 .text {
-  font-family: "frauncesitalic";
+  font-family:
+    "frauncesitalic";
 
-  font-style: italic;
+  font-style:
+    italic;
 
   font-size:
     clamp(1.1rem, 2vw, 1.6rem);
@@ -78,7 +87,8 @@
   color:
     rgba(232, 227, 222, 0.92);
 
-  opacity: 0;
+  opacity:
+    0;
 
   transform:
     translate3d(0, 40px, 0);
@@ -118,36 +128,44 @@
 ══════════════════════════════ */
 
 @keyframes riseIn {
+
   from {
-    opacity: 0;
+    opacity:
+      0;
 
     transform:
       translate3d(0, 40px, 0);
   }
 
   to {
-    opacity: 1;
+    opacity:
+      1;
 
     transform:
       translate3d(0, 0, 0);
   }
+
 }
 
 
 @keyframes riseOut {
+
   from {
-    opacity: 1;
+    opacity:
+      1;
 
     transform:
       translate3d(0, 0, 0);
   }
 
   to {
-    opacity: 0;
+    opacity:
+      0;
 
     transform:
       translate3d(0, -60px, 0);
   }
+
 }
 
 
@@ -156,7 +174,8 @@
 ══════════════════════════════ */
 
 .page {
-  width: 100%;
+  width:
+    100%;
 }
 
 
@@ -165,10 +184,15 @@
 ══════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
+
   .overlay,
   .text {
-    animation-duration: 0.01ms !important;
 
-    transition-duration: 0.01ms !important;
+    animation-duration:
+      0.01ms !important;
+
+    transition-duration:
+      0.01ms !important;
   }
+
 }

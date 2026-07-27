@@ -1,0 +1,317 @@
+/* ══════════════════════════════
+   FILTER BAR — WRAPPER
+══════════════════════════════ */
+.filterbar-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 1);
+  /* border-bottom: 1px solid var(--hairline, rgba(23, 20, 15, 0.12)); */
+}
+
+.filterbar-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.125rem; /* 18px */
+  padding-inline: clamp(1.5rem, 24vw, 6.125rem); /* 380px */
+}
+
+/* ══════════════════════════════
+   FILTER BAR — PILLS
+══════════════════════════════ */
+.filterbar-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem; /* 10px */
+}
+
+.filterbar-pill {
+  box-sizing: border-box;
+  padding: 0.5625rem 2.5625rem; /* 9px / 41px */
+  border-radius: 0.25rem;
+  border: 1px solid var(--hairline, rgba(23, 20, 15, 0.15));
+  background: rgba(255, 255, 255, 1);
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 0.71875rem; /* 11.5px */
+  line-height: 1;
+  letter-spacing: 0.1rem; /* 1.61px */
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 1);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  /* pre-reveal resting state */
+  opacity: 0;
+  transform: translateY(0.875rem); /* 14px */
+}
+
+.filterbar-pill:hover {
+  border-color: rgba(255, 150, 216, 1);
+}
+
+.filterbar-pill.active {
+  background: rgba(255, 150, 216, 1);
+  border-color: rgba(255, 150, 216, 1);
+}
+
+.is-visible .filterbar-pill {
+  animation: honeyPillIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes honeyPillIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.875rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ══════════════════════════════
+   FILTER BAR — POST COUNT
+══════════════════════════════ */
+.filterbar-count {
+  flex: 0 0 auto;
+  margin: 0;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: rgba(184, 175, 160, 1);
+  white-space: nowrap;
+
+  /* pre-reveal resting state */
+  opacity: 0;
+  transform: translateY(0.875rem);
+}
+
+.is-visible .filterbar-count {
+  animation: honeyPillIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filterbar-pill,
+  .filterbar-count {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ══════════════════════════════
+   GRID — WRAPPER
+══════════════════════════════ */
+.honeyversegrid-wrapper {
+  width: 100%;
+  background: rgba(251, 249, 244, 1);
+}
+
+.honeyversegrid-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 8vw, 6.25rem); /* 100px */
+  padding-block: clamp(2rem, 5vw, 3rem);
+}
+
+/* ══════════════════════════════
+   GRID
+══════════════════════════════ */
+.honeyversegrid-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem; /* 10px */
+}
+
+/* ══════════════════════════════
+   CARD
+══════════════════════════════ */
+/* ── wrapper — handles the appearance animation only.
+   Gated behind .is-visible so it only plays once the section has
+   scrolled into view; after that, filter clicks (key={active} on the
+   list) remount these and replay the animation immediately, since
+   .is-visible is already set by then. ── */
+.post-card-wrap {
+  opacity: 0;
+  transform: translateY(1.25rem) scale(0.97);
+}
+
+.is-visible .post-card-wrap {
+  animation: postCardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes postCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-card-wrap {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.post-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  aspect-ratio: 252 / 367;
+  padding: 1rem; /* 16px */
+  border-radius: 0.375rem; /* 6px */
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.post-card:hover {
+  transform: translateY(-0.5rem) scale(1.015) rotate(-1.5deg);
+  box-shadow: 0 24px 40px rgba(10, 10, 10, 0.18);
+}
+
+.post-card-wrap:nth-child(even) .post-card:hover {
+  transform: translateY(-0.5rem) scale(1.015) rotate(1.5deg);
+}
+
+.post-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: fit-content;
+  padding: 0.28125rem 0.625rem; /* 4.5px / 10px */
+  border-radius: 6.25rem;
+  background: rgba(10, 10, 10, 1);
+  font-family: "intersemibold";
+  font-weight: 600;
+  font-size: 0.59375rem; /* 9.5px */
+  line-height: 1.6; /* 15.2px */
+  letter-spacing: 0.095rem; /* 1.52px */
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.post-card:hover .post-badge {
+  transform: scale(1.08);
+}
+
+/* ── arrow — hidden top-right, slides + fades in on hover ── */
+.post-arrow {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.875rem; /* 30px */
+  height: 1.875rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: translate(-0.375rem, 0.375rem);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.post-card:hover .post-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.post-title {
+  margin: 0 0 0.375rem;
+  font-family: "interbold";
+  font-weight: 400;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.1176; /* 19px */
+  text-transform: uppercase;
+}
+
+.post-title a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.post-meta {
+  margin: 0;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.625rem; /* 10px */
+  line-height: 1.6; /* 16px */
+  letter-spacing: 0.1rem; /* 1.6px */
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .filterbar-main {
+    padding-inline: 2.5rem;
+  }
+
+  .honeyversegrid-main {
+    padding-inline: 2.5rem;
+  }
+
+  .honeyversegrid-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 640px)
+══════════════════════════════ */
+@media screen and (max-width: 640px) {
+  .filterbar-main {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 1.25rem;
+    padding-block: 1rem;
+  }
+
+  .filterbar-pill {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .filterbar-count {
+    order: -1;
+  }
+
+  .honeyversegrid-main {
+    padding-inline: 1.25rem;
+    padding-block: 1.5rem;
+  }
+
+  .honeyversegrid-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .post-title {
+    font-size: 0.875rem; /* 14px */
+  }
+}
