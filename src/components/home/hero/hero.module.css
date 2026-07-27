@@ -8,6 +8,13 @@
   --grey-muted: rgba(220, 198, 208, 1);
   --line-soft: rgba(255, 255, 255, 1);
   --yellow: #f4c518;
+  /* accounts for the fixed navbar (header bar + marquee strip). Kept
+     only as a variable here — NOT as padding/margin on the wrapper —
+     so the quiet/loud panel backgrounds still fill the full height
+     from y=0 (seamless color right under the navbar). The offset is
+     applied to .panel's own padding-top instead, so only the content
+     shifts down, not the background. */
+  --fixed-nav-offset: 7.5rem;
 
   position: relative;
   display: flex;
@@ -15,7 +22,6 @@
   height: 100svh;
   min-height: 910px;
   overflow: hidden;
-  margin-top:6rem;
 }
 
 /* ---------- shared panel shell ---------- */
@@ -27,7 +33,7 @@
   min-width: 0;
   height: 100%;
   padding: clamp(28px, 4vw, 56px) clamp(24px, 6vw, 72px) clamp(40px, 8vw, 88px);
-  padding-top: 2.5rem;
+  padding-top: calc(var(--fixed-nav-offset) + 2.5rem);
   transition: flex-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -281,7 +287,7 @@
 .badge {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: calc(50% + (var(--fixed-nav-offset) / 2));
   transform: translate(-50%, -50%);
   width: clamp(160px, 18vw, 280px);
   height: clamp(160px, 18vw, 280px);
@@ -398,17 +404,17 @@
 }
 
 .cornerTL {
-  top: 20px;
+  top: 140px;
   left: 20px;
   border-top: 2px solid rgba(124, 111, 163, 1);
   border-left: 2px solid rgba(124, 111, 163, 1);
 }
 
 .cornerTR {
-  top: 20px;
+  top: 140px;
   right: 20px;
-  border-top: 2px solid rgba(8, 8, 8, 0.1);
-  border-right: 2px solid rgba(8, 8, 8, 0.1);
+  border-top: 2px solid rgba(124, 111, 163, 1);
+  border-right: 2px solid rgba(124, 111, 163, 1);
 }
 
 .cornerBL {
@@ -476,6 +482,7 @@
 
 @media (max-width: 860px) {
   .wrapper {
+    --fixed-nav-offset: 6.5rem;
     flex-direction: column;
     height: auto;
     min-height: 0;
@@ -485,6 +492,13 @@
     flex: 1 1 auto;
     padding: 40px 28px 56px;
     min-height: 520px;
+  }
+
+  /* only the first panel sits directly under the fixed navbar once
+     stacked — the second panel follows in normal flow and doesn't
+     need the extra offset */
+  .quiet {
+    padding-top: calc(var(--fixed-nav-offset) + 40px);
   }
 
   .loud .content,
@@ -526,9 +540,17 @@
 }
 
 @media (max-width: 640px) {
+  .wrapper {
+    --fixed-nav-offset: 6rem;
+  }
+
   .panel {
     padding: 32px 20px 44px;
     min-height: 440px;
+  }
+
+  .quiet {
+    padding-top: calc(var(--fixed-nav-offset) + 32px);
   }
 
   .quiet .title {
@@ -584,6 +606,10 @@
 @media (max-width: 400px) {
   .panel {
     padding: 28px 16px 36px;
+  }
+
+  .quiet {
+    padding-top: calc(var(--fixed-nav-offset) + 28px);
   }
 
   .quiet .title {

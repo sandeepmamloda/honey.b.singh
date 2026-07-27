@@ -1,0 +1,115 @@
+/* ══════════════════════════════
+   WRAPPER
+   --fixed-nav-offset accounts for the fixed navbar (header bar +
+   marquee strip) sitting on top of the page, so this section's own
+   content doesn't render underneath it. Override the variable from a
+   shared/global stylesheet if the navbar's real height changes.
+══════════════════════════════ */
+.about-wrapper {
+  width: 100%;
+  background: rgba(255, 251, 242, 1);
+  --fixed-nav-offset: 7.5rem;
+}
+
+.about-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem; /* 28px */
+  padding-top: calc(var(--fixed-nav-offset) + clamp(4rem, 9vw, 8.6875rem)); /* navbar + 139px */
+  padding-inline: clamp(1.5rem, 8vw, 6.25rem); /* 100px */
+  padding-bottom: clamp(3rem, 6vw, 5rem); /* 80px */
+}
+
+/* ══════════════════════════════
+   EYEBROW
+══════════════════════════════ */
+.about-eyebrow {
+  margin: 0;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 500;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.75; /* 19.25px */
+  letter-spacing: 0.1925rem; /* 3.08px */
+  text-transform: uppercase;
+  color: rgba(124, 111, 163, 1);
+}
+
+/* ══════════════════════════════
+   HEADING
+══════════════════════════════ */
+.about-heading {
+  margin: 0;
+  max-width: 47.09rem; /* ~753px */
+  font-family: 'youngserif';
+  font-weight: 300;
+  font-size: clamp(2.25rem, 5vw, 4.375rem); /* up to 70px */
+  line-height: 1.08;
+  letter-spacing: -0.06563rem; /* -1.05px */
+  color: rgba(25, 25, 25, 1);
+}
+
+.about-heading em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE MAX-WIDTH SCALING
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .about-main {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .about-main {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .about-main {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .about-main {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .about-main {
+    padding-inline: 2.5rem;
+  }
+
+  .about-heading {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 640px)
+══════════════════════════════ */
+@media screen and (max-width: 640px) {
+  .about-wrapper {
+    --fixed-nav-offset: 6rem;
+  }
+  .about-eyebrow{
+    text-align:center;
+  }
+  .about-heading{
+    text-align:center;
+  }
+  .about-main {
+    padding-inline: 1.25rem;
+    padding-top: calc(var(--fixed-nav-offset) + 4rem);
+    padding-bottom: 3rem;
+  }
+}

@@ -1,0 +1,115 @@
+/* ══════════════════════════════
+   WRAPPER
+   --fixed-nav-offset accounts for the fixed navbar (header bar +
+   marquee strip) sitting on top of the page, since this is the first
+   section on the Honeyverse page.
+══════════════════════════════ */
+.honeyversehero-wrapper {
+  width: 100%;
+  --fixed-nav-offset: 7.5rem;
+}
+
+.honeyversehero-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.325rem; /* 21.2px */
+  padding-top: calc(var(--fixed-nav-offset) + clamp(3.5rem, 8vw, 6.1875rem)); /* navbar + 99px */
+  padding-inline: clamp(1.5rem, 15vw, 6.25rem); /* 236px */
+  padding-bottom: clamp(2rem, 5vw, 2.75rem); /* 44px */
+}
+
+/* ══════════════════════════════
+   EYEBROW
+══════════════════════════════ */
+.honeyversehero-eyebrow {
+  margin: 0;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.4545; /* 16px */
+  letter-spacing: 0.125rem; /* 2px */
+  text-transform: uppercase;
+  color: rgba(233, 185, 74, 1);
+}
+
+/* ══════════════════════════════
+   HEADING
+══════════════════════════════ */
+.honeyversehero-heading {
+  margin: 0;
+  font-family: "interextrabold", sans-serif;
+  font-size: clamp(2.75rem, 7vw, 6.875rem); /* up to 110px */
+  line-height: 0.94; /* ~103.4px at 110px */
+  letter-spacing: -0.10313rem; /* -1.65px */
+  text-transform: uppercase;
+  color: rgba(116, 96, 175, 1);
+}
+
+/* ══════════════════════════════
+   DESCRIPTION
+══════════════════════════════ */
+.honeyversehero-desc {
+  margin: 0;
+  max-width: 34rem;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.6; /* 24px */
+  color: rgba(184, 175, 160, 1);
+}
+
+/* ══════════════════════════════
+   RESPONSIVE MAX-WIDTH SCALING
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .honeyversehero-main {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .honeyversehero-main {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .honeyversehero-main {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .honeyversehero-main {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .honeyversehero-main {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 640px)
+══════════════════════════════ */
+@media screen and (max-width: 640px) {
+  .honeyversehero-wrapper {
+    --fixed-nav-offset: 6rem;
+  }
+
+  .honeyversehero-main {
+    padding-inline: 1.25rem;
+    padding-top: calc(var(--fixed-nav-offset) + 3rem);
+    padding-bottom: 2rem;
+  }
+
+  .honeyversehero-desc {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,296 @@
+/* ══════════════════════════════
+   WRAPPER
+══════════════════════════════ */
+.thread-wrapper {
+  width: 100%;
+  background: rgba(255, 251, 242, 1);
+  /* accounts for the fixed navbar (header bar + marquee strip) sitting
+     on top of the page when this section is the first one on a page */
+  --fixed-nav-offset: 7.5rem;
+}
+
+.thread-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 23.75rem 1fr; /* 380px aside */
+  gap: clamp(3rem, 18vw, 19rem);
+  padding-inline: clamp(1.5rem, 8vw, 6.25rem); /* 100px */
+  padding-top: calc(var(--fixed-nav-offset) + clamp(3rem, 7vw, 5.625rem));
+  padding-bottom: clamp(3rem, 7vw, 5.625rem);
+}
+
+/* ══════════════════════════════
+   ASIDE
+══════════════════════════════ */
+.thread-aside {
+  position: sticky;
+  top: calc(var(--fixed-nav-offset) + 1.5rem);
+  align-self: start;
+}
+
+.thread-eyebrow {
+  margin: 0 0 1.25rem;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.75; /* 19.25px */
+  letter-spacing: 0.1925rem; /* 3.08px */
+  text-transform: uppercase;
+  color: rgba(124, 111, 163, 1);
+}
+
+.thread-items {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.thread-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem; /* 4.5px */
+  padding-top: 0.97rem; /* 15.5px */
+  padding-bottom: 1.09rem; /* 17.5px */
+  border-bottom: 1px solid var(--hairline, rgba(23, 20, 15, 0.12));
+}
+
+.thread-item:first-child {
+  padding-top: 0;
+}
+
+.thread-item-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "fraunces", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75; /* 31.5px */
+  color: rgba(25, 25, 25, 1);
+}
+
+.thread-dot {
+  flex: 0 0 auto;
+  width: 0.5rem; /* 8px */
+  height: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.thread-item-desc {
+  margin: 0;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.78125rem; /* 12.5px */
+  line-height: 1.75; /* 21.88px */
+  color: rgba(124, 111, 163, 1);
+}
+
+.thread-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.thread-link {
+  width: fit-content;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 0.78125rem; /* 12.5px */
+  line-height: 1.75; /* 21.88px */
+  letter-spacing: 0.03125rem; /* 0.5px */
+  color: rgba(25, 25, 25, 1);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: opacity 0.2s ease;
+}
+
+.thread-link:hover {
+  opacity: 0.65;
+}
+
+/* ══════════════════════════════
+   ARTICLE
+══════════════════════════════ */
+.thread-article {
+  max-width: 47.5rem;
+}
+
+.thread-portrait {
+  width: 100%;
+  max-width: 23.75rem; /* 380px */
+  aspect-ratio: 380 / 475;
+  margin: 0 0 2.75rem;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(160deg, #f4f0e8 0%, #d9d2c6 100%);
+}
+
+.thread-portrait span {
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1925rem;
+  text-transform: uppercase;
+  color: rgba(23, 20, 15, 0.45);
+}
+
+.thread-article p {
+  margin: 0 0 1.5rem;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 1.03125rem; /* 16.5px */
+  line-height: 1.75; /* 28.88px */
+  color: rgba(25, 25, 25, 1);
+}
+
+.thread-lede {
+  font-size: 1.1875rem !important; /* 19px */
+  line-height: 1.75 !important; /* 33.25px */
+}
+
+.thread-quote {
+  margin: 0 0 2.25rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--pink, rgba(255, 46, 126, 1));
+  font-family: "fraunces", serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 2.125rem; /* 34px */
+  line-height: 1.3; /* 44.2px */
+  color: rgba(179, 19, 79, 1);
+}
+
+.thread-subheading {
+  margin: 2.5rem 0 1.5rem;
+  font-family: "fraunces", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.75rem; /* 28px */
+  line-height: 1.75; /* 49px */
+  color: rgba(25, 25, 25, 1);
+}
+
+/* ══════════════════════════════
+   TEMPO ROWS
+══════════════════════════════ */
+.tempo-list {
+  margin: 0.5rem 0 2rem;
+}
+
+.tempo-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.125rem; /* 18px */
+  padding-block: 0.9375rem; /* 15px */
+  border-bottom: 1px solid var(--hairline, rgba(23, 20, 15, 0.12));
+}
+
+.tempo-row:first-child {
+  border-top: 1px solid var(--hairline, rgba(23, 20, 15, 0.12));
+}
+
+.tempo-label {
+  flex: 0 0 7rem;
+  font-family: "fraunces", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.75; /* 29.75px */
+}
+
+.tempo-desc {
+  margin: 0;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.75; /* 26.25px */
+  color: rgba(25, 25, 25, 1);
+}
+
+.thread-article a {
+  color: rgba(25, 25, 25, 1);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.thread-signature {
+  margin-top: 2.5rem;
+  font-family: "fraunces", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75; /* 35px */
+  color: rgba(25, 25, 25, 1);
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .thread-main {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .thread-main {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .thread-main {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .thread-main {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .thread-main {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .thread-main {
+    grid-template-columns: 1fr;
+  }
+
+  .thread-aside {
+    position: static;
+  }
+
+  .thread-quote {
+    font-size: 1.625rem; /* 26px */
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .thread-wrapper {
+    --fixed-nav-offset: 6rem;
+  }
+
+  .thread-main {
+    padding-inline: 1.25rem;
+    padding-top: calc(var(--fixed-nav-offset) + 3rem);
+    padding-bottom: 3rem;
+    gap: 2.5rem;
+  }
+
+  .tempo-row {
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .tempo-label {
+    flex: none;
+  }
+}

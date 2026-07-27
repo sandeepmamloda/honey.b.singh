@@ -59,9 +59,12 @@
 }
 
 /* ══════════════════════════════
-   MOBILE (≤ 640px)
+   TABLET / MOBILE (≤ 1024px)
+   Moved up from 640px — below ~1024px the two nowrap copyright
+   strings + nav links no longer fit the 1fr auto 1fr grid and were
+   overflowing/breaking around 930px. Stacking earlier avoids that.
 ══════════════════════════════ */
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .footer-inner {
     grid-template-columns: 1fr;
     justify-items: center;

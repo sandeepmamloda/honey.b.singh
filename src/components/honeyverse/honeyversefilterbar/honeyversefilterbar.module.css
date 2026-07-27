@@ -1,0 +1,102 @@
+/* ══════════════════════════════
+   WRAPPER
+══════════════════════════════ */
+.filterbar-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 1);
+  /* border-bottom: 1px solid var(--hairline, rgba(23, 20, 15, 0.12)); */
+}
+
+.filterbar-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 96.8125rem; /* ~1549px */
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.125rem; /* 18px */
+  padding-inline: clamp(1.5rem, 24vw, 6.125rem); /* 380px */
+}
+
+/* ══════════════════════════════
+   PILLS
+══════════════════════════════ */
+.filterbar-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem; /* 10px */
+}
+
+.filterbar-pill {
+  box-sizing: border-box;
+  padding: 0.5625rem 2.5625rem; /* 9px / 41px */
+  border-radius: 0.25rem;
+  border: 1px solid var(--hairline, rgba(23, 20, 15, 0.15));
+  background: rgba(255, 255, 255, 1);
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 0.71875rem; /* 11.5px */
+  line-height: 1;
+  letter-spacing: 0.1rem; /* 1.61px */
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 1);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.filterbar-pill:hover {
+  border-color: rgba(255, 150, 216, 1);
+}
+
+.filterbar-pill.active {
+  background: rgba(255, 150, 216, 1);
+  border-color: rgba(255, 150, 216, 1);
+}
+
+/* ══════════════════════════════
+   POST COUNT
+══════════════════════════════ */
+.filterbar-count {
+  flex: 0 0 auto;
+  margin: 0;
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: rgba(184, 175, 160, 1);
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .filterbar-main {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 640px)
+══════════════════════════════ */
+@media screen and (max-width: 640px) {
+  .filterbar-main {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 1.25rem;
+    padding-block: 1rem;
+  }
+
+  .filterbar-pill {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .filterbar-count {
+    order: -1;
+  }
+}
