@@ -100,42 +100,42 @@
 /* ---------inter-------------- */
 @font-face {
   font-family: "intersemibold";
-  src: url("/fonts/inter/inter/static/Inter_18pt-SemiBold.ttf") format("truetype");
+  src: url("/fonts/inter/Inter/static/Inter_18pt-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "interregular";
-  src: url("/fonts/inter/inter/static/Inter_18pt-Regular.ttf") format("truetype");
+  src: url("/fonts/inter/Inter/static/Inter_18pt-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "interblack";
-  src: url("/fonts/inter/inter/static/Inter_18pt-Black.ttf") format("truetype");
+  src: url("/fonts/inter/Inter/static/Inter_18pt-Black.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "intermedium";
-  src: url("/fonts/inter/inter/static/Inter_18pt-Medium.ttf") format("truetype");
+  src: url("/fonts/inter/Inter/static/Inter_18pt-Medium.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "interbold";
-  src: url("/fonts/inter/inter/static/Inter_18pt-Bold.ttf") format("truetype");
+  src: url("/fonts/inter/Inter/static/Inter_18pt-Bold.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "interextrabold";
-  src: url("/fonts/inter/inter/static/Inter_18pt-ExtraBold.ttf") format("truetype");
+  src: url("/fonts/inter/Inter/static/Inter_18pt-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
