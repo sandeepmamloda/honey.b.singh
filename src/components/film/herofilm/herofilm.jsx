@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./herofilm.module.css";
+import { LoaderLink } from "@/components/common/loader/loader";
 
 /* Same fade-in-on-scroll utility used across the site (see Manifesto). */
 const Reveal = ({
@@ -78,9 +79,9 @@ const Herofilm = () => {
             Shorts, a feature in development, and fiction novel.
             <br />
             For screeners, EPK, or reps, use the{" "}
-            <a href="#contact" className={styles["subtitle-link"]}>
+            <LoaderLink href="/contact" className={styles["subtitle-link"]}>
               press &amp; industry channel.
-            </a>
+            </LoaderLink>
           </Reveal>
         </div>
 

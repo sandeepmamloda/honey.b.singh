@@ -3,7 +3,7 @@
 ══════════════════════════════ */
 .projects {
   width: 100%;
-  background: #fff;
+  /* background: #fff; */
   padding-block: clamp(3.5rem, 8vw, 6rem);
   padding-inline: clamp(1.5rem, 6vw, 6rem);
 }
@@ -118,7 +118,38 @@
   color: rgba(134, 131, 127, 1);
   text-transform:uppercase;
 }
-
+@media screen and (max-width: 1780px) {
+  .top-row {
+    max-width: 90rem;
+  }
+  .grid{
+    max-width:90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .top-row {
+    max-width: 80rem;
+  }
+  .grid {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .top-row {
+    max-width: 72rem;
+  }
+  .grid {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .top-row {
+    max-width: 100%;
+  }
+  .grid {
+    max-width: 100%;
+  }
+}
 /* ══════════════════════════════
    TABLET (≤ 64rem)
 ══════════════════════════════ */

@@ -18,7 +18,7 @@
 /* ══════════════════════════════
    RESPONSIVE MAX-WIDTH SCALING
 ══════════════════════════════ */
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1450px) {
   .doors-main {
     max-width: 100%;
   }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from './hero.module.css';
+import { LoaderLink } from "@/components/common/loader/loader";
 
 const TAGS = [
   { label: 'Story', active: false },
@@ -91,9 +92,10 @@ export default function Hero() {
       <span className={`${styles.corner} ${styles.cornerBR}`} />
 
       {/* left — the quiet room */}
-      <div
+      <LoaderLink
+        href="/film"
         className={`${styles.panel} ${styles.quiet}`}
-        style={{ flexGrow: quietGrow }}
+        style={{ flexGrow: quietGrow, cursor: 'pointer' }}
         onMouseEnter={() => setHovered('quiet')}
         onMouseLeave={() => setHovered(null)}
       >
@@ -126,17 +128,20 @@ export default function Hero() {
 
           <hr className={styles.rule} />
 
-          <a href="#quiet" className={styles.cta}>
+          {/* visual only — the whole panel above is already the LoaderLink,
+              so this isn't a separate <a> (avoids nested anchors) */}
+          <span className={styles.cta}>
             Enter Quietly
             <ArrowRight />
-          </a>
+          </span>
         </div>
-      </div>
+      </LoaderLink>
 
       {/* right — the loud room */}
-      <div
+      <LoaderLink
+        href="/honeyverse"
         className={`${styles.panel} ${styles.loud}`}
-        style={{ flexGrow: loudGrow }}
+        style={{ flexGrow: loudGrow, cursor: 'pointer' }}
         onMouseEnter={() => setHovered('loud')}
         onMouseLeave={() => setHovered(null)}
       >
@@ -173,12 +178,13 @@ export default function Hero() {
             ))}
           </div>
 
-          <a href="#loud" className={styles.cta}>
+          {/* visual only — see note above */}
+          <span className={styles.cta}>
             Enter Loud
             <ArrowDiagonal />
-          </a>
+          </span>
         </div>
-      </div>
+      </LoaderLink>
 
       <Badge />
     </section>

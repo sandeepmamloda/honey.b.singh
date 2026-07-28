@@ -35,6 +35,12 @@
   padding: clamp(28px, 4vw, 56px) clamp(24px, 6vw, 72px) clamp(40px, 8vw, 88px);
   padding-top: calc(var(--fixed-nav-offset) + 2.5rem);
   transition: flex-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* the panel is now a LoaderLink (renders <a>) so we strip the
+     browser's default anchor styling — underline + link color —
+     which would otherwise bleed into every nested piece of text */
+  text-decoration: none;
+  color: inherit;
 }
 
 .quiet {

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./baisakhi.module.css"
+import styles from "./baisakhi.module.css";
+import { LoaderLink } from "@/components/common/loader/loader";
 
 /* Same fade-in-on-scroll utility used across the site (see Manifesto / Herofilm). */
 const Reveal = ({
@@ -77,7 +78,7 @@ const FeaturedFilm = () => {
         </Reveal>
 
         <Reveal className={styles["cta-col"]} direction="right" delay={150}>
-          <a href="#deck" className={styles["cta"]}>
+          <LoaderLink href="/contact" className={styles["cta"]}>
             Request the deck
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +92,7 @@ const FeaturedFilm = () => {
                 fill="#17110f"
               />
             </svg>
-          </a>
+          </LoaderLink>
         </Reveal>
       </div>
     </section>

@@ -162,9 +162,39 @@
 }
 
 /* ══════════════════════════════
+   PROGRESSIVE MAX-WIDTH SCALING
+   (same step-down pattern used on Featured Film's .row —
+   keeps below the base 1440px, so it only ever shrinks)
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .title,
+  .table {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .title,
+  .table {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .title,
+  .table {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .title,
+  .table {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
    TABLET (≤ 64rem)
 ══════════════════════════════ */
-@media (max-width: 64rem) {
+@media screen and (max-width: 64rem) {
   .row {
     grid-template-columns:
       minmax(3rem, 0.5fr)
@@ -186,7 +216,7 @@
    MOBILE (≤ 53.75rem) — stack each row into
    a card-like block
 ══════════════════════════════ */
-@media (max-width: 53.75rem) {
+@media screen and (max-width: 53.75rem) {
   .title {
     font-size: 1.75rem;
   }

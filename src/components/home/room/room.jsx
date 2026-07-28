@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./room.module.css";
+import { LoaderLink } from "@/components/common/loader/loader";
 
 const schedule = [
   {
@@ -165,7 +166,7 @@ const Room = () => {
               delay={schedule.length * 150 + 150}
               className={styles["cta-wrapper"]}
             >
-              <MagneticButton href="#book" className={styles["cta-book"]}>
+              <MagneticButton href="/teach" className={styles["cta-book"]}>
                 Book a class →
               </MagneticButton>
             </Reveal>

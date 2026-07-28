@@ -66,6 +66,7 @@ const projects = [
     image: "/images/film/keys.png",
     alt: "Editing suite with film reels for the Keys edit",
   },
+  
 ];
 
 const SelectedProjects = () => {

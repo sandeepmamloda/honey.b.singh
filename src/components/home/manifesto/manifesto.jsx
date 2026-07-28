@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./manifesto.module.css";
+import { LoaderLink } from "@/components/common/loader/loader";
 
 const rows = [
   {
@@ -136,7 +137,7 @@ const Manifesto = () => {
           className={styles["cta-wrap"]}
           delay={rows.length * 150 + 150}
         >
-          <a href="#story" className={styles["cta"]}>
+          <LoaderLink href="/about" className={styles["cta"]}>
             Read the whole story
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +151,7 @@ const Manifesto = () => {
                 fill="#fff"
               />
             </svg>
-          </a>
+          </LoaderLink>
         </Reveal>
       </section>
     </div>

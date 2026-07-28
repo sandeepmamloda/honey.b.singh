@@ -12,7 +12,7 @@
 .thread-main {
   width: 100%;
   box-sizing: border-box;
-  max-width: 96.8125rem; /* ~1549px */
+  max-width: 90rem; /* ~1549px */
   margin-inline: auto;
   display: grid;
   grid-template-columns: 23.75rem 1fr; /* 380px aside */

@@ -173,10 +173,41 @@
 
 
 /* ══════════════════════════════
+   PROGRESSIVE MAX-WIDTH SCALING
+   (same step-down pattern used on Featured Film's .row —
+   keeps below the base 1440px, so it only ever shrinks)
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .press-header,
+  .grid {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .press-header,
+  .grid {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .press-header,
+  .grid {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .press-header,
+  .grid {
+    max-width: 100%;
+  }
+}
+
+
+/* ══════════════════════════════
    MOBILE
 ══════════════════════════════ */
 
-@media (max-width: 48rem) {
+@media screen and (max-width: 48rem) {
   .press-header {
     gap: 0.75rem;
   }

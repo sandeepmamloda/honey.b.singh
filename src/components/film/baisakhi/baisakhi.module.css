@@ -3,7 +3,7 @@
 ══════════════════════════════ */
 .featured-film {
   width: 100%;
-  background: #fff;
+  /* background: #fff; */
   padding-block: clamp(2.5rem, 6vw, 7rem);
   padding-inline: clamp(1.5rem, 6vw, 7rem);
 }
@@ -121,11 +121,32 @@
   opacity: 0.7;
 }
 
+@media screen and (max-width: 1780px) {
+  .row {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .row {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .row {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .row {
+    max-width: 100%;
+  }
+}
+
 /* ══════════════════════════════
    LARGE DESKTOP (≥ 90rem) — cap column growth
    so text doesn't drift too far right on ultrawide
 ══════════════════════════════ */
-@media (min-width: 90rem) {
+@media screen and (min-width: 90rem) {
   .row {
     grid-template-columns: 1fr 1fr auto;
   }
@@ -134,7 +155,7 @@
 /* ══════════════════════════════
    TABLET (≤ 64rem)
 ══════════════════════════════ */
-@media (max-width: 64rem) {
+@media screen and (max-width: 64rem) {
   .row {
     grid-template-columns: 0.85fr 1.15fr auto;
     column-gap: 1.75rem;
@@ -150,7 +171,7 @@
    SMALL TABLET (≤ 58rem) — cta wraps under text,
    badge stays left, text takes full remaining width
 ══════════════════════════════ */
-@media (max-width: 58rem) {
+@media screen and (max-width: 58rem) {
   .row {
     grid-template-columns: 1fr 1fr;
     row-gap: 1.5rem;
@@ -178,7 +199,7 @@
 /* ══════════════════════════════
    MOBILE (≤ 53.75rem) — fully stacked
 ══════════════════════════════ */
-@media (max-width: 53.75rem) {
+@media screen and (max-width: 53.75rem) {
   .row {
     grid-template-columns: 1fr;
     row-gap: 1.5rem;
@@ -205,7 +226,7 @@
 /* ══════════════════════════════
    VERY SMALL (≤ 30rem)
 ══════════════════════════════ */
-@media (max-width: 30rem) {
+@media screen and (max-width: 30rem) {
   .badge {
     font-size: 0.7rem;
     padding: 0.4rem 0.7rem;

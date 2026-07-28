@@ -14,7 +14,7 @@
 .about-main {
   width: 100%;
   box-sizing: border-box;
-  max-width: 96.8125rem; /* ~1549px */
+  max-width: 90rem;
   margin-inline: auto;
   display: flex;
   flex-direction: column;

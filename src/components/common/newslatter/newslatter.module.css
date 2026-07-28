@@ -64,7 +64,7 @@
   gap: 0.75rem;
 }
 
-.newslatter-subscribe-btn {
+/* .newslatter-subscribe-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,6 +83,31 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .newslatter-subscribe-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 150, 216, 0.45);
+} */
+ .newslatter-subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.1rem 5rem;
+  background: rgb(255, 150, 216);
+  border-radius: 0.4rem;
+  font-family: "interextrabold";
+  font-size: 0.85rem;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  will-change: transform;
+  transition: transform 0.2s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.newslatter-subscribe-btn:hover {
+  background: rgb(245, 120, 198);
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(255, 150, 216, 0.45);
 }
