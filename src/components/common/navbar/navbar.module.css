@@ -76,7 +76,7 @@
 
 /* Step 1: Marquee Header ke peeche upar slide ho jayega */
 .navbar-hidden .marquee-wrapper {
-  transform: translateY(-200%);
+  transform: translateY(-500%);
   transition-delay: 0s; /* Turant Marquee upar slide hone lagega */
 }
 

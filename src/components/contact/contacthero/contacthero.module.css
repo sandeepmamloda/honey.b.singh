@@ -1,0 +1,170 @@
+/* ══════════════════════════════
+   WRAPPER
+   --fixed-nav-offset accounts for the fixed navbar (header bar +
+   marquee strip) sitting on top of the page, since this is the first
+   section on the Contact page.
+══════════════════════════════ */
+.contacthero-wrapper {
+  width: 100%;
+  --fixed-nav-offset: 7.5rem;
+}
+
+.contacthero-main {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 90rem; /* 1080px */
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.625rem; /* 26px */
+  padding-inline: clamp(1.5rem, 8vw, 8rem);
+  padding-top: calc(var(--fixed-nav-offset) + 8.125rem); /* navbar + 130px */
+  padding-bottom: 4rem; /* 64px */
+}
+
+/* ══════════════════════════════
+   EYEBROW
+══════════════════════════════ */
+.contacthero-eyebrow {
+  margin: 0;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.6; /* 17.6px */
+  letter-spacing: 0.09625rem; /* 1.54px */
+  text-transform: uppercase;
+  color: rgba(217, 134, 180, 1);
+
+  animation: contactheroFadeUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+/* ══════════════════════════════
+   HEADING
+══════════════════════════════ */
+.contacthero-heading {
+  margin: 0;
+  font-family: "youngserif", serif;
+  font-weight: 300;
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* up to 72px */
+  line-height: 1.06; /* 76.32px at 72px */
+  letter-spacing: -0.0675rem; /* -1.08px */
+  color: rgba(25, 25, 25, 1);
+}
+
+/* each line is clipped by its wrapper so it can slide up into place */
+.contacthero-heading-line-wrap {
+  display: block;
+  overflow: hidden;
+}
+
+.contacthero-heading-line {
+  display: block;
+  animation: contactheroLineReveal 1.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes contactheroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.125rem); /* 18px */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contactheroLineReveal {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contacthero-eyebrow,
+  .contacthero-heading-line,
+  .contacthero-desc {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ══════════════════════════════
+   DESCRIPTION
+══════════════════════════════ */
+.contacthero-desc {
+  margin: 0;
+  max-width: 31rem; /* ~496px, matches the two-line wrap in the design */
+  font-family: "interregular", sans-serif;
+  font-weight: 400;
+  font-size: 0.96875rem; /* 15.5px */
+  line-height: 1.65; /* 25.58px */
+  letter-spacing: 0;
+  color: rgba(116, 96, 175, 1);
+
+  animation: contactheroFadeUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE MAX-WIDTH SCALING
+══════════════════════════════ */
+@media screen and (max-width: 1780px) {
+  .contacthero-main {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .contacthero-main {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .contacthero-main {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .contacthero-main {
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .contacthero-main {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 640px)
+══════════════════════════════ */
+@media screen and (max-width: 640px) {
+  .contacthero-wrapper {
+    --fixed-nav-offset: 6rem;
+  }
+  
+  .contacthero-main {
+    padding-inline: 1.25rem;
+    padding-top: calc(var(--fixed-nav-offset) + 3rem);
+    padding-bottom: 2.5rem;
+    gap: 1.25rem;
+  }
+  .contacthero-eyebrow{
+    text-align:center;
+  }
+  .contacthero-heading{
+    text-align:center;
+  }
+  .contacthero-desc {
+    max-width: 100%;
+    text-align:center;
+  }
+}
