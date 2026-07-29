@@ -6,6 +6,7 @@
   /* background: #fff; */
   padding-block: clamp(3.5rem, 8vw, 6rem);
   padding-inline: clamp(1.5rem, 6vw, 6rem);
+  overflow:hidden;
 }
 
 /* ── SCROLL REVEAL (shared pattern) ── */
@@ -118,7 +119,7 @@
   color: rgba(134, 131, 127, 1);
   text-transform:uppercase;
 }
-@media screen and (max-width: 1780px) {
+/* @media screen and (max-width: 1780px) {
   .top-row {
     max-width: 90rem;
   }
@@ -149,11 +150,19 @@
   .grid {
     max-width: 100%;
   }
+} */
+ @media screen and (max-width:1680px){
+  .top-row {
+    max-width: 100%;
+  }
+  .grid {
+    max-width: 100%;
+  }
 }
 /* ══════════════════════════════
    TABLET (≤ 64rem)
 ══════════════════════════════ */
-@media (max-width: 64rem) {
+@media screen and (max-width: 64rem) {
   .grid {
     column-gap: 1.25rem;
   }
@@ -162,7 +171,7 @@
 /* ══════════════════════════════
    MOBILE (≤ 48rem) — stack single column
 ══════════════════════════════ */
-@media (max-width: 48rem) {
+@media screen and (max-width: 48rem) {
   .grid {
     grid-template-columns: 1fr;
     row-gap: 2rem;
@@ -181,7 +190,7 @@
 /* ══════════════════════════════
    VERY SMALL (≤ 30rem)
 ══════════════════════════════ */
-@media (max-width: 30rem) {
+@media screen and (max-width: 30rem) {
   .eyebrow,
   .section-mark {
     font-size: 0.65rem;

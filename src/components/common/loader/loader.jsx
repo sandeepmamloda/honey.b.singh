@@ -116,7 +116,7 @@ export default function Loader({
 
   useEffect(() => {
 
-    document.documentElement.style.overflow =
+    document.documentElement.style.overflowY =
       "hidden";
 
 
@@ -174,7 +174,7 @@ export default function Loader({
         );
 
 
-        document.documentElement.style.overflow =
+        document.documentElement.style.overflowY =
           "";
 
       }, (
@@ -207,7 +207,7 @@ export default function Loader({
       );
 
 
-      document.documentElement.style.overflow =
+      document.documentElement.style.overflowY =
         "";
 
     };
@@ -291,7 +291,7 @@ export default function Loader({
       href;
 
 
-    document.documentElement.style.overflow =
+    document.documentElement.style.overflowY =
       "hidden";
 
 
@@ -382,7 +382,7 @@ export default function Loader({
         );
 
 
-        document.documentElement.style.overflow =
+        document.documentElement.style.overflowY =
           "";
 
       }, NAV_REVEAL_MS);
@@ -412,7 +412,7 @@ export default function Loader({
       );
 
 
-      document.documentElement.style.overflow =
+      document.documentElement.style.overflowY =
         "";
 
     };
@@ -584,8 +584,8 @@ export function LoaderLink({
 
 
   return (
-
     <a
+    
       href={href}
       className={className}
 

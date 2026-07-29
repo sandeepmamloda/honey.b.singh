@@ -3,7 +3,7 @@
 ══════════════════════════════ */
 .yoga-hero {
   width: 100%;
-  background: #fff;
+  /* background: #fff; */
   padding-block: clamp(3.5rem, 8vw, 6rem);
   padding-top: 15rem;
   padding-inline: clamp(1.5rem, 6vw, 6rem);
@@ -171,7 +171,7 @@
 /* ══════════════════════════════
    TABLET (≤ 64rem)
 ══════════════════════════════ */
-@media (max-width: 64rem) {
+@media screen and (max-width: 64rem) {
   .hero-body {
     column-gap: 2.5rem;
   }
@@ -195,7 +195,7 @@
 /* ══════════════════════════════
    MOBILE (≤ 53.75rem) — stack, circle below copy
 ══════════════════════════════ */
-@media (max-width: 53.75rem) {
+@media screen and  (max-width: 53.75rem) {
   .hero-body {
     grid-template-columns: 1fr;
     row-gap: 3rem;
@@ -204,17 +204,25 @@
   .circle-wrap {
     order: 2;
   }
-
+  .eyebrow{
+    margin-inline:auto;
+    text-align:center;
+  }
   .title {
     font-size: 2.5rem;
     line-height: 2.75rem;
+    text-align:center;
+  }
+  .description{
+    text-align:center;
+    margin-inline:auto;
   }
 }
 
 /* ══════════════════════════════
    VERY SMALL (≤ 30rem)
 ══════════════════════════════ */
-@media (max-width: 30rem) {
+@media screen and  (max-width: 30rem) {
   .title {
     font-size: 2rem;
     line-height: 2.25rem;

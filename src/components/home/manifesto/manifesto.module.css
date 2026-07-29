@@ -4,6 +4,7 @@
 .manifesto-wrapper {
   width: 100%;
   background: rgba(255, 251, 242, 1);
+  overflow:hidden;
 }
 
 .manifesto-main {
@@ -12,7 +13,7 @@
   color: #17110f;
   padding-block-start: 6rem;
   padding-block-end: 7rem;
-  padding-inline: 2rem;
+  padding-inline: clamp(1.5rem, 7vw, 7.5rem);
   margin-inline: auto;
   max-width: 90rem;
 }
@@ -187,6 +188,26 @@
 .cta svg {
   flex-shrink: 0;
 }
+/* @media screen and (max-width: 1780px) {
+  .manifesto-main {
+    max-width: 90rem;
+  }
+}
+@media screen and (max-width: 1630px) {
+  .manifesto-main {
+    max-width: 80rem;
+  }
+}
+@media screen and (max-width: 1460px) {
+  .manifesto-main {
+    max-width: 72rem;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .manifesto-main {
+    max-width: 100%;
+  }
+} */
 @media screen and (max-width: 1450px) {
   .manifesto-main {
     max-width:100%;

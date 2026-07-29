@@ -7,7 +7,9 @@ import Expectfaqsection from "@/components/teach/expectfaqsection/expectfaqsecti
 import Newslatter from "@/components/common/newslatter/newslatter";
 export default function Page() {
   return (
-    <main style={{overflowX:"hidden"}}>
+    <main style={{overflowX:"hidden",
+                  backgroundColor:"rgba(255, 251, 242, 1)"
+    }}>
        <Herofilm />
        <Featurepillars/>
        <Breath/>

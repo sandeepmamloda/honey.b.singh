@@ -440,7 +440,7 @@
 /* ============================================================
    RESPONSIVE BREAKPOINTS
    ============================================================ */
-@media (max-width: 1280px) {
+@media screen and (max-width: 1280px) {
   .badge {
     width: clamp(150px, 16vw, 240px);
     height: clamp(150px, 16vw, 240px);
@@ -452,7 +452,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media screen and  (max-width: 1024px) {
   .wrapper {
     min-height: 760px;
   }
@@ -486,14 +486,17 @@
   }
 }
 
-@media (max-width: 860px) {
+@media screen and (max-width: 860px) {
   .wrapper {
     --fixed-nav-offset: 6.5rem;
     flex-direction: column;
     height: auto;
     min-height: 0;
   }
-
+  .quiet .eyebrow{
+    /* margin-inline:auto; */
+    margin-bottom:5rem;
+   }
   .panel {
     flex: 1 1 auto;
     padding: 40px 28px 56px;
@@ -506,7 +509,6 @@
   .quiet {
     padding-top: calc(var(--fixed-nav-offset) + 40px);
   }
-
   .loud .content,
   .loud .sub,
   .tags {
@@ -545,7 +547,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media screen and  (max-width: 640px) {
   .wrapper {
     --fixed-nav-offset: 6rem;
   }
@@ -609,7 +611,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media screen and  (max-width: 400px) {
   .panel {
     padding: 28px 16px 36px;
   }

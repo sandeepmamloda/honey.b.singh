@@ -6,7 +6,7 @@
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
-  background: #fff;
+  /* background: #fff; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,7 +120,7 @@
 }
 
 /* RESPONSIVE BREAKPOINTS */
-@media (max-width: 53.75rem) {
+@media screen and (max-width: 53.75rem) {
   .breath-circle-container {
     width: 22rem;
     height: 22rem;

@@ -166,7 +166,7 @@
    (same step-down pattern used on Featured Film's .row —
    keeps below the base 1440px, so it only ever shrinks)
 ══════════════════════════════ */
-@media screen and (max-width: 1780px) {
+/* @media screen and (max-width: 1780px) {
   .title,
   .table {
     max-width: 90rem;
@@ -185,6 +185,13 @@
   }
 }
 @media screen and (max-width: 1370px) {
+  .title,
+  .table {
+    max-width: 100%;
+  }
+} */
+
+@media screen and (max-width: 1680px) {
   .title,
   .table {
     max-width: 100%;

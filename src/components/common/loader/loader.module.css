@@ -1,4 +1,26 @@
 /* ══════════════════════════════
+   GLOBAL OVERFLOW FIX
+   (Loader baar-baar html pe overflowY
+   toggle karta hai jo scrollbar ko
+   show/hide karta hai aur viewport
+   width shift karta hai. scrollbar-gutter:
+   stable isse rokta hai.)
+══════════════════════════════ */
+
+html {
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+/* ══════════════════════════════
    OVERLAY
 ══════════════════════════════ */
 
@@ -232,8 +254,9 @@
 ══════════════════════════════ */
 
 .page {
-  width:
-    100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 

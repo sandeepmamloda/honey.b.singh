@@ -23,6 +23,7 @@ const rows = [
     quiet: ["Ink, laurels, a script in Punjabi", "I'm still finishing."],
     loud: ["HOT PINK, A FUZZY MIC, AND NO", "CHILL WHATSOEVER."],
   },
+  
 ];
 
 /* Fades an element into place the first time it scrolls into view.
