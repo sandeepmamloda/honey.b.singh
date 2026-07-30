@@ -113,27 +113,12 @@
 /* ══════════════════════════════
    RESPONSIVE MAX-WIDTH SCALING
 ══════════════════════════════ */
-@media screen and (max-width: 1780px) {
-  .contacthero-main {
-    max-width: 90rem;
-  }
-}
-@media screen and (max-width: 1630px) {
-  .contacthero-main {
-    max-width: 80rem;
-  }
-}
+
 @media screen and (max-width: 1460px) {
-  .contacthero-main {
-    max-width: 72rem;
-  }
-}
-@media screen and (max-width: 1370px) {
   .contacthero-main {
     max-width: 100%;
   }
 }
-
 /* ══════════════════════════════
    TABLET  (≤ 1024px)
 ══════════════════════════════ */

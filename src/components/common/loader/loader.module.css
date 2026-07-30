@@ -5,16 +5,27 @@
    show/hide karta hai aur viewport
    width shift karta hai. scrollbar-gutter:
    stable isse rokta hai.)
+
+   FIX: overflow-x: hidden ki jagah
+   overflow-x: clip use kiya hai.
+   "hidden" set karne se agar overflow-y
+   explicitly set na ho to browser
+   automatically overflow-y: auto bana
+   deta hai (CSS spec rule) — isse html,
+   body aur .page ek scroll-container ban
+   jaate hain aur position: sticky poore
+   app mein tut jaata hai. "clip" ye side
+   -effect create nahi karta.
 ══════════════════════════════ */
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
   scrollbar-gutter: stable;
   width: 100%;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   max-width: 100%;
 }
@@ -251,12 +262,20 @@ body {
 
 /* ══════════════════════════════
    PAGE
+
+   FIX: overflow-x: hidden hataya —
+   ye ancestor tha jo .thread-aside
+   ke sticky ko tod raha tha. Ab
+   clipping sirf html/body level
+   pe hoti hai, is intermediate
+   .page div pe koi overflow nahi
+   (isliye ye ab koi scroll-container
+   nahi banata).
 ══════════════════════════════ */
 
 .page {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 

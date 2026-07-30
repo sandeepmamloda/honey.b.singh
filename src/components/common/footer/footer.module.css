@@ -6,6 +6,7 @@
   box-sizing: border-box;
   background-color: rgba(255, 251, 242, 1);
   border-top: 1px solid rgba(191, 130, 190, 1);
+  overflow:hidden;
 }
 
 .footer-inner {

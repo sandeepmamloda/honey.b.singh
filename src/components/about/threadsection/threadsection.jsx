@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./threadsection.module.css";
+import { LoaderLink } from "@/components/common/loader/loader";
 
 const pillars = [
   {
@@ -100,14 +101,14 @@ const ThreadSection = () => {
 
           <div className={styles["thread-links"]}>
             {links.map((link, i) => (
-              <a
+              <LoaderLink
                 key={link.label}
                 href={link.href}
                 className={styles["thread-link"]}
                 style={{ animationDelay: `${0.9 + i * 0.12}s` }}
               >
                 {link.label}
-              </a>
+              </LoaderLink>
             ))}
           </div>
         </aside>
