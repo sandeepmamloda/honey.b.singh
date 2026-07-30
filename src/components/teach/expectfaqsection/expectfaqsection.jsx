@@ -14,17 +14,17 @@ const faqItems = [
   {
     question: "I'm not flexible. Is that a problem?",
     answer:
-      "No. Flexibility is a result of practice, not a requirement to start. Every pose has a modification, and you'll move at your own range from day one.",
+      "It's the opposite of a problem — flexibility is an outcome of practice, not an entry requirement. Breath-led pacing means you work at your range, not the room's.",
   },
   {
     question: "Is this spiritual, fitness, or what?",
     answer:
-      "Both, in the proportions you want. Classes are breath-paced and physically real, and you're free to take as much or as little of the reflective side as feels right for you.",
+      "It's a movement practice built on breath. If something bigger shows up for you on the mat, that's yours to keep — nothing is prescribed.",
   },
   {
     question: "Do you teach online?",
     answer:
-      "Not currently. Classes run in the studio only, so adjustments and pacing can stay hands-on and personal.",
+      "Private sessions can be virtual, and a self-paced beginner series is in the works — the waitlist gets it first.",
   },
 ];
 

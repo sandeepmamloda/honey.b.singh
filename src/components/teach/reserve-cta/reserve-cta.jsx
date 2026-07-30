@@ -18,7 +18,7 @@ const ReserveCta = () => {
         </div>
 
         <div className={styles["reserve-right"]}>
-          <a href="#book" className={styles["reserve-cta-btn"]}>
+          <a href="/teach" className={styles["reserve-cta-btn"]}>
             Book a class →
           </a>
           <p className={styles["reserve-waitlist"]}>
