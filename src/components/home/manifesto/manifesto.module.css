@@ -116,15 +116,18 @@
 
 .loud {
   margin: 0;
-  font-family: "aclonica";
+  font-family: 'twcenmt';
   font-size: clamp(0.8rem, 1.15vw, 2rem);
+  font-weight:400;
   line-height: 155%;
-  letter-spacing: 0.01rem;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   color: rgba(255, 150, 216, 1);
   text-align: left;
 }
-
+.loud span{
+  letter-spacing: 0.1rem;
+}
 .line {
   display: block;
 }

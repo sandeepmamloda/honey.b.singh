@@ -231,3 +231,11 @@
   font-style: normal;
   font-display: swap;
 }
+/* ================= Tw Cen MT ================= */
+@font-face {
+  font-family: 'twcenmt';
+  src: url('/fonts/tw-cen-mt/Tw Cen MT.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

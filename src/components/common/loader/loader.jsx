@@ -515,7 +515,7 @@ export default function Loader({
               }
             `}
           >
-            honey oh honey
+            welcome to honeybsingh.com
           </span>
 
         )}

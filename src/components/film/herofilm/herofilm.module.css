@@ -87,12 +87,12 @@
   font-family: "intersemibold";
   font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   line-height: 165%;
-  letter-spacing: 0.08rem;
-  color: rgba(134, 131, 127, 1);
+  letter-spacing: 0.03rem;
+  color: rgba(67, 67, 67, 1);
 }
 
 .subtitle-link {
-  color: rgb(132, 131, 127);
+  color: rgba(67, 67, 67, 1);
   text-decoration: underline;
   text-underline-offset: 0.1875rem;
   transition: color 0.2s ease;

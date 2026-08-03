@@ -21,25 +21,25 @@ const marqueeWords = [
   { text: "Woman", accent: false },
   { text: "Teach", accent: false },
   { text: "Film", accent: false },
-  { text: "Same Honesty At Speed", accent: true },
+  { text: "One question. Three speeds.", accent: true },
 
   { text: "Story", accent: false },
   { text: "Woman", accent: false },
   { text: "Teach", accent: false },
   { text: "Film", accent: false },
-  { text: "Same Honesty At Speed", accent: true },
+  { text: "One question. Three speeds.", accent: true },
 
   { text: "Story", accent: false },
   { text: "Woman", accent: false },
   { text: "Teach", accent: false },
   { text: "Film", accent: false },
-  { text: "Same Honesty At Speed", accent: true },
+  { text: "One question. Three speeds.", accent: true },
 
   { text: "Story", accent: false },
   { text: "Woman", accent: false },
   { text: "Teach", accent: false },
   { text: "Film", accent: false },
-  { text: "Same Honesty At Speed", accent: true },
+  { text: "One question. Three speeds.", accent: true },
 ];
 
 
@@ -237,7 +237,7 @@ const Navbar = () => {
       <div className={styles["header-wrapper"]}>
         <header className={styles["header-main"]}>
           <LoaderLink href="/" className={styles["logo"]}>
-            honey oh honey
+            honey b singh
           </LoaderLink>
 
           <div className={styles["nav-actions"]}>

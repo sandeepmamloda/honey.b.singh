@@ -71,7 +71,7 @@ const doors = [
       "Press & interviews",
     ],
     cta: "Get in touch →",
-    email: "industry@honeyoheney.com",
+    email: "industry@honeybsingh.com",
   },
   {
     variant: "brand",
@@ -91,7 +91,7 @@ const doors = [
       
     ],
     cta: "Media kit + rates →",
-    email: "partners@honeyoheney.com",
+    email: "partners@honeybsingh.com",
   },
   {
     variant: "yoga",
@@ -106,7 +106,7 @@ const doors = [
     sub: "The warm-room channel — first-timers especially welcome.",
     items: ["Book a drop-in class", "1:1 private sessions", "Beginner series waitlist"],
     cta: "Book now →",
-    email: "mat@honeyoheney.com",
+    email: "mat@honeybsingh.com",
   },
   
 ];

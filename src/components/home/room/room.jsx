@@ -6,11 +6,11 @@ import { LoaderLink } from "@/components/common/loader/loader";
 
 const schedule = [
   {
-    label: "Saluting the Sunrise flow:",
+    label: "Saluting the Sunrise: Hatha",
     time: "Tue / Thu · 7:00 am",
   },
   {
-    label: "Calming the Voices slow flow + breathwork",
+    label: "Calming the Voices: Slow Flow and Breathwork",
     time: "Sat · 10:00 am",
   },
   {
@@ -138,9 +138,7 @@ const Room = () => {
 
             <Reveal direction="left" delay={300}>
               <p className={styles["description"]}>
-                Trauma-informed, breath-led yin and vinyasa for people whose
-                bodies have been performing calm for years. RYT 200. Weekly
-                drop-ins, private sessions, self-paced beginner series.
+                Trauma-informed, breath-led yin and hatha for people whose bodies have been performing calm for years. Weekly drop-ins, private sessions, self-paced beginner series. RYT 200.
               </p>
             </Reveal>
           </div>

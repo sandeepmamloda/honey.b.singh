@@ -164,7 +164,7 @@
   font-family: 'intersemibold';
   font-size: clamp(0.9rem, 1.3vw, 1.2rem);
   line-height: 1.6;
-  color: var(--grey-muted);
+  color: rgba(0, 0, 0, 0.75);
   max-width: 480px;
   margin: 0 0 24px;
   animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;

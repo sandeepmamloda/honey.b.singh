@@ -33,18 +33,12 @@
   color: rgb(255, 150, 216);
 }
 
-.newslatter-heading {
+.newslatter-logo {
+  display: block;
   margin: 0 0 1.5rem;
-  font-family: 'aclonica';
-  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.01rem;
-  text-transform: uppercase;
-  color: rgb(25, 25, 25);
-}
-
-.newslatter-heading-accent {
-  color: rgb(255, 150, 216);
+  height: clamp(4.5rem, 10vw, 8rem);
+  width: auto;
+  max-width: 100%;
 }
 
 .newslatter-desc {
@@ -166,8 +160,8 @@
     flex-direction: column;
     align-items: center;
   }
-  .newslatter-heading{
-    text-align:center;
+  .newslatter-logo{
+    margin-inline: auto;
   }
    .newslatter-label{
     text-align:center;

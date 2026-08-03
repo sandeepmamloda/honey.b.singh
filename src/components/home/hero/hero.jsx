@@ -118,7 +118,8 @@ export default function Hero() {
             </span>
           </h1>
           <p className={styles.sub}>
-            Directing and Writing (South Asian women, mostly)One honest scene at a time.
+            Directing and Writing (about south asian women, mostly) One honest scene at a time
+
           </p>
 
           <hr className={styles.rule} />
