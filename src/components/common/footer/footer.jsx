@@ -17,7 +17,7 @@ const Footer = () => {
         </nav>
 
         <p className={styles["footer-copyright"]}>
-          Honey B Singh {year}
+          © Honey B Singh {year}
         </p>
       </div>
     </footer>

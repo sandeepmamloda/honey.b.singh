@@ -56,7 +56,7 @@ const Reveal = ({
 const films = [
   {
     year: "2015",
-    title: "Keys (Haagen Dazs)",
+    title: "KEYS (Haagen Dazs)",
     role: "Director & Writer",
     note: "Singapore",
     status: "Completed",
@@ -64,7 +64,7 @@ const films = [
   },
   {
     year: "2015",
-    title: "Arrange Me",
+    title: "ARRANGE ME",
     role: "Writer/Director",
     note: "National Association of Latino Independent Producers (NALIP) Diverse Women in Media Residency Lab",
     status: "In development",
@@ -72,7 +72,7 @@ const films = [
   },
   {
     year: "2016",
-    title: "Heer",
+    title: "HEER",
     role: "Director",
     note: "Best Short, London South Asian Film Festival",
     status: "Completed",
@@ -80,7 +80,7 @@ const films = [
   },
   {
     year: "2017",
-    title: "Olivia Lee of Shophouse 333",
+    title: "OLIVIA LEE OF SHOPHOUSE 333",
     role: "Director & Co-Writer",
     note: "Hong Kong Asia Film Financing Forum and winner of G2D Post-Production Sound Award",
     status: "In development",
@@ -88,7 +88,7 @@ const films = [
   },
   {
     year: "2018",
-    title: "Brie!",
+    title: "BRIE!",
     role: "Writer/Director",
     note: "Selected for Torino Film Lab Extended",
     status: "In development",

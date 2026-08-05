@@ -11,7 +11,7 @@
   box-sizing: border-box;
   max-width: 96.8125rem; /* ~1549px */
   margin-inline: auto;
-  padding-inline: clamp(1.5rem, 12vw, 14.6875rem); /* ~235px at full width */
+  padding-inline: clamp(1.5rem, 12vw, 2.6875rem); /* ~235px at full width */
   padding-block-start: clamp(2.5rem, 6vw, 6.25rem);
   padding-block-end: clamp(3rem, 8vw, 6.25rem);
 }
@@ -193,22 +193,7 @@
 /* ══════════════════════════════
    RESPONSIVE MAX-WIDTH SCALING
 ══════════════════════════════ */
-@media screen and (max-width: 1780px) {
-  .sessions-main {
-    max-width: 90rem;
-  }
-}
-@media screen and (max-width: 1630px) {
-  .sessions-main {
-    max-width: 80rem;
-  }
-}
-@media screen and (max-width: 1460px) {
-  .sessions-main {
-    max-width: 72rem;
-  }
-}
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1600px) {
   .sessions-main {
     max-width: 100%;
   }

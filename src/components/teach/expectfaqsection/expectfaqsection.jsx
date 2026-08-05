@@ -3,28 +3,29 @@ import { useState } from "react";
 import styles from "./expectfaqsection.module.css";
 
 const expectItems = [
-  "60–75 minutes, breath-paced, all levels",
-  "Props provided — mats, blocks, straps",
-  "Modifications offered for every pose, every time",
-  "No adjustments without consent, ever",
-  "Phones sleep in the cubby. You won't miss them.",
+  "60 minutes Hatha, breath-paced, all levels",
+  "15 minutes Pranayama, lying down, all levels",
+  "Props provided",
+  "Modification offered for every pose, every time, no negotiation",
+  `No adjustments without consent (ever), not once, not "just this time`,
+  `Phones are left in your bag. You will survive.`,
 ];
 
 const faqItems = [
   {
     question: "I'm not flexible. Is that a problem?",
     answer:
-      "It's the opposite of a problem — flexibility is an outcome of practice, not an entry requirement. Breath-led pacing means you work at your range, not the room's.",
+      "It's the opposite of a problem. Flexibility is what practice produces, not what it requires.",
   },
   {
-    question: "Is this spiritual, fitness, or what?",
+    question: "Is this spiritual, fitness, or trauma work?",
     answer:
-      "It's a movement practice built on breath. If something bigger shows up for you on the mat, that's yours to keep — nothing is prescribed.",
+      "It's breath and movement. What shows up on the mat is yours to keep, I'm not prescribing anything, including enlightenment.",
   },
   {
     question: "Do you teach online?",
     answer:
-      "Private sessions can be virtual, and a self-paced beginner series is in the works — the waitlist gets it first.",
+      "Privates can go virtual. A self-paced beginner series is in the works, waitlist gets first access.",
   },
 ];
 

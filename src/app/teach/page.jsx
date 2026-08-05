@@ -16,7 +16,13 @@ export default function Page() {
        <Classessection/>
        <Reservecta/>
        <Expectfaqsection/>
-       <Newslatter/>
+       <Newslatter
+        label="The Newsletter"
+        description="Class updates land here first, plus the thinking behind the practice."
+        buttonText="Read on Substack ↗"
+        buttonHref="#subscribe"
+        note="Free · Paid Tier"
+      />
     </main>
   );
 }

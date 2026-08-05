@@ -8,17 +8,17 @@ const pillars = [
   {
     title: "Film",
     dot: "rgba(116, 96, 175, 1)",
-    desc: "Slow, structured — one honest scene at a time",
+    desc: "slow, structured, subtitled. One honest scene at a time.",
   },
   {
     title: "Honeyverse",
     dot: "rgba(255, 150, 216, 1)",
-    desc: "Fast, funny — same honesty at speed",
+    desc: "fast, deadpan, same honesty at a trending BPM.",
   },
   {
     title: "Teach",
     dot: "rgba(193, 101, 47, 1)",
-    desc: "Slow again — honesty in the body",
+    desc: "slow again, honesty with a body attached.",
   },
 ];
 
@@ -32,17 +32,17 @@ const tempos = [
   {
     label: "Largo",
     color: "rgba(25, 25, 25, 1)",
-    desc: "Film — slow, structured, one honest scene at a time.",
+    desc: "Film. Slow, structured, subtitled honesty.",
   },
   {
     label: "Presto",
     color: "rgba(255, 46, 126, 1)",
-    desc: "The Honeyverse — the same honesty at internet speed.",
+    desc: "The Honeyverse. Same honesty, posted before you can overthink it.",
   },
   {
     label: "4·4 breath",
     color: "rgba(193, 101, 47, 1)",
-    desc: "The mat — where both voices finally shut up.",
+    desc: "The mat. Where both voices finally shush.",
   },
 ];
 
@@ -78,7 +78,7 @@ const ThreadSection = () => {
       <div className={styles["thread-main"]}>
 
         <aside className={styles["thread-aside"]}>
-          <p className={styles["thread-eyebrow"]}>The thread, named</p>
+          <p className={styles["thread-eyebrow"]}>The thread, named:</p>
 
           <ul className={styles["thread-items"]}>
             {pillars.map((item, i) => (
@@ -125,57 +125,39 @@ const ThreadSection = () => {
             className={styles["thread-lede"]}
             style={{ animationDelay: "0.45s" }}
           >
-            If you're here, you probably clicked through from one of the
-            rooms and you're wondering how they belong to the same person.
-            Fair. Let me save you the detective work.
+            If you clicked here trying to figure out how these three add up to one person, fair. Let me save you the math.
           </p>
 
           <p style={{ animationDelay: "0.6s" }}>
-            I direct film because I'm obsessed with the exact second someone
-            stops performing and starts being honest. Not the confession,
-            not the monologue — the half-breath right before it, when the
-            face hasn't caught up to the decision yet. Every short I've made
-            is built around getting a camera close to that second without
-            scaring it off.
+            I direct film because I grew up around women who were extraordinary and said almost none of it out loud. Every single scene I’ve written and directed is built around getting a camera close to the half-second where a girl or woman finally embraces all the parts of herself which keep her grounded.
           </p>
 
           <p style={{ animationDelay: "0.7s" }}>
-            I post deadpan videos on the internet for the same reason, just
-            faster and messier. The Honeyverse looks like chaos — five
-            pillars, hot pink, a joke every thirty seconds — but the joke
-            only works when it's true. Comedy is honesty on a shot clock.
-            The internet taught me more about pacing than film school ever
-            admitted it would.
+            I post deadpan videos on the internet for the same reason, just faster and in worse lighting. The Honeyverse looks like chaos, five pillars, hot pink, a joke every thirty seconds but the joke only lands because it's true. Comedy is in my blood along with Disney and Bollywood which film school helped me to acknowledge.
           </p>
 
           <blockquote
             className={styles["thread-quote"]}
             style={{ animationDelay: "0.85s" }}
           >
-            "Different rooms, same instinct — chase
-            the moment someone drops the act."
+            "I want to alchemize all that is inside of me and create art that will make you laugh and cry (at the same time)."
           </blockquote>
 
           <p style={{ animationDelay: "0.95s" }}>
-            And I teach yoga because the body gets there before the mind
-            does. I did my RYT 200 in a year when I couldn't write a word,
-            and discovered that a room full of people breathing on purpose
-            is the same moment I'd been chasing with a camera — people
-            getting honest — minus the lens. Now I teach it on purpose, for
-            people who think too much. Takes one to cue one.
+            I teach yoga because the body gets there before the script does. I did my RYT 200 the year I couldn't finish writing anything and realized a room of people breathing on purpose is the same moment I keep chasing with a camera,  people getting honest, minus the lens. Now I teach it on purpose, for people who think in run-on sentences. Takes one to cue one.
           </p>
 
           <h3
             className={styles["thread-subheading"]}
             style={{ animationDelay: "1.05s" }}
           >
-            The same question, three tempos
+            The same question, three tempos:
           </h3>
 
-          <p style={{ animationDelay: "1.15s" }}>
+          {/* <p style={{ animationDelay: "1.15s" }}>
             None of it is a pivot, and nothing here is a side hustle waiting
             to be trimmed. It's one question asked at three speeds:
-          </p>
+          </p> */}
 
           <div className={styles["tempo-list"]}>
             {tempos.map((tempo, i) => (
@@ -196,11 +178,9 @@ const ThreadSection = () => {
           </div>
 
           <p style={{ animationDelay: "1.6s" }}>
-            If you're a producer, the quiet room is{" "}
-            <a href="#producer">this way</a>. If you found me through a
-            video about canceling plans in three acts, the loud room is{" "}
-            <a href="#honeyverse">that way</a>. And if you just want to
-            breathe for an hour, <a href="#book">the mat is waiting</a>.
+            None of it's a side hustle waiting to get cut. If you're a producer, the quiet room is{" "}
+            <a href="#producer">this way</a>. If you found me through a video about being a rage monster, the loud room is{" "}
+            <a href="#honeyverse">that way</a>. If you just want to breathe for an hour, <a href="#book">the mat is waiting</a>.
           </p>
 
           <p

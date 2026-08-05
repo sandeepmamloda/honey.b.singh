@@ -118,13 +118,12 @@ export default function Hero() {
             </span>
           </h1>
           <p className={styles.sub}>
-            Directing and Writing (about south asian women, mostly) One honest scene at a time
-
+            Directing and Writing (about south asian women, mostly) One honest scene at a time.
           </p>
 
           <hr className={styles.rule} />
 
-          <p className={styles.credit}>Heer</p>
+          <p className={styles.credit}>HEER</p>
           <p className={styles.creditNote}>Best Short, London South Asian Film Festival</p>
 
           <hr className={styles.rule} />
@@ -132,7 +131,7 @@ export default function Hero() {
           {/* visual only — the whole panel above is already the LoaderLink,
               so this isn't a separate <a> (avoids nested anchors) */}
           <span className={styles.cta}>
-            Enter Quietly
+            Enter quietly
             <ArrowRight />
           </span>
         </div>

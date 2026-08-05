@@ -20,7 +20,7 @@ const rows = [
   },
   {
     number: "03",
-    quiet: ["Ink, laurels, a script in Punjabi", "I'm still finishing."],
+    quiet: ["Ink, laurels, a script in Funjabi", "I'm still finishing."],
     loud: ["HOT PINK, A FUZZY MIC, AND NO", "CHILL WHATSOEVER."],
   },
   

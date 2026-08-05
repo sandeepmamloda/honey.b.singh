@@ -12,7 +12,7 @@ const ContactHero = () => {
               className={styles["contacthero-heading-line"]}
               style={{ animationDelay: "0.3s" }}
             >
-              Three doors, three
+              Three doors, pick the one that's actually yours.
             </span>
           </span>
           <span className={styles["contacthero-heading-line-wrap"]}>
@@ -26,9 +26,7 @@ const ContactHero = () => {
         </h1>
 
         <p className={styles["contacthero-desc"]}>
-          Different rooms attract different people, and you&apos;re probably
-          here for one specific thing — so pick the door that matches.
-          Everything gets read; the right door just gets read faster.
+          Different rooms attract different people, and you already know which one sent you here, so use that door. Everything gets read; the right door just gets read faster than you replying "just checking in" to your own email.
         </p>
       </div>
     </section>

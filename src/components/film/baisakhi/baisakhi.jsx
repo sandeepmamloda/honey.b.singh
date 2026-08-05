@@ -64,17 +64,17 @@ const FeaturedFilm = () => {
 
         <Reveal className={styles["text-col"]} direction="up" delay={100}>
           <h3 className={styles["title"]}>Happy Baisakhi!</h3>
+
+          <p className={styles["logline-label"]}>Logline</p>
           <p className={styles["description"]}>
-            Four former best friends return to their hometown of Brampton to
+            Four best-friends return to their hometown of Toronto to
             celebrate the popular harvest-centric Sikh festival of Baisakhi
-            with their families which leads to them finally admitting
-            uncomfortable truths, revisiting their youth and forging new
-            relationships while they navigate gatekeeping Aunties,
-            misogynistic Uncles, obsessive matchmakers, gossiping relatives,
-            creepy Fuckbois and their own conservative families who don&apos;t
-            understand why they are single and childfree in their mid-30s.
-            Currently packaging.
+            with their family & friends which leads to them finally admitting
+            uncomfortable truths, revisiting memories and forging new
+            relationships amidst the backdrop of festivities.
           </p>
+
+          <h4 className={styles["story-heading"]}>A Sikh-Canadian Festival Story</h4>
         </Reveal>
 
         <Reveal className={styles["cta-col"]} direction="right" delay={150}>

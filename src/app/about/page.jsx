@@ -7,7 +7,13 @@ export default function Page() {
     <main style={{backgroundColor:"rgba(251, 249, 244, 1)"}}>
       <Heroabout />
       <Threadsection/>
-      <Newslatter/>
+      <Newslatter
+        label="The Newsletter"
+        description="This page, but ongoing. Most weeks, on Substack."
+        buttonText="Read on Substack ↗"
+        buttonHref="#subscribe"
+        note="Free · Paid Tier"
+      />
     </main>
   );
 }

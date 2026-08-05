@@ -64,6 +64,11 @@ const reviews = [
     author: "— Placeholder, publication TBD",
   },
   {
+    quote:
+      "“One to watch.”",
+    author: "— Placeholder, publication TBD",
+  },
+  {
     quote: "“A director interested in the pause, not the punchline.”",
     author: "— Placeholder, publication TBD",
   },

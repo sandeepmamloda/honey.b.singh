@@ -235,6 +235,42 @@
 @font-face {
   font-family: 'twcenmt';
   src: url('/fonts/tw-cen-mt/Tw Cen MT.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+/* ================= Great Vibes ================= */
+@font-face {
+  font-family: "greatvibes";
+  src: url("/fonts/great-vibes/GreatVibes-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================= Aesthetical (signature) ================= */
+@font-face {
+  font-family: "aesthetical";
+  src: url("/fonts/aesthetical-signature/Aesthetical.otf") format("opentype"),
+       url("/fonts/aesthetical-signature/Aesthetical.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================= Secretoria ================= */
+@font-face {
+  font-family: "secretoria";
+  src: url("/fonts/secretoria/Secretoria.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================= Woodsen Signature ================= */
+@font-face {
+  font-family: "woodsensignature";
+  src: url("/fonts/woodsen-signature/Woodsen Signature.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;

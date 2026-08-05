@@ -13,7 +13,13 @@ export default function Page() {
        <Projects/>
        <Filmography/>
        <Criticalpress/>
-       <Newslatter/>
+       <Newslatter
+        label="The Newsletter"
+        description="Behind the work, the quieter voice. Same honesty, on Substack."
+        buttonText="Read on Substack ↗"
+        buttonHref="#subscribe"
+        note="Free · Paid Tier"
+      />
     </main>
   );
 }

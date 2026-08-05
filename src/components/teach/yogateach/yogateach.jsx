@@ -59,11 +59,11 @@ const YogaHero = () => {
       <div className={styles["hero-body"]}>
         <div className={styles["hero-copy"]}>
           <Reveal as="span" className={styles["eyebrow"]} direction="left">
-            RYT 200 &middot; Vinyasa &middot; The mat
+            RYT 200 &middot; Trauma-informed &middot; Hatha & Pranayama
           </Reveal>
 
           <Reveal as="h1" className={styles["title"]} direction="left" delay={80}>
-            Movement as another honest room.
+            Movement as the third honest room.
           </Reveal>
 
           <Reveal
@@ -72,10 +72,7 @@ const YogaHero = () => {
             direction="left"
             delay={180}
           >
-            Breath-led vinyasa built for people who think too much. No
-            performance, no touching your toes on day one &mdash; just a
-            slower tempo for the same honesty. Beginners are the point, not
-            the exception.
+            Trauma-informed breath-led hatha for people who've been composed on purpose for years. No performance, no "just relax," no touching your toes on day one. Beginners are the point.
           </Reveal>
         </div>
 

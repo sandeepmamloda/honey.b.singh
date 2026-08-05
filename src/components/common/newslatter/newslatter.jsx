@@ -2,6 +2,7 @@
 
 // import { useEffect, useRef, useState } from "react";
 // import styles from "./newslatter.module.css";
+// import { LoaderLink } from "@/components/common/loader/loader";
 
 // /* Fades an element into place the first time it scrolls into view.
 //     direction: "up" (fade + rise), "left" (fade in from the left),
@@ -108,19 +109,18 @@
 //           </Reveal>
 
 //           <Reveal direction="left" delay={150}>
-//             <h1 className={styles["newslatter-heading"]}>
-//               OH <span className={styles["newslatter-heading-accent"]}>HONEY</span>,
-//               <br />
-//               HONEY.
-//             </h1>
+//             <LoaderLink href="/">
+//               <img
+//                 src="/images/logo/logo.png"
+//                 alt="Oh Honey Honey"
+//                 className={styles["newslatter-logo"]}
+//               />
+//             </LoaderLink>
 //           </Reveal>
 
 //           <Reveal direction="left" delay={300}>
 //             <p className={styles["newslatter-desc"]}>
-//               What&apos;s currently making me a rage monster, how I&apos;m
-//               unlearning the bs of (frankly) everything and how I want to
-//               change the world (usually in that order of honesty). Free, most
-//               weeks, on Substack.
+//               What’s currently making me a rage monster, how I’m unlearning the bs of (frankly) everything and how I want to change the world (usually in that order of honesty). Free, most weeks, on Substack.
 //             </p>
 //           </Reveal>
 //         </div>
@@ -133,7 +133,7 @@
 //           </Reveal>
           
 //           <Reveal direction="right" delay={350}>
-//             <p className={styles["newslatter-note"]}>Free · Cancel Anytime</p>
+//             <p className={styles["newslatter-note"]}>Free .  Paid Tier</p>
 //           </Reveal>
 //         </div>
 //       </div>
@@ -144,8 +144,7 @@
 // export default Newslatter;
 
 
-// ----------------------------------------------------------------------------------------------------------
-
+// ====================================================================================
 
 "use client";
 
@@ -153,9 +152,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./newslatter.module.css";
 import { LoaderLink } from "@/components/common/loader/loader";
 
-/* Fades an element into place the first time it scrolls into view.
-    direction: "up" (fade + rise), "left" (fade in from the left),
-    "right" (fade in from the right). `delay` (ms) staggers siblings. */
+/* Reveal Component */
 const Reveal = ({
   children,
   className = "",
@@ -205,6 +202,7 @@ const Reveal = ({
   );
 };
 
+/* Magnetic Button */
 const MagneticButton = ({ href, children, className }) => {
   const btnRef = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -221,7 +219,10 @@ const MagneticButton = ({ href, children, className }) => {
     const strength = 0.35;
 
     setIsHovering(true);
-    setPos({ x: relX * strength, y: relY * strength });
+    setPos({
+      x: relX * strength,
+      y: relY * strength,
+    });
   };
 
   const handleMouseLeave = () => {
@@ -233,7 +234,7 @@ const MagneticButton = ({ href, children, className }) => {
     <a
       ref={btnRef}
       href={href}
-      className={`${className} ${styles["magnetic"]}`}
+      className={`${className} ${styles.magnetic}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -248,17 +249,24 @@ const MagneticButton = ({ href, children, className }) => {
   );
 };
 
-const Newslatter = () => {
+const Newslatter = ({
+  label,
+  description,
+  buttonText,
+  buttonHref = "#subscribe",
+  note,
+  logoHref = "/",
+}) => {
   return (
     <section className={styles["newslatter-section"]}>
       <div className={styles["newslatter-wrapper"]}>
         <div className={styles["newslatter-left"]}>
-          <Reveal direction="left" delay={0}>
-            <p className={styles["newslatter-label"]}>The Newsletter</p>
+          <Reveal direction="left">
+            <p className={styles["newslatter-label"]}>{label}</p>
           </Reveal>
 
           <Reveal direction="left" delay={150}>
-            <LoaderLink href="/">
+            <LoaderLink href={logoHref}>
               <img
                 src="/images/logo/logo.png"
                 alt="Oh Honey Honey"
@@ -268,21 +276,22 @@ const Newslatter = () => {
           </Reveal>
 
           <Reveal direction="left" delay={300}>
-            <p className={styles["newslatter-desc"]}>
-              What’s currently making me a rage monster, how I’m unlearning the bs of (frankly) everything and how I want to change the world (usually in that order of honesty). Free, most weeks, on Substack.
-            </p>
+            <p className={styles["newslatter-desc"]}>{description}</p>
           </Reveal>
         </div>
 
         <div className={styles["newslatter-right"]}>
           <Reveal direction="right" delay={200}>
-            <MagneticButton href="#subscribe" className={styles["newslatter-subscribe-btn"]}>
-              Subscribe ↗
+            <MagneticButton
+              href={buttonHref}
+              className={styles["newslatter-subscribe-btn"]}
+            >
+              {buttonText}
             </MagneticButton>
           </Reveal>
-          
+
           <Reveal direction="right" delay={350}>
-            <p className={styles["newslatter-note"]}>Free .  Paid Tier</p>
+            <p className={styles["newslatter-note"]}>{note}</p>
           </Reveal>
         </div>
       </div>

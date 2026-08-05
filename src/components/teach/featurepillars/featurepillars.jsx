@@ -57,17 +57,17 @@ const pillars = [
   {
     id: "breath-first",
     title: "Breath first",
-    body: "Every sequence is built off a 4-4 breath. If the breath breaks, we scale the pose — not the other way around.",
+    body: "Every sequence is built off the breath, not the pose. If the breath breaks, we scale down — the pose was never the point.",
   },
   {
     id: "zero-performance",
-    title: "Zero performance",
-    body: "No mirrors-culture, no advanced-pose worship. The practice is private even in a full room.",
+    title: "Trauma-informed, always",
+    body: "Trained in Hatha (200-hr, India). Consent-based cueing, no hands-on adjustment without asking, every time.",
   },
   {
     id: "overthinkers-welcome",
     title: "Overthinkers welcome",
-    body: "Cues written for busy minds — specific, physical, and a little funny. The body gets there before the mind does.",
+    body: "Cues written for people who narrate their own lives. The body gets there first; the mind can catch up when it's ready.",
   },
 ];
 

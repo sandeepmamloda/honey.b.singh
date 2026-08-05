@@ -24,8 +24,7 @@ const HoneyverseHero = () => {
           </span>
         </h1>
         <p className={styles["honeyversehero-desc"]}>
-          Deadpan internet things, cut like a reel. Filter by pillar, or
-          don't — chaos is a valid setting.
+          Deadpan videos about being a woman who was raised to be a raging unapologetic bold and outspoken and is currently, actively, trying to get everyone on board with that. Filter by pillar, or don't, chaos is a valid setting.
         </p>
       </div>
     </section>

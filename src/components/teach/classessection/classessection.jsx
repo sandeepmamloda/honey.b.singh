@@ -6,28 +6,37 @@ import styles from "./classessection.module.css";
 const sessionsData = [
   {
     meta: "Tue / Thu · 7:00am · In-studio",
-    title: "Sunrise flow",
+    title: "Surya Namaskar flow",
     description:
-      "A 60-minute breath-led vinyasa to start the day before the day starts you. All levels.",
-    priceLabel: "Drop-in",
+      "A 60-min breath-led Hatha flow built on sun salutations, before the day gets its hands on you. All levels.",
+    priceLabel: "Drop-in · ",
     price: "$[00]",
     variant: "light",
   },
   {
     meta: "Sat · 10:00am · In-studio",
-    title: "Slow flow + breathwork",
+    title: "Chandra Namaskar + breathwork",
     description:
-      "75 minutes, half the speed, twice the attention. Ends with 15 minutes of guided breath. The one to start with.",
-    priceLabel: "Drop-in",
+      "75 minutes of moon salutations at half the speed, all of the attention. Closes with 15 minutes of guided breath. The one to start with.",
+    priceLabel: "Drop-in · ",
     price: "$[00]",
     variant: "accent",
+  },
+  {
+    meta: "DAy/NIGHT · 45 minutes",
+    title: "Pranayama breathwork",
+    description:
+      `no poses, just the breath doing the work it usually does in the background. For people who "don't have time to meditate.`,
+    priceLabel: "Drop-in · ",
+    price: "$[00]",
+    variant: "light",
   },
   {
     meta: "By request · In-studio or virtual",
     title: "1:1 private session",
     description:
-      "Built around your body, schedule, and whatever your mind won't shut up about. Singles or packs.",
-    priceLabel: "From",
+      `By request, in-studio or virtual · Built around your body and whatever your mind won't drop. Singles or packs.`,
+    priceLabel: "From ·",
     price: "$[00]",
     variant: "light",
   },

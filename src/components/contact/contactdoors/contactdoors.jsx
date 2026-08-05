@@ -56,14 +56,10 @@ const doors = [
     eyebrow: "Press & industry",
     heading: (
       <>
-        Producers,
-        <br />
-        programmers,
-        <br />
-        reps.
+        Producers, programmers, reps.
       </>
     ),
-    sub: "The quiet-room channel.",
+    sub: "The quiet-room channel. If you've seen HEER or are interested in something else I’m working on and want the deck, the reel, or a meeting, well this is it.",
     items: [
       "Screener & EPK requests",
       "Festival programming",
@@ -78,12 +74,10 @@ const doors = [
     eyebrow: "Brand partnerships",
     heading: (
       <>
-        Collabs &amp;
-        <br />
-        campaigns.
+        Collabs & campaigns.
       </>
     ),
-    sub: "The loud-room channel — sponsored content and partnerships across the Honeyverse pillars.",
+    sub: "The loud-room channel, sponsored content across Story, Woman, Teach, or Film. Tell me the pillar; I'll tell you if it's a yes or a very fast no.",
     items: [
       "Sponsored videos & series",
       "Campaigns across pillars",
@@ -98,12 +92,10 @@ const doors = [
     eyebrow: "Yoga students",
     heading: (
       <>
-        Book a mat, ask
-        <br />
-        anything.
+        Book a mat, ask anything.
       </>
     ),
-    sub: "The warm-room channel — first-timers especially welcome.",
+    sub: "The warm-room channel. First-timers, people who've never held a pose past four seconds, and people who just want to breathe without an agenda, start here.",
     items: ["Book a drop-in class", "1:1 private sessions", "Beginner series waitlist"],
     cta: "Book now →",
     email: "mat@honeybsingh.com",
