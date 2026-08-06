@@ -31,9 +31,16 @@
 
 /* ══════════════════════════════
    GRID
+   auto-fit + minmax = jaise-jaise available width kam hoti
+   hai (1307px ho ya 900px), grid khud calculate karta hai
+   ki kitne cards ek row mein bina squeeze hue fit ho sakte
+   hain. Jab card apni min-width (17.5rem) se chhota hone
+   lagta, wo apne aap next row mein chala jaata hai — text
+   awkwardly wrap nahi hota.
 ══════════════════════════════ */
 .sessions-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
   align-items: stretch;
   gap: 1.875rem; /* 30px */
 }
@@ -42,22 +49,26 @@
    CARD — shared shell
 ══════════════════════════════ */
 .session-card {
-  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 24.125rem; /* ~386px */
-  padding: 2.125rem; /* 34px */
+  padding: clamp(1.5rem, 2.8vw, 2.125rem); /* 34px, scales smoothly */
   box-sizing: border-box;
   border-radius: 1.25rem;
   background: rgba(255, 251, 242, 1);
   border: 1px solid rgba(23, 17, 15, 0.08);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  min-width: 0; /* grid item ko overflow/squeeze se rokta hai */
+  will-change: transform, background-color;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* appearance animation — resting/pre-reveal state (fade in). */
+  /* appearance animation — resting/pre-reveal state (fade in,
+     translate up, and scale in). */
   opacity: 0;
-  transform: translateY(1.25rem);
+  transform: translateY(2.5rem) scale(0.94);
 }
 
 .is-visible .session-card {
@@ -67,17 +78,37 @@
 @keyframes sessionCardFadeIn {
   from {
     opacity: 0;
-    transform: translateY(1.25rem);
+    transform: translateY(2.5rem) scale(0.94);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 .session-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(23, 17, 15, 0.1);
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 24px 50px rgba(116, 96, 175, 0.28);
+}
+
+/* All cards (including the former "accent" one) stay white/light
+   by default and turn purple only on hover, so every card behaves
+   identically. */
+.session-card:hover {
+  background: rgba(116, 96, 175, 1);
+  border-color: transparent;
+}
+
+.session-card:hover .session-meta,
+.session-card:hover .session-title,
+.session-card:hover .session-desc,
+.session-card:hover .session-price-label,
+.session-card:hover .session-price {
+  color: rgba(255, 251, 242, 1);
+}
+
+.session-card:hover .session-divider {
+  background: rgba(255, 251, 242, 0.25);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -88,16 +119,10 @@
   }
 }
 
-/* ── accent (middle) card ── */
-.session-card-accent {
-  background: rgba(116, 96, 175, 1);
-  border: 1px solid transparent;
-  border-top: 1px solid rgba(193, 101, 47, 1);
-}
-
-.session-card-accent:hover {
-  box-shadow: 0 20px 45px rgba(116, 96, 175, 0.35);
-}
+/* "accent" class ab koi alag style nahi deta — is card ke liye
+   koi special rule nahi hai, isliye ye baaki teeno cards jaisa
+   hi 100% identical dikhega, chahe JSX mein ye className laga
+   ho ya na laga ho. */
 
 /* ══════════════════════════════
    CARD CONTENT — top
@@ -111,10 +136,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(124, 111, 163, 1);
-}
-
-.session-card-accent .session-meta {
-  color: rgba(255, 251, 242, 1);
+  transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .session-title {
@@ -124,11 +146,7 @@
   font-size: 1.6875rem;
   line-height: 1.65;
   color: rgba(25, 25, 25, 1);
-}
-
-.session-card-accent .session-title {
-  font-size: 1.5rem;
-  line-height: 1;
+  transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .session-desc {
@@ -138,10 +156,7 @@
   font-size: 0.875rem;
   line-height: 1.65;
   color: rgba(124, 111, 163, 1);
-}
-
-.session-card-accent .session-desc {
-  color: rgba(255, 251, 242, 1);
+  transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ══════════════════════════════
@@ -156,10 +171,7 @@
   height: 1px;
   margin-bottom: 1.125rem;
   background: rgba(23, 17, 15, 0.12);
-}
-
-.session-card-accent .session-divider {
-  background: rgba(255, 251, 242, 0.25);
+  transition: background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .session-price-row {
@@ -172,10 +184,7 @@
   font-size: 0.84375rem;
   line-height: 1.65;
   color: rgba(124, 111, 163, 1);
-}
-
-.session-card-accent .session-price-label {
-  color: rgba(255, 251, 242, 1);
+  transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .session-price {
@@ -184,10 +193,7 @@
   font-size: 1.125rem;
   line-height: 1.65;
   color: rgba(124, 111, 163, 1);
-}
-
-.session-card-accent .session-price {
-  color: rgba(255, 251, 242, 1);
+  transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ══════════════════════════════
@@ -201,18 +207,15 @@
 
 /* ══════════════════════════════
    TABLET  (≤ 1024px)
+   grid auto-fit already handles wrapping,
+   yahan sirf padding adjust ho rahi hai
 ══════════════════════════════ */
 @media screen and (max-width: 1024px) {
   .sessions-main {
     padding-inline: 2.5rem;
   }
 
-  .sessions-grid {
-    flex-wrap: wrap;
-  }
-
   .session-card {
-    flex: 1 1 calc(50% - 0.9375rem);
     min-height: 0;
   }
 }
@@ -228,10 +231,6 @@
   }
 
   .sessions-grid {
-    flex-direction: column;
-  }
-
-  .session-card {
-    flex: 1 1 auto;
+    grid-template-columns: 1fr;
   }
 }

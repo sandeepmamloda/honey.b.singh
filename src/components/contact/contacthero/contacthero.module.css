@@ -99,7 +99,7 @@
 ══════════════════════════════ */
 .contacthero-desc {
   margin: 0;
-  max-width: 31rem; /* ~496px, matches the two-line wrap in the design */
+  max-width: 100%; /* ~496px, matches the two-line wrap in the design */
   font-family: "interregular", sans-serif;
   font-weight: 400;
   font-size: 0.96875rem; /* 15.5px */

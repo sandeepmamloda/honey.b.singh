@@ -6,14 +6,10 @@ const ReserveCta = () => {
       <div className={styles["reserve-main"]}>
         <div className={styles["reserve-left"]}>
           <h2 className={styles["reserve-heading"]}>
-            Reserve a mat, or just
-            <br />
-            ask a question.
+            Reserve a mat, or just ask a question.
           </h2>
           <p className={styles["reserve-desc"]}>
-            First class nerves are normal — tell me it&apos;s your first and
-            I&apos;ll set you up near the back with the good props. Beginner
-            series waitlist is open too.
+            First-class nerves are normal,  say it's your first and I'll put you near the back with the good props. Beginner series waitlist is open.
           </p>
         </div>
 
@@ -22,9 +18,9 @@ const ReserveCta = () => {
             Book a class →
           </a>
           <p className={styles["reserve-waitlist"]}>
-            Or join the{" "}
+            or{" "}
             <a href="#waitlist" className={styles["reserve-waitlist-link"]}>
-              beginner series waitlist
+              Join the beginner series waitlist
             </a>
           </p>
         </div>

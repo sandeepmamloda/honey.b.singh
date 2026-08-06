@@ -108,8 +108,7 @@ const footerInfo = [
     eyebrow: "Response time",
     body: (
       <>
-        Usually within 3–4 days. Festival deadlines and class bookings jump
-        the queue — say so in the subject line.
+        Usually 3–4 days. Festival deadlines and class bookings jump the queue, say so in the subject line, not three follow-up emails later.
       </>
     ),
   },
@@ -117,8 +116,7 @@ const footerInfo = [
     eyebrow: "Not sure which door?",
     body: (
       <>
-        Use the press &amp; industry address and it&apos;ll get routed. No
-        wrong answers, only slower ones.
+        Use the press & industry address. It gets routed. No wrong doors, only slower ones, much like everything else in this industry.
       </>
     ),
   },
@@ -126,19 +124,8 @@ const footerInfo = [
     eyebrow: "Just want to say hi?",
     body: (
       <>
-  The comments in the{" "}
-  <LoaderLink href="/honeyverse">
-    Honeyverse
-  </LoaderLink>{" "}
-  or a reply to the{" "}
-  <LoaderLink
-    href="/newsletter"
-    className={styles["link-olive"]}
-  >
-    newsletter
-  </LoaderLink>{" "}
-  is the fastest way to actually reach me.
-</>
+        Comments on the socials or a ping on Oh Honey Honey is the fastest way to actually reach a human. This inbox is read by me; it just isn't read fast.
+      </>
     ),
   },
   

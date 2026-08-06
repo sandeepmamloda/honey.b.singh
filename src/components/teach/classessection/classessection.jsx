@@ -9,7 +9,7 @@ const sessionsData = [
     title: "Surya Namaskar flow",
     description:
       "A 60-min breath-led Hatha flow built on sun salutations, before the day gets its hands on you. All levels.",
-    priceLabel: "Drop-in · ",
+    priceLabel: "Drop-in ",
     price: "$[00]",
     variant: "light",
   },
@@ -18,7 +18,7 @@ const sessionsData = [
     title: "Chandra Namaskar + breathwork",
     description:
       "75 minutes of moon salutations at half the speed, all of the attention. Closes with 15 minutes of guided breath. The one to start with.",
-    priceLabel: "Drop-in · ",
+    priceLabel: "Drop-in  ",
     price: "$[00]",
     variant: "accent",
   },
@@ -26,8 +26,8 @@ const sessionsData = [
     meta: "DAy/NIGHT · 45 minutes",
     title: "Pranayama breathwork",
     description:
-      `no poses, just the breath doing the work it usually does in the background. For people who "don't have time to meditate.`,
-    priceLabel: "Drop-in · ",
+      `no poses, just the breath doing the work it usually does in the background. For people who "don't have time to meditate."`,
+    priceLabel: "Drop-in  ",
     price: "$[00]",
     variant: "light",
   },
@@ -36,7 +36,7 @@ const sessionsData = [
     title: "1:1 private session",
     description:
       `By request, in-studio or virtual · Built around your body and whatever your mind won't drop. Singles or packs.`,
-    priceLabel: "From ·",
+    priceLabel: "From ",
     price: "$[00]",
     variant: "light",
   },

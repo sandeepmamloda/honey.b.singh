@@ -4,7 +4,7 @@ const HoneyverseHero = () => {
   return (
     <section className={styles["honeyversehero-wrapper"]}>
       <div className={styles["honeyversehero-main"]}>
-        <p className={styles["honeyversehero-eyebrow"]}>The Honeyverse</p>
+        <p className={styles["honeyversehero-eyebrow"]}>new drop weekly</p>
         <h1 className={styles["honeyversehero-heading"]}>
           <span className={styles["honeyversehero-heading-line-wrap"]}>
             <span

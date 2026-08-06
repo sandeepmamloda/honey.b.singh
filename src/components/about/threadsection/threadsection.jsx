@@ -24,7 +24,7 @@ const pillars = [
 
 const links = [
   { label: "See the films →", href: "/film" },
-  { label: "Enter the Honeyverse →", href: "#honeyverse" },
+  { label: "Enter the Honeyverse →", href: "/honeyverse" },
   { label: "Book a class →", href: "/teach" },
 ];
 
@@ -179,8 +179,8 @@ const ThreadSection = () => {
 
           <p style={{ animationDelay: "1.6s" }}>
             None of it's a side hustle waiting to get cut. If you're a producer, the quiet room is{" "}
-            <a href="#producer">this way</a>. If you found me through a video about being a rage monster, the loud room is{" "}
-            <a href="#honeyverse">that way</a>. If you just want to breathe for an hour, <a href="#book">the mat is waiting</a>.
+            <LoaderLink href="/film">this way</LoaderLink>. If you found me through a video about being a rage monster, the loud room is{" "}
+            <LoaderLink href="/honeyverse">that way</LoaderLink>. If you just want to breathe for an hour, <LoaderLink href="/teach">the mat is waiting</LoaderLink>.
           </p>
 
           <p

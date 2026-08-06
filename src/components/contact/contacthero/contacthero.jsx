@@ -12,7 +12,7 @@ const ContactHero = () => {
               className={styles["contacthero-heading-line"]}
               style={{ animationDelay: "0.3s" }}
             >
-              Three doors, pick the one that's actually yours.
+              Three doors, pick the one that's 
             </span>
           </span>
           <span className={styles["contacthero-heading-line-wrap"]}>
@@ -20,7 +20,7 @@ const ContactHero = () => {
               className={styles["contacthero-heading-line"]}
               style={{ animationDelay: "0.55s" }}
             >
-              asks.
+              actually yours.
             </span>
           </span>
         </h1>
