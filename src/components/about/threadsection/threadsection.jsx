@@ -129,11 +129,11 @@ const ThreadSection = () => {
           </p>
 
           <p style={{ animationDelay: "0.6s" }}>
-            I direct film because I grew up around women who were extraordinary and said almost none of it out loud. Every single scene I’ve written and directed is built around getting a camera close to the half-second where a girl or woman finally embraces all the parts of herself which keep her grounded.
+            I direct film because I'm obsessed with the exact second someone stops performing and starts being honest. Not the confession, not the monologue, the half-breath right before it, when the face hasn't caught up to the decision yet. Every short I've made is built around getting a camera close to that second without scaring it off.
           </p>
 
           <p style={{ animationDelay: "0.7s" }}>
-            I post deadpan videos on the internet for the same reason, just faster and in worse lighting. The Honeyverse looks like chaos, five pillars, hot pink, a joke every thirty seconds but the joke only lands because it's true. Comedy is in my blood along with Disney and Bollywood which film school helped me to acknowledge.
+            I post deadpan videos on the internet for the same reason, just faster and messier. The Honeyverse looks like chaos, five pillars, hot pink, a joke every thirty seconds, but the joke only works when it's true. Comedy is honesty on a shot clock. The internet taught me more about pacing than film school ever admitted it would.
           </p>
 
           <blockquote

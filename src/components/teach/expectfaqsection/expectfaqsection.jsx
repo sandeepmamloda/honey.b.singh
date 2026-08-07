@@ -7,7 +7,7 @@ const expectItems = [
   "15 minutes Pranayama, lying down, all levels",
   "Props provided",
   "Modification offered for every pose, every time, no negotiation",
-  `No adjustments without consent (ever), not once, not "just this time`,
+  `No adjustments without consent (ever), not once, not "just this time"`,
   `Phones are left in your bag. You will survive.`,
 ];
 

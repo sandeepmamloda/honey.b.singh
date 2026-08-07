@@ -23,7 +23,7 @@ const sessionsData = [
     variant: "accent",
   },
   {
-    meta: "DAy/NIGHT · 45 minutes",
+    meta: "day/time · 45 minutes",
     title: "Pranayama breathwork",
     description:
       `no poses, just the breath doing the work it usually does in the background. For people who "don't have time to meditate."`,

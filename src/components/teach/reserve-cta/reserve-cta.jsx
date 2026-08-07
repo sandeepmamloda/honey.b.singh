@@ -1,4 +1,7 @@
 import styles from "./reserve-cta.module.css";
+import {
+  LoaderLink,
+} from "@/components/common/loader/loader";
 
 const ReserveCta = () => {
   return (
@@ -14,14 +17,14 @@ const ReserveCta = () => {
         </div>
 
         <div className={styles["reserve-right"]}>
-          <a href="/teach" className={styles["reserve-cta-btn"]}>
+          <LoaderLink href="/contact" className={styles["reserve-cta-btn"]}>
             Book a class →
-          </a>
+          </LoaderLink>
           <p className={styles["reserve-waitlist"]}>
             or{" "}
-            <a href="#waitlist" className={styles["reserve-waitlist-link"]}>
+            <LoaderLink href="/contact" className={styles["reserve-waitlist-link"]}>
               Join the beginner series waitlist
-            </a>
+            </LoaderLink>
           </p>
         </div>
       </div>

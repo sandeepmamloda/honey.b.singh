@@ -62,6 +62,13 @@
   animation: honeyheroLineReveal 1.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* svg wordmark scales the same way the original text did via clamp */
+.honeyversehero-heading-svg {
+  display: block;
+  width: clamp(10.5rem, 26vw, 26.25rem);
+  height: auto;
+}
+
 @keyframes honeyheroFadeUp {
   from {
     opacity: 0;
@@ -136,6 +143,9 @@
   }
   .honeyversehero-heading{
     text-align:center;
+  }
+  .honeyversehero-heading-svg {
+    margin-inline: auto;
   }
   .honeyversehero-eyebrow{
     text-align:center;

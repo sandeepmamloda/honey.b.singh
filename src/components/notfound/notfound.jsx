@@ -11,14 +11,7 @@ const NotFound = () => {
         <p className={styles["notfound-eyebrow"]}>Wrong door</p>
 
         <h1 className={styles["notfound-heading"]}>
-          <span className={styles["notfound-heading-line-wrap"]}>
-            <span
-              className={styles["notfound-heading-line"]}
-              style={{ animationDelay: "0.3s" }}
-            >
-              Even I couldn&apos;t find this one.
-            </span>
-          </span>
+          Even I couldn&apos;t find this one.
         </h1>
 
         <p className={styles["notfound-desc"]}>
