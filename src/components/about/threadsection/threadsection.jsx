@@ -24,7 +24,7 @@ const pillars = [
 
 const links = [
   { label: "See the films →", href: "/film" },
-  { label: "Enter the Honeyverse →", href: "/honeyverse" },
+  { label: "Enter the Honeyverse →", href: "/newhoneyverse" },
   { label: "Book a class →", href: "/teach" },
 ];
 

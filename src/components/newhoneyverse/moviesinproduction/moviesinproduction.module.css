@@ -1,0 +1,257 @@
+/* ══════════════════════════════
+   SECTION
+══════════════════════════════ */
+.movies {
+  width: 100%;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eyebrow,
+.counter {
+  font-family: "interregular";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  color: rgba(134, 131, 127, 1);
+}
+
+.eyebrow {
+  letter-spacing: 2.52px;
+  text-transform: uppercase;
+}
+
+.counter {
+  letter-spacing: 0;
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── CARD ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-image-wrap {
+  width: 100%;
+  aspect-ratio: 428 / 310;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── CARD HEADER: title + badge ── */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-title {
+  margin: 0;
+  font-family: "interregular";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(179, 19, 79, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(25, 25, 25, 1);
+  font-family: "interregular";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 9px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: rgba(255, 150, 216, 1);
+  white-space: nowrap;
+}
+
+/* ── LOGLINE LABEL ── */
+.logline-label {
+  margin: 0;
+  font-family: "twcenmt";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #171114;
+}
+
+/* ── DESCRIPTION ── */
+.description {
+  margin: 0;
+  font-family: "twcenmt", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #171114;
+}
+
+/* ── TAGLINE (script font) ── */
+.tagline {
+  margin: 4px 0 0 0;
+  font-family: "woodsensignature";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #171114;
+}
+
+/* ── SCROLL REVEAL (shared pattern) ── */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.reveal-up { transform: translateY(34px); }
+.reveal-left { transform: translateX(-56px); }
+.reveal-right { transform: translateX(56px); }
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ══════════════════════════════
+   LAPTOP (≤ 1200px) — 3 cols but tighter gaps
+══════════════════════════════ */
+@media screen and (max-width: 1200px) {
+  .movies {
+    padding: 64px 48px;
+    gap: 28px;
+  }
+
+  .grid {
+    gap: 28px;
+  }
+}
+
+/* ══════════════════════════════
+   TABLET (≤ 1024px) — drop to 2 columns
+══════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE (≤ 768px) — single column, stacked
+══════════════════════════════ */
+@media screen and (max-width: 768px) {
+  .movies {
+    padding: 48px 20px;
+    gap: 28px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    /* gap: 40px; */
+  }
+
+  .section-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .logline-label,
+  .description {
+    font-size: 16px;
+  }
+
+  .tagline {
+    font-size: 26px;
+  }
+}
+
+/* ══════════════════════════════
+   VERY SMALL (≤ 424px)
+══════════════════════════════ */
+@media screen and (max-width: 424px) {
+  .movies {
+    padding: 36px 16px;
+  }
+
+  .card-header {
+    flex-wrap: wrap;
+  }
+
+  .card-title {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .logline-label,
+  .description {
+    font-size: 14px;
+  }
+
+  .tagline {
+    font-size: 20px;
+  }
+}
+
+/* ══════════════════════════════
+   REDUCED MOTION
+══════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

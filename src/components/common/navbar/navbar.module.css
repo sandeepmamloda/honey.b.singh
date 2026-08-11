@@ -367,7 +367,7 @@
 /* ══════════════════════════════
    RESPONSIVE: TABLET (≤ 860px)
 ══════════════════════════════ */
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .nav {
     display: none;
   }

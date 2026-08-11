@@ -139,7 +139,7 @@ export default function Hero() {
 
       {/* right — the loud room */}
       <LoaderLink
-        href="/honeyverse"
+        href="/newhoneyverse"
         className={`${styles.panel} ${styles.loud}`}
         style={{ flexGrow: loudGrow, cursor: 'pointer' }}
         onMouseEnter={() => setHovered('loud')}

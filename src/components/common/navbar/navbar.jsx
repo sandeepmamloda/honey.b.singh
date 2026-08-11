@@ -10,6 +10,7 @@ import {
 const navLinks = [
   { name: "Film", href: "/film" },
   { name: "substack", href: "/substack" },
+  { name: "honeyverse", href: "/newhoneyverse" },
   { name: "Teach", href: "/teach" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },

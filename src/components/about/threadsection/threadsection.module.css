@@ -18,7 +18,8 @@
   grid-template-columns: 23.75rem 1fr; /* 380px aside */
   gap: clamp(3rem, 18vw, 19rem);
   padding-inline: clamp(1.5rem, 8vw, 6.25rem); /* 100px */
-  padding-top: calc(var(--fixed-nav-offset) + clamp(3rem, 7vw, 5.625rem));
+  /* padding-top: calc(var(--fixed-nav-offset) + clamp(3rem, 7vw, 5.625rem)); */
+  padding-top:clamp(1rem, 7vw, 3rem);
   padding-bottom: clamp(3rem, 7vw, 5.625rem);
 }
 
@@ -297,7 +298,7 @@
     max-width: 80rem;
   }
 }
-@media screen and (max-width: 1460px) {
+/* @media screen and (max-width: 1460px) {
   .thread-main {
     max-width: 72rem;
   }
@@ -305,6 +306,11 @@
 @media screen and (max-width: 1370px) {
   .thread-main {
     max-width: 100%;
+  }
+} */
+ @media screen and (max-width:1450px){
+  .thread-main{
+    max-width:100%;
   }
 }
 
@@ -335,7 +341,7 @@
 
   .thread-main {
     padding-inline: 1.25rem;
-    padding-top: calc(var(--fixed-nav-offset) + 3rem);
+    /* padding-top: calc(var(--fixed-nav-offset) + 3rem); */
     padding-bottom: 3rem;
     gap: 2.5rem;
   }

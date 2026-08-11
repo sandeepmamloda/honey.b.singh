@@ -46,7 +46,7 @@
 ══════════════════════════════ */
 .about-heading {
   margin: 0;
-  max-width: 47.09rem; /* ~753px */
+  max-width: 60.09rem;
   font-family: 'youngserif';
   font-weight: 300;
   font-size: clamp(2.25rem, 5vw, 4.375rem); /* up to 70px */
@@ -110,7 +110,7 @@
     max-width: 80rem;
   }
 }
-@media screen and (max-width: 1460px) {
+/* @media screen and (max-width: 1460px) {
   .about-main {
     max-width: 72rem;
   }
@@ -119,8 +119,12 @@
   .about-main {
     max-width: 100%;
   }
+} */
+@media screen and (max-width:1450px){
+  .about-main{
+    max-width:100%;
+  }
 }
-
 /* ══════════════════════════════
    TABLET  (≤ 1024px)
 ══════════════════════════════ */

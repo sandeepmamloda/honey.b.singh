@@ -239,6 +239,29 @@
   font-style: normal;
   font-display: swap;
 }
+/* ================= Tw Cen MT Condensed ================= */
+@font-face {
+  font-family: 'twcenmtcondensed';
+  src: url('/fonts/Tw-Cen-MT-Condensed-Font/Tw-Cen-MT-Condensed.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* ================= Tw Cen MT Condensed ExtraBold ================= */
+@font-face {
+  font-family: 'twcenmtcondensedextrabold';
+  src: url('/fonts/Tw-Cen-MT-Condensed-Font/Tw Cen MT Condensed ExtraBold.TTF') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'twcenmtcondensedregular';
+  src: url('/fonts/Tw-Cen-MT-Condensed-Font/Tw Cen MT Condensed Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 /* ================= Great Vibes ================= */
 @font-face {
   font-family: "greatvibes";

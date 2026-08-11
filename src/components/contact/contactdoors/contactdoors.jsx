@@ -159,12 +159,17 @@ const ContactDoors = () => {
 
               <div className={styles["door-bottom"]}>
                 <MagneticButton
-                  href={`mailto:${door.email}`}
+                  href={`/contact/${door.variant}`}
                   className={styles["door-cta"]}
                 >
                   {door.cta}
                 </MagneticButton>
-                <p className={styles["door-email"]}>{door.email}</p>
+                <a
+                  href={`/contact/${door.variant}`}
+                  className={styles["door-email"]}
+                >
+                  {door.email}
+                </a>
               </div>
             </div>
           ))}
