@@ -45,10 +45,48 @@ const Reveal = ({
       className={`${className} ${directionClass} ${
         visible ? styles["reveal-visible"] : ""
       }`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{
+        transitionDelay: `${delay}ms`,
+        // pure inline — CSS file untouched
+        transitionDuration: "1.1s",
+        transitionTimingFunction: "cubic-bezier(0.19, 1, 0.22, 1)",
+      }}
     >
       {children}
     </Tag>
+  );
+};
+
+// button ke andar arrow ko thoda "alive" banaya — hover pe slide karta hai,
+// baaki button ka design (colors, padding, radius) bilkul same rehta hai
+const CTAButton = () => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <a
+      href="https://honeyverse.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles["cta-button"]}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        transform: hovered ? "scale(1.035)" : "scale(1)",
+        transition: "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)",
+      }}
+    >
+      Visit Honeyverse Now
+      <span
+        aria-hidden="true"
+        style={{
+          display: "inline-block",
+          transform: hovered ? "translateX(6px)" : "translateX(0)",
+          transition: "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)",
+        }}
+      >
+        →
+      </span>
+    </a>
   );
 };
 
@@ -60,24 +98,16 @@ const BigCTA = () => {
           Tired of the slow lane?
         </Reveal>
 
-        <Reveal as="p" direction="up" delay={100} className={styles["description"]}>
+        <Reveal as="p" direction="up" delay={130} className={styles["description"]}>
           Jump straight into the full Honeyverse web experience. Instant skits,
           louder opinions, and unhinged design.
         </Reveal>
 
-        <Reveal direction="up" delay={200}>
-          <a
-            href="https://honeyverse.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles["cta-button"]}
-          >
-            Visit Honeyverse Now
-            <span aria-hidden="true">→</span>
-          </a>
+        <Reveal direction="up" delay={280}>
+          <CTAButton />
         </Reveal>
 
-        <Reveal as="p" direction="up" delay={280} className={styles["microcopy"]}>
+        <Reveal as="p" direction="up" delay={380} className={styles["microcopy"]}>
           Opens in a new tab &middot; same honesty, zero speed limit
         </Reveal>
       </div>

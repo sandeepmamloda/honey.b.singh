@@ -45,10 +45,57 @@ const Reveal = ({
       className={`${className} ${directionClass} ${
         visible ? styles["reveal-visible"] : ""
       }`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{
+        transitionDelay: `${delay}ms`,
+        // extra smoothness — pure inline, koi CSS class add nahi ki
+        transitionDuration: "1s",
+        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+      }}
     >
       {children}
     </Tag>
+  );
+};
+
+// card ke image pe hover par halka zoom + tilt — design same rehta hai,
+// bas image thodi si "alive" feel deti hai
+const MovieCard = ({ movie, delay }) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <Reveal
+      as="article"
+      direction="up"
+      delay={delay}
+      className={styles["card"]}
+    >
+      <div
+        className={styles["card-image-wrap"]}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{ overflow: "hidden" }}
+      >
+        <img
+          src={movie.image}
+          alt={movie.title}
+          className={styles["card-image"]}
+          style={{
+            transform: hovered ? "scale(1.06)" : "scale(1)",
+            transition: "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+          }}
+        />
+      </div>
+
+      <div className={styles["card-header"]}>
+        <h3 className={styles["card-title"]}>{movie.title}</h3>
+        <span className={styles["badge"]}>In development</span>
+      </div>
+
+      <p className={styles["logline-label"]}>Logline</p>
+      <p className={styles["description"]}>{movie.logline}</p>
+
+      <p className={styles["tagline"]}>&ldquo;{movie.tagline}&rdquo;</p>
+    </Reveal>
   );
 };
 
@@ -77,6 +124,7 @@ const MOVIES = [
       "Four best-friends return to their hometown of Toronto to celebrate the Popular harvest-centric Sikh festival of Baisakhi with their family & Friends which leads to them finally admitting uncomfortable truths, revisiting memories and forging new relationships amidst the backdrop of festivities.",
     tagline: "a sikh-canadian festival story",
   },
+  
 ];
 
 const MoviesInProduction = () => {
@@ -89,31 +137,7 @@ const MoviesInProduction = () => {
 
       <div className={styles["grid"]}>
         {MOVIES.map((movie, i) => (
-          <Reveal
-            key={movie.id}
-            as="article"
-            direction="up"
-            delay={i * 100}
-            className={styles["card"]}
-          >
-            <div className={styles["card-image-wrap"]}>
-              <img
-                src={movie.image}
-                alt={movie.title}
-                className={styles["card-image"]}
-              />
-            </div>
-
-            <div className={styles["card-header"]}>
-              <h3 className={styles["card-title"]}>{movie.title}</h3>
-              <span className={styles["badge"]}>In development</span>
-            </div>
-
-            <p className={styles["logline-label"]}>Logline</p>
-            <p className={styles["description"]}>{movie.logline}</p>
-
-            <p className={styles["tagline"]}>&ldquo;{movie.tagline}&rdquo;</p>
-          </Reveal>
+          <MovieCard key={movie.id} movie={movie} delay={i * 130} />
         ))}
       </div>
     </section>

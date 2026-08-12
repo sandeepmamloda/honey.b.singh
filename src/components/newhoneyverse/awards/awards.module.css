@@ -72,7 +72,7 @@
 
 /* ── HEADER LABELS ── */
 .col-label {
-  font-family: "Unbounded", sans-serif;
+  font-family: "interregular";
   font-weight: 600;
   font-style: normal;
   font-size: 10px;
@@ -88,7 +88,7 @@
 
 /* ── ROW CELLS ── */
 .award-name {
-  font-family: "Young Serif", serif;
+  font-family: "youngserif";
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
@@ -98,7 +98,7 @@
 }
 
 .award-for {
-  font-family: "twcenmt", sans-serif;
+  font-family: "twcenmt";
   font-weight: 700;
   font-style: normal;
   font-size: 20px;
@@ -108,10 +108,10 @@
 }
 
 .award-meta {
-  font-family: "Unbounded", sans-serif;
+  font-family: "interregular";
   font-weight: 700;
   font-style: normal;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 100%;
   letter-spacing: 0;
   text-align: right;
