@@ -180,7 +180,7 @@ const ThreadSection = () => {
           <p style={{ animationDelay: "1.6s" }}>
             None of it's a side hustle waiting to get cut. If you're a producer, the quiet room is{" "}
             <LoaderLink href="/film">this way</LoaderLink>. If you found me through a video about being a rage monster, the loud room is{" "}
-            <LoaderLink href="/honeyverse">that way</LoaderLink>. If you just want to breathe for an hour, <LoaderLink href="/teach">the mat is waiting</LoaderLink>.
+            <LoaderLink href="/newhoneyverse">that way</LoaderLink>. If you just want to breathe for an hour, <LoaderLink href="/teach">the mat is waiting</LoaderLink>.
           </p>
 
           <p
