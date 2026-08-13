@@ -5,6 +5,17 @@ import Classessection from "@/components/teach/classessection/classessection";
 import Reservecta from "@/components/teach/reserve-cta/reserve-cta";
 import Expectfaqsection from "@/components/teach/expectfaqsection/expectfaqsection";
 import Newslatter from "@/components/common/newslatter/newslatter";
+export const metadata = {
+  title: "Teach",
+  description:
+    "Breath-led vinyasa and yin for people who think too much. RYT 200. Weekly drop-ins, private sessions, and a self-paced beginner series.",
+  openGraph: {
+    title: "Teach — Honey B. Singh",
+    description:
+      "Breath-led vinyasa for people whose bodies have been performing calm for years. RYT 200.",
+  },
+  alternates: { canonical: "/teach" },
+};
 export default function Page() {
   return (
     <main style={{overflowX:"hidden",

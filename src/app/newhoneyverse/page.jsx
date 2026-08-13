@@ -3,6 +3,17 @@ import Moviesinproduction from "@/components/newhoneyverse/moviesinproduction/mo
 import Awards from "@/components/newhoneyverse/awards/awards";
 import Bigcta from "@/components/newhoneyverse/bigcta/bigcta";
 import Newslatter from "@/components/common/newslatter/newslatter";
+export const metadata = {
+  title: "The Honeyverse",
+  description:
+    "The loud room. Deadpan internet things across five pillars — story, woman, teach, film, gym. Same woman, same honesty, four times the volume.",
+  openGraph: {
+    title: "The Honeyverse — Honey B. Singh",
+    description:
+      "The loud room. Same woman, same honesty, four times the volume.",
+  },
+  alternates: { canonical: "/newhoneyverse" },
+};
 const Newhoneyverse=function(){
     return (
         <>

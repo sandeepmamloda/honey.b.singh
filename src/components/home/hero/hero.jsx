@@ -14,7 +14,7 @@ const TAGS = [
 
 function ArrowRight() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
        <path d="M-1.95093e-05 6.13406V4.94906H8.68498L4.30498 0.809062L5.09998 -0.000937879L10.5 5.18906V5.84906L5.09998 11.0541L4.28998 10.2291L8.63998 6.13406H-1.95093e-05Z" fill="rgba(124, 111, 163, 1)"/>
     </svg>
   );
@@ -22,7 +22,7 @@ function ArrowRight() {
 
 function ArrowDiagonal() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none">
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none">
        <path d="M0.944902 8.17453L0.104902 7.33453L6.3299 1.12453H-9.76138e-05V-0.000469208H7.7549L8.2349 0.464531V8.24953H7.1099V2.00953L0.944902 8.17453Z" fill="#080808"/>
     </svg>
   );
@@ -49,7 +49,7 @@ function Badge() {
 
   return (
     <div className={styles.badge}>
-      <svg className={styles.svg} viewBox="0 0 260 260">
+      <svg aria-hidden="true" className={styles.svg} viewBox="0 0 260 260">
         <defs>
           <path
             id="badgePath"
@@ -151,7 +151,7 @@ export default function Hero() {
         </div>
 
         <div className={styles.content}>
-          <h1 className={styles.title}>
+          <h2 className={styles.title}>
             <span className={styles.titleLineWrap}>
               <span className={styles.titleLine} style={{ animationDelay: '0.35s' }}>
                 Oh <span className={styles.honeyWhite}>Honey,</span>
@@ -162,7 +162,7 @@ export default function Hero() {
                 Honey.
               </span>
             </span>
-          </h1>
+          </h2>
           <p className={styles.sub}>
             The internet side. Blunt, outspoken, brutal. Same woman, same honesty, four times the volume.
           </p>

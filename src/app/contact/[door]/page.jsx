@@ -1,13 +1,25 @@
-"use client";
+import { doorsData } from "@/lib/doors-data";
+import ContactDoorClient from "./contactdoorclint";  // ✅ ye sahi hai
 
-import { useParams } from "next/navigation";
-import Form from "@/components/form/Form";
+export async function generateMetadata({ params }) {
+  const { door } = await params;
+  const doorConfig = doorsData[door];
 
-const ContactPage = () => {
-  const params = useParams();
-  const door = params?.door;
+  if (!doorConfig) {
+    return {
+      title: "Contact",
+      description: "Get in touch.",
+    };
+  }
 
-  return <Form door={door} />;
-};
+  return {
+    title: `Contact — ${doorConfig.eyebrow}`,
+    description: `Get in touch about ${doorConfig.eyebrow.toLowerCase()}.`,
+    alternates: { canonical: `/contact/${door}` },
+  };
+}
 
-export default ContactPage;
+export default async function ContactPage({ params }) {
+  const { door } = await params;
+  return <ContactDoorClient door={door} />;
+}

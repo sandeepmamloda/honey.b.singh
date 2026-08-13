@@ -2,6 +2,16 @@
 import Newslatter from "@/components/common/newslatter/newslatter";
 import Contacthero from "@/components/contact/contacthero/contacthero";
 import Contactdoors from "@/components/contact/contactdoors/contactdoors";
+export const metadata = {
+  title: "Contact",
+  description:
+    "Three doors: press and industry, brand partnerships, and yoga bookings. Pick the one that matches — everything gets read, the right door gets read faster.",
+  openGraph: {
+    title: "Contact — Honey B. Singh",
+    description: "Three doors, three asks. Pick the one that matches.",
+  },
+  alternates: { canonical: "/contact" },
+};
 export default function Page() {
   return (
     <main style={{backgroundColor:"rgba(255, 251, 242, 1)"}}>
