@@ -98,7 +98,7 @@ const doors = [
     sub: "The warm-room channel. First-timers, people who've never held a pose past four seconds, and people who just want to breathe without an agenda, start here.",
     items: ["Book a drop-in class", "1:1 private sessions", "Beginner series waitlist"],
     cta: "Book now →",
-    email: "mat@honeybsingh.com",
+    email: "	hsingh@northvale.ae",
   },
   
 ];

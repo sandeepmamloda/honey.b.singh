@@ -32,7 +32,7 @@ export const doorsData = {
     eyebrow: "Yoga students",
     heading: "Book a mat, ask anything.",
     sub: "Drop-in classes, 1:1 sessions, beginner series — start here.",
-    email: ["mat@honeybsingh.com"],
+    email: ["	hsingh@northvale.ae"],
     extraField: {
       name: "interest",
       label: "What are you interested in?",
