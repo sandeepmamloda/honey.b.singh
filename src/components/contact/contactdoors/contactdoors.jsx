@@ -67,7 +67,7 @@ const doors = [
       "Press & interviews",
     ],
     cta: "Get in touch →",
-    email: "industry@honeybsingh.com",
+    // email: "industry@honeybsingh.com",
   },
   {
     variant: "brand",
@@ -85,7 +85,7 @@ const doors = [
       
     ],
     cta: "Media kit + rates →",
-    email: "partners@honeybsingh.com",
+    // email: "partners@honeybsingh.com",
   },
   {
     variant: "yoga",
@@ -98,7 +98,7 @@ const doors = [
     sub: "The warm-room channel. First-timers, people who've never held a pose past four seconds, and people who just want to breathe without an agenda, start here.",
     items: ["Book a drop-in class", "1:1 private sessions", "Beginner series waitlist"],
     cta: "Book now →",
-    email: "	hsingh@northvale.ae",
+    // email: "	hsingh@northvale.ae",
   },
   
 ];
