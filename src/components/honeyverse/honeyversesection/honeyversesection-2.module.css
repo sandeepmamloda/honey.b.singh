@@ -517,12 +517,6 @@
 
   overflow-wrap:
     break-word;
-
-  /* Layout protection — chahe title kitna bhi lamba ho, card break nahi hoga */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 
