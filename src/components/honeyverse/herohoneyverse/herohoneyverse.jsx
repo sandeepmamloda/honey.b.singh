@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./heronewhoneyverse.module.css";
+import styles from "./herohoneyverse.module.css";
 
 const Reveal = ({
   children,

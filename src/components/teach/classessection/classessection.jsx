@@ -5,16 +5,16 @@ import styles from "./classessection.module.css";
 
 const sessionsData = [
   {
-    meta: "Tue / Thu · 7:00am · In-studio",
+    meta: "New schedule coming soon",
     title: "Surya Namaskar flow",
     description:
-      "A 60-min breath-led Hatha flow built on sun salutations, before the day gets its hands on you. All levels.",
+      "A 60-min breath-led hatha and slow flow built on sun salutations, before the day gets its hands on you. All levels.",
     priceLabel: "Drop-in ",
     price: "$[00]",
     variant: "light",
   },
   {
-    meta: "Sat · 10:00am · In-studio",
+    meta: "New schedule coming soon",
     title: "Chandra Namaskar + breathwork",
     description:
       "75 minutes of moon salutations at half the speed, all of the attention. Closes with 15 minutes of guided breath. The one to start with.",
@@ -23,7 +23,7 @@ const sessionsData = [
     variant: "accent",
   },
   {
-    meta: "day/time · 45 minutes",
+    meta: "New schedule coming soon · 45 minutes",
     title: "Pranayama breathwork",
     description:
       `no poses, just the breath doing the work it usually does in the background. For people who "don't have time to meditate."`,

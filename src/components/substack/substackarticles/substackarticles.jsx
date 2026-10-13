@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./honeyversesection.module.css";
+import styles from "./substackarticles.module.css";
 
 const filters = ["All", "Story", "Woman", "Teach", "Film", "Gym"];
 

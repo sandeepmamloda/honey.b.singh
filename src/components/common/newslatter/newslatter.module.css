@@ -5,6 +5,7 @@
   width: 100%;
   box-sizing: border-box;
   background-color: rgba(255, 251, 242, 1);
+  overflow-x:hidden;
 }
 
 .newslatter-wrapper {
@@ -39,6 +40,9 @@
   height: clamp(4.5rem, 10vw, 8rem);
   width: auto;
   max-width: 100%;
+  transform:translateX(-3vw);
+  object-fit:contain;
+  object-position:center;
 }
 
 .newslatter-desc {
@@ -117,6 +121,7 @@
   letter-spacing: 0.05rem;
   text-transform: uppercase;
   color: rgb(25, 25, 25);
+  text-align:center;
 }
 
 /* ══════════════════════════════
@@ -162,6 +167,7 @@
   }
   .newslatter-logo{
     margin-inline: auto;
+    transform:translateX(0px);
   }
    .newslatter-label{
     text-align:center;

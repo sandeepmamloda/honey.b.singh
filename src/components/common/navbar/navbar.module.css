@@ -41,6 +41,7 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   overflow:hidden;
+  display:none;
 }
 
 /* ═══════════════════════════════════════════

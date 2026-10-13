@@ -1,4 +1,4 @@
-import styles from "./honeyverse.module.css";
+import styles from "./substackhero.module.css";
 
 const HoneyverseHero = () => {
   return (

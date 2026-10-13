@@ -9,8 +9,8 @@ import {
 
 const navLinks = [
   { name: "Film", href: "/film" },
-  { name: "substack", href: "/substack" },
-  { name: "honeyverse", href: "/newhoneyverse" },
+  { name: "Substack", href: "/substack" },
+  { name: "Honeyverse", href: "/honeyverse" },
   { name: "Teach", href: "/teach" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },

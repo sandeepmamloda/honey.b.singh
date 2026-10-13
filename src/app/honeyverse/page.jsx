@@ -1,7 +1,7 @@
-import Heronewhoneyverse from "@/components/newhoneyverse/heronewhoneyverse/heronewhoneyverse";
-import Moviesinproduction from "@/components/newhoneyverse/moviesinproduction/moviesinproduction";
-import Awards from "@/components/newhoneyverse/awards/awards";
-import Bigcta from "@/components/newhoneyverse/bigcta/bigcta";
+import Herohoneyverse from "@/components/honeyverse/herohoneyverse/herohoneyverse";
+import Moviesinproduction from "@/components/honeyverse/moviesinproduction/moviesinproduction";
+import Awards from "@/components/honeyverse/awards/awards";
+import Bigcta from "@/components/honeyverse/bigcta/bigcta";
 import Newslatter from "@/components/common/newslatter/newslatter";
 export const metadata = {
   title: "The Honeyverse",
@@ -18,7 +18,7 @@ const Newhoneyverse=function(){
     return (
         <>
            <main>
-              <Heronewhoneyverse/>
+              <Herohoneyverse/>
               <Moviesinproduction/>
               <Awards/>
               <Bigcta/>
@@ -26,7 +26,7 @@ const Newhoneyverse=function(){
                 label="The Newsletter"
                 description="What’s currently making me a rage monster, how I’m unlearning the bs of (frankly) everything and how I want to change the world (usually in that order of honesty). Free, most weeks, on Substack."
                 buttonText="Subscribe ↗"
-                buttonHref="#subscribe"
+                buttonHref = "https://ohhoneyhoney.substack.com/subscribe"
                 note="Free · Paid Tier"
               />
            </main>

@@ -253,7 +253,7 @@ const Newslatter = ({
   label,
   description,
   buttonText,
-  buttonHref = "#subscribe",
+  buttonHref = "https://ohhoneyhoney.substack.com/subscribe",
   note,
   logoHref = "/",
 }) => {
@@ -291,7 +291,7 @@ const Newslatter = ({
           </Reveal>
 
           <Reveal direction="right" delay={350}>
-            <p className={styles["newslatter-note"]}>{note}</p>
+            <p className={styles["newslatter-note"]}>{note} : BTS Stories | Early Content Access</p>
           </Reveal>
         </div>
       </div>

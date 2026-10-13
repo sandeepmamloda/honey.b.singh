@@ -31,7 +31,7 @@ export default function Page() {
         label="The Newsletter"
         description="Class updates land here first, plus the thinking behind the practice."
         buttonText="Read on Substack ↗"
-        buttonHref="#subscribe"
+        buttonHref = "https://ohhoneyhoney.substack.com/subscribe"
         note="Free · Paid Tier"
       />
     </main>

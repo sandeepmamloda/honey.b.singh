@@ -7,7 +7,7 @@ import { LoaderLink } from "@/components/common/loader/loader";
 const rows = [
   {
     number: "01",
-    quiet: ["I direct films about women who", "are creating their own path."],
+    quiet: ["I direct films about women who", " are creating their own paths."],
     loud: [
       "I POST VIDEOS ABOUT THE SAME WOMEN",
       "DEALING WITH THE AFTERMATH OF THAT.",
@@ -85,7 +85,7 @@ const Manifesto = () => {
         <Reveal className={styles["top-row"]}>
           <span className={styles["eyebrow"]}>The Manifesto</span>
           <span className={styles["top-rule"]}></span>
-          <span className={styles["section-mark"]}>§ 02</span>
+          <span className={styles["section-mark"]}>§ 01</span>
         </Reveal>
 
         <div className={styles["rows"]}>

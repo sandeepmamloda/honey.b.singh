@@ -64,7 +64,7 @@ const CTAButton = () => {
 
   return (
     <a
-      href="https://honeyverse.com"
+      href="https://honeyverseproductions.com/  "
       target="_blank"
       rel="noopener noreferrer"
       className={styles["cta-button"]}

@@ -9,7 +9,7 @@ const TAGS = [
   { label: 'Woman', active: false },
   { label: 'Teach', active: true },
   { label: 'Film', active: false },
-  { label: 'Gym', active: false },
+  // { label: 'Gym', active: false },
 ];
 
 function ArrowRight() {
@@ -68,7 +68,7 @@ function Badge() {
               textLength="530"
               lengthAdjust="spacing"
             >
-            . ONE PERSON. SAME HONESTY. THREE ROOMS
+            ONE PERSON. SAME HONESTY. THREE ROOMS.
             </textPath>
           </text>
         </g>
@@ -118,7 +118,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className={styles.sub}>
-            Directing and Writing (about south asian women, mostly) One honest scene at a time.
+            Directing and Writing (about South Asian women, mostly)
           </p>
 
           <hr className={styles.rule} />
@@ -139,7 +139,7 @@ export default function Hero() {
 
       {/* right — the loud room */}
       <LoaderLink
-        href="/newhoneyverse"
+        href="/honeyverse"
         className={`${styles.panel} ${styles.loud}`}
         style={{ flexGrow: loudGrow, cursor: 'pointer' }}
         onMouseEnter={() => setHovered('loud')}

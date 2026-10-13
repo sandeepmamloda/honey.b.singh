@@ -61,7 +61,7 @@ const pillars = [
   },
   {
     id: "zero-performance",
-    title: "Trauma-informed, always",
+    title: "Gentle, always",
     body: "Trained in Hatha (200-hr, India). Consent-based cueing, no hands-on adjustment without asking, every time.",
   },
   {

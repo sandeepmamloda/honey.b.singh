@@ -21,7 +21,7 @@ export default function Page() {
         label="The Newsletter"
         description="This page, but ongoing. Most weeks, on Substack."
         buttonText="Read on Substack ↗"
-        buttonHref="#subscribe"
+        buttonHref = "https://ohhoneyhoney.substack.com/subscribe"
         note="Free · Paid Tier"
       />
     </main>

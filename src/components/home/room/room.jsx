@@ -123,16 +123,16 @@ const Room = () => {
           <div className={styles["room-left"]}>
             <Reveal direction="left" delay={0}>
               <div className={styles["eyebrow-row"]}>
-                <span className={styles["section-num"]}>§ 03</span>
+                <span className={styles["section-num"]}>§ 02</span>
                 <span className={styles["eyebrow-rule"]}></span>
-                <span className={styles["eyebrow-label"]}>Room III — The Mat</span>
+                <span className={styles["eyebrow-label"]}>The Mat</span>
               </div>
             </Reveal>
 
             <Reveal direction="left" delay={150}>
               <h2 className={styles["heading"]}>
                 <span className={styles["heading-line"]}>Where both voices</span>
-                <span className={styles["heading-line"]}>finally just shhh..</span>
+                <span className={styles["heading-line"]}>finally just shhh...</span>
               </h2>
             </Reveal>
 
